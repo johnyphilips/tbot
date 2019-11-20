@@ -1,0 +1,70 @@
+﻿
+$purple-1: #a27ce6 !default;
+$purple-2: #c18eda !default;
+$purple-3: #a27ce6 !default;
+
+
+.theme-purple{
+
+
+    ::selection {
+        color: $white; 
+        background: $purple-1;
+    }
+    .loader{
+        color: $purple-1;
+    }
+    .btn-primary{
+        background: $purple-1;
+        color: $white;
+        border-color: $purple-1;
+    }
+    .header{
+        background: $purple-1;
+        .nav-tabs{
+            .nav-link{
+                color: $white;
+                &.active{
+                    border-color: $white; 
+                }
+            }            
+        }
+        .dropdown-menu .dropdown-item:hover,
+        .dropdown-menu .dropdown-item.active{
+            color: $purple-1;
+        }
+    }
+    .card{
+        .card-options{
+            a{
+                color: $purple-1;
+                &.btn{
+                    color: $white;
+                }
+            }
+        }
+    }
+    .custom-switch-input:checked ~ .custom-switch-indicator{
+        background: $purple-1;
+    }
+    .chat_app .chat_windows .my-message .message p{
+        background: $purple-1;
+        color: $white;
+    }
+    .metismenu {
+        .active{
+            > a{
+                color: $purple-1;
+                background: rgba($purple-1, 0.1);
+            }
+            ul{
+                .active{
+                    a{
+                        color: $purple-1;
+                        background: transparent;
+                    }
+                }
+            }
+        }
+    }
+}

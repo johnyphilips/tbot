@@ -1,0 +1,22 @@
+.validate-message {
+    margin: 10px;
+    display: none;
+    color: #d20000;
+}
+.custom-datatable .datatable-header {
+    display: none;
+    overflow-x: auto;
+}
+.table tr.filters th {
+    padding: 0;
+}
+.table tr.filters .filter-field {
+    border: none;
+}
+#page_content {
+    min-height: 790px;
+}
+.datepicker {
+    margin-top: -60px;
+    z-index: 10000;
+}

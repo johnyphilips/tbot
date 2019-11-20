@@ -1,0 +1,182 @@
+.chat_app{
+
+    .chat_windows{
+        margin-right: 280px;
+        border-right: 1px solid $gray-200;
+        @include max-screen($break-small - 1px) {
+            margin-right: 0;
+        }
+                
+        ul {
+            padding: 20px;
+            border-bottom: 2px solid $white;
+            height: 490px;
+            overflow-y: auto;
+
+            @include max-screen($break-1024) {
+                height: 400px;
+            }
+            @include max-screen($break-medium) {
+                height: 590px;
+            }
+            @include max-screen($break-small - 1px) {
+                height: 320px;
+            }
+
+            li {
+                @extend .mb-30;
+                display: flex;
+                list-style: none;
+
+                &:last-child{
+                    @extend .mb-0;
+                }
+            }
+        }
+        
+        .chat_avatar {
+            @extend .mr-15;
+            display: inline-block;
+            vertical-align: top;
+
+            img{
+                @include border-radius(40px);
+                width: 40px;
+            }
+        }
+        
+        .message {
+            @include inline-block();
+            @extend .font-17;
+            color: $gray-700;            
+            line-height: 26px;
+            position: relative;
+
+            p{                
+                @extend .mb-5;
+                border-radius: $border-radius-small;
+                background: $gray-200;
+                color: $gray-800;
+                width: max-content;
+                padding: 8px 15px; 
+
+                @include max-screen($break-medium) {
+                    width: fit-content;
+                }               
+            }
+
+            .time {           
+                @include display-block();
+                @extend .font-12;
+            }
+        }
+
+        .my-message {
+            @extend .align-right;
+            @extend .ml-50;
+            justify-content: flex-end;
+        }
+
+        .other-message {
+            @extend .align-left;
+        }
+
+        .chat-message {
+            padding: 20px;
+        }
+
+    }
+    .chat_list{
+        @include transition(all .3s ease-in-out);
+        width: 280px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 20px;
+        z-index: 7;
+
+        @include max-screen($break-small - 1px) {
+            display: none;
+        }
+
+        .right_chat{
+
+            height: 550px;
+            overflow-y: auto;
+
+            @include max-screen($break-1024) {
+                height: 460px;
+            }
+            @include max-screen($break-medium) {
+                height: 650px;
+            }            
+        }
+    }
+}
+
+.right_chat{
+    @extend .pt-10;
+    @extend .pb-10;
+    @extend .mb-0;
+
+    li {
+        @extend .mb-20;        
+        position: relative;
+        &.offline {
+            .status {
+                background: $warning;
+            }
+        }
+        &.online {
+            .status {
+                background: $success;
+            }
+        }
+        &.me {
+            .status {
+                background: $info;
+            }
+        }
+    }
+    .media {
+        .media-object {
+            @include transition(all .3s ease-in-out);
+            @include border-radius(44px);
+            @extend .mr-10;
+            width: 44px;
+            height: 44px;            
+            border: 2px solid transparent;            
+        }
+        .name {
+            @include display-block();            
+            @extend .margin-0;
+            @extend .font-15;
+            color: $gray-800;            
+        }
+        .message {
+            @include inline-block();
+            @extend .font-13;
+            color: $gray-400;            
+        }
+        .status {
+            @include border-radius(50px);
+            @include inline-block();
+            @extend .padding-0;
+            position: absolute;
+            left: 33px;
+            top: 30px;
+            width: 11px;
+            height: 11px;                        
+            min-width: inherit;
+            border: 2px solid $white;
+        }
+    }
+}
+
+.float-right {
+    float: right;
+}
+
+@include max-screen($break-small - 1px) {
+    
+}

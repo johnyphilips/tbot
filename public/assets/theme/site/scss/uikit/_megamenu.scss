@@ -1,0 +1,178 @@
+﻿.mega_menubar{
+    @include box-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+    @extend .pt-20;
+    background: $white;
+    display: none;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
+    &.open{
+        @include display-block();
+    }
+
+    .card{
+        .header,
+        .body{
+            padding: 10px;
+        }
+    }
+
+    .links{
+        @extend .padding-0;
+        @extend .margin-0;
+
+        li{
+            a{
+                @include display-block();
+                color: $gray-600;                
+                padding: 5px 0 5px 15px;
+                position: relative;
+
+                &::before{
+                    position: absolute;
+                    left: 0;
+                    content: '--';                    
+                }
+            }
+        }
+    }
+}
+
+.right_sidebar{
+    @include box-shadow(-2px 2px 5px rgba(0, 0, 0, 0.1));
+    @include transition(all 0.3s ease-in-out);
+    background: $white;
+    width: 278px;
+    height: calc(100vh - 0px);
+    position: fixed;
+    right: -280px;
+    top: 0px;    
+    z-index: 9999 !important;
+
+    &.open {
+        right: 0;
+    }
+
+    .setting_div{
+        @extend .align-center;
+        background: $red;        
+        position: absolute;
+        top: 195px;
+        left: -40px;
+        border-radius: $border-radius-small 0 0 $border-radius-small; 
+        a{
+            @include display-block();
+            color: $white;            
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+    }
+
+    .nav-tabs{
+        margin: 0;
+        + .tab-content {
+            @extend .padding-0;
+        }
+    }
+
+    .card{
+        @extend .mb-0;
+
+        .card-header{
+            @extend .pb-0;
+        }
+        ul{
+            @extend .mb-0;
+        }
+    }
+}
+
+.setting-list{
+    li{
+        @extend .mb-10;
+    }
+}
+
+.choose-skin {
+    li {
+        @include transition(all .3s ease-in-out);
+        @include inline-block();
+        position: relative;
+        cursor: pointer;
+        font-size: 0;
+        
+        &.active,
+        &:hover{
+            &:after {
+                @extend .font-10;
+                color: $white;
+                font-family: 'FontAwesome';
+                position: absolute;
+                top: 6px;
+                left: 8px;
+                content: '\f00c';
+            }
+        }
+
+        div {
+            @include border-radius(25px);
+            @include inline-block();
+            width: 25px;
+            height: 25px;
+
+            &.black{
+				background: $black;
+			}
+			&.azure{
+				background: $azure;
+			}
+			&.indigo{
+				background: $indigo;
+			}
+			&.purple{
+				background: $purple;
+			}
+			&.orange{
+				background: $orange;
+            }
+            &.green{
+				background: $green;
+            }
+            &.cyan{
+				background: $cyan;
+            }
+            &.blush{
+				background: $blush;
+			}
+        }
+    }
+}
+
+.contact-list{
+    li{
+        @extend .mb-25;
+
+        .contact-img{
+            @extend .mr-15;
+            img{
+                width: 30px;
+            }
+        }
+        .contact-name{
+            @extend .font-15;
+            @extend .mb-0;
+
+            span{
+                @extend .font-12;
+                font-weight: $font-weight-400;
+            }
+        }
+        .action{
+            margin-left: auto; 
+        }
+    }
+}

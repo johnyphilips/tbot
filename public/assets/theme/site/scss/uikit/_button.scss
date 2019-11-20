@@ -1,0 +1,17 @@
+
+.btn {
+    @extend .font-14;
+	&.btn-default{
+		color: $gray-600;
+        background-color: $white;
+        border-color: $gray-100;
+        padding: 6px 18px;
+    }
+    &.btn-secondary {
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+    }    
+    
+    &.btn-square {
+        @include border-radius(0);
+    }
+}

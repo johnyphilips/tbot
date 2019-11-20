@@ -1,0 +1,4 @@
+protected/config.php
+public/tmp/*
+public/uploads/*
+.idea/*

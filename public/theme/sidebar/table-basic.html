@@ -1,0 +1,1650 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+<title>:: Buzzer sidebar :: Table Basic</title>
+
+<!-- Bootstrap Core and Font Icon -->
+<link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../assets/plugins/animate-css/vivify.min.css" />
+<link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+
+<!-- Core css -->
+<link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+
+<body class="theme-cyan">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <img src="../assets/images/logo-icon.svg" alt="Buzzer">
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+
+<div id="main_content">
+
+    <div id="header_top" class="header_top">
+        <div class="container-fluid">
+            <div class="d-flex">
+                <a class="header-brand" href="index.html"><img src="../assets/images/logo.svg" class="header-brand-img" alt="buzzerlogo"></a>
+                <div class="top_menu d-flex order-lg-2">
+                    <div class="hleft">
+                        <div class="nav-item d-none d-md-flex">
+                            <form class="input-icon input-group-sm  my-3 my-lg-0">
+                                <input type="search" class="form-control header-search" placeholder="Search…" tabindex="1">
+                                <div class="input-icon-addon"><i class="icon-magnifier"></i></div>
+                            </form>
+                            <a href="../doc/index.html" class="btn btn-link">Documentation</a>
+                            <a href="#" class="btn btn-link mega_menu">Mega</a>
+                            <a href="#" class="btn btn-link" target="_blank">Download</a>
+                        </div>
+                    </div>
+                    <div class="hright d-flex">
+                        <div class="dropdown d-flex">                            
+                            <a href="app-calendar.html" class="nav-link icon"><i class="icon-calendar"></i></a>
+                            <a href="app-chat.html" class="nav-link icon"><i class="icon-bubbles"></i></a>
+                            <a href="app-email.html" class="nav-link icon"><i class="icon-envelope"></i><span class="nav-unread"></span></a>
+                            <a class="nav-link icon d-none d-md-flex" data-toggle="dropdown"><i class="icon-bell"></i><span class="nav-unread"></span></a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow vivify swoopInTop">
+                                <a href="#" class="dropdown-item d-flex">
+                                    <span class="avatar mr-3 align-self-center avatar-green">RB</span>
+                                    <div>
+                                        <strong>Nathan</strong> pushed new commit in github.
+                                        <div class="small text-muted">10 minutes ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item d-flex">
+                                    <img class="avatar mr-3 align-self-center" src="../assets/images/xs/avatar2.jpg" alt="" />
+                                    <div>
+                                        <strong>Alice</strong> started new task: buzzerUI design.
+                                        <div class="small text-muted">1 hour ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item d-flex">
+                                    <img class="avatar mr-3 align-self-center" src="../assets/images/xs/avatar3.jpg" alt="" />
+                                    <div>
+                                        <strong>Rose</strong> deployed new version of NodeJS REST
+                                        <div class="small text-muted">2 hours ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item d-flex">
+                                    <span class="avatar mr-3 align-self-center avatar-indigo">RB</span>
+                                    <div>
+                                        <strong>Alice</strong> started new task: buzzerUI design.
+                                        <div class="small text-muted">1 hour ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item d-flex">
+                                    <img class="avatar mr-3 align-self-center" src="../assets/images/xs/avatar3.jpg" alt="" />
+                                    <div>
+                                        <strong>Rose</strong> deployed new version of NodeJS REST
+                                        <div class="small text-muted">2 hours ago</div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item text-center text-muted-dark readall">Mark all as read</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
+                                <img class="avatar" src="../assets/images/user.png" alt=""/>
+                                <span class="ml-2 d-none d-lg-block">
+                                    <span class="user_name">Jane Pearson</span>
+                                    <small class="text-muted d-block mt-1">Administrator</small>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow vivify flipInY">
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-user"></i> Profile</a>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-settings"></i> Settings</a>
+                                <a class="dropdown-item" href="#"><span class="float-right"><span class="badge badge-primary">6</span></span><i class="dropdown-icon fe fe-mail"></i> Inbox</a>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-send"></i> Message</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-help-circle"></i> Need help?</a>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-log-out"></i> Sign out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-sm btn-primary header-toggler d-xl-none ml-3 ml-xl-0" data-toggle="collapse" data-target="#headerMenuCollapse"><span class="header-toggler-icon"></span></a>
+            </div>
+        </div>
+    </div>
+
+    <div id="mega_menubar" class="mega_menubar">
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Subscribe</h3>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Enter Name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Enter Email" class="form-control">
+                                </div>
+                                <button class="btn btn-primary">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Accordion</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="accordion2">
+                                <li class="accordion-item is-active">
+                                    <h3 class="accordion-thumb"><span>Lorem ipsum</span></h3>
+                                    <p class="accordion-panel">
+                                        Lorem ipsum dolor sit amet, elit. Placeat, quibusdam! Voluptate nobis
+                                    </p>
+                                </li>
+                                
+                                <li class="accordion-item">
+                                    <h3 class="accordion-thumb"><span>Dolor sit amet</span></h3>
+                                    <p class="accordion-panel">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing  Voluptate nobis
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Company</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled links">
+                                <li><a href="javascript:void(0);" title="" >Our Facts</a></li>
+                                <li><a href="javascript:void(0);" title="" >Confidentiality</a></li>                                
+                                <li><a href="javascript:void(0);" title="" >About Us</a></li>
+                                <li><a href="javascript:void(0);" title="" >Testimonials</a></li>
+                                <li><a href="javascript:void(0);" title="" >Contact Us</a></li>                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Image Gallery</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-item active">
+                                        <img src="../assets/images/gallery/1.jpg" class="img-fluid" alt="img" />
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../assets/images/gallery/2.jpg" class="img-fluid" alt="img" />
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../assets/images/gallery/3.jpg" class="img-fluid" alt="img" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rightsidebar" class="right_sidebar">
+        <div class="setting_div">
+            <a href="#" class="settingbar"><i class="fa fa-gear fa-spin"></i></a>
+        </div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#Settings" aria-expanded="true">Settings</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#contact" aria-expanded="false">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#activity" aria-expanded="false">Activity</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane vivify fadeIn active" id="Settings" aria-expanded="true">
+                <div class="sidebar-scroll">                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Color Skins</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="choose-skin list-unstyled">
+                                <li data-theme="black"><div class="black"></div></li>
+                                <li data-theme="azure"><div class="azure"></div></li>
+                                <li data-theme="indigo"><div class="indigo"></div></li>
+                                <li data-theme="purple"><div class="purple"></div></li>
+                                <li data-theme="orange"><div class="orange"></div></li>
+                                <li data-theme="green"><div class="green"></div></li>                                
+                                <li data-theme="cyan" class="active"><div class="cyan"></div></li>
+                                <li data-theme="blush"><div class="blush"></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">General Setting</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="setting-list list-unstyled">
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Report Panel Usage</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Email Redirect</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Notifications</span>
+                                    </label>       
+                                </li>
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Auto Updates</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Offline</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Location Permission</span>
+                                    </label> 
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Storage</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="progress progress-xs mb-0">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 89%;">
+                                </div>
+                            </div>
+                            <small>50MB of 10GB Used</small>
+                            <button type="button" class="btn btn-primary btn-block mt-3">Upgrade Storage</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane vivify fadeIn" id="contact" aria-expanded="false">
+                <div class="sidebar-scroll">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Contact List</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled contact-list">
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar1.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Vincent Porter <span class="d-block">London UK</span></h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar2.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Mike Thomas <span class="d-block">London UK</span></h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar3.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Aiden Chavaz</h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar4.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Vincent Porter <span class="d-block">London UK</span></h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar5.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Mike Thomas <span class="d-block">London UK</span></h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar6.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Aiden Chavaz</h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar7.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Mike Thomas <span class="d-block">London UK</span></h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar8.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Aiden Chavaz</h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane vivify fadeIn" id="activity" aria-expanded="false">
+                <div class="sidebar-scroll">
+                    <div class="card">
+                        <div class="card-body">                  
+                            <ul class="new_timeline mt-3">
+                                <li>
+                                    <div class="bullet pink"></div>
+                                    <div class="time">11:00am</div>
+                                    <div class="desc">
+                                        <h3>Attendance</h3>
+                                        <h4>Computer Class</h4>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bullet pink"></div>
+                                    <div class="time">11:30am</div>
+                                    <div class="desc">
+                                        <h3>Added an interest</h3>
+                                        <h4>“Volunteer Activities”</h4>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bullet green"></div>
+                                    <div class="time">12:00pm</div>
+                                    <div class="desc">
+                                        <h3>Developer Team</h3>
+                                        <h4>Hangouts</h4>
+                                        <ul class="list-unstyled team-info margin-0 p-t-5">                                            
+                                            <li><img src="../assets/images/xs/avatar1.jpg" alt="Avatar"></li>
+                                            <li><img src="../assets/images/xs/avatar2.jpg" alt="Avatar"></li>
+                                            <li><img src="../assets/images/xs/avatar3.jpg" alt="Avatar"></li>
+                                            <li><img src="../assets/images/xs/avatar4.jpg" alt="Avatar"></li>                                            
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bullet green"></div>
+                                    <div class="time">2:00pm</div>
+                                    <div class="desc">
+                                        <h3>Responded to need</h3>
+                                        <a href="#">“In-Kind Opportunity”</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bullet orange"></div>
+                                    <div class="time">1:30pm</div>
+                                    <div class="desc">
+                                        <h3>Lunch Break</h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bullet green"></div>
+                                    <div class="time">2:38pm</div>
+                                    <div class="desc">
+                                        <h3>Finish</h3>
+                                        <h4>Go to Home</h4>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="left-sidebar" class="sidebar">
+        <nav id="left-sidebar-nav" class="sidebar-nav">
+            <ul id="main-menu" class="metismenu">
+                <li class="g_heading">Main</li>
+                <li><a href="index.html"><i class="icon-home"></i> <span>Dashboard</span></a></li>
+                <li class="g_heading">Buzzer</li>
+                <li>
+                    <a href="javascript:void(0)" class="has-arrow"><i class="icon-grid"></i> Application</a>
+                    <ul>
+                        <li><a href="app-email.html">Email</a></li>
+                        <li><a href="app-chat.html">Chat</a></li>
+                        <li><a href="app-calendar.html">Calendar</a></li>
+                        <li><a href="app-contact.html">Contact</a></li>
+                        <li><a href="app-taskboard.html">TaskBoard</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="has-arrow"><i class="icon-globe"></i> Blog</a>
+                    <ul>
+                        <li><a href="blog-list.html">Blog List</a></li>
+                        <li><a href="blog-grid.html">Blog Grid</a></li>
+                        <li><a href="blog-list2.html">Blog v2</a></li>
+                        <li><a href="blog-detail.html">Blog Detail</a></li>
+                    </ul>
+                </li>                
+                <li>
+                    <a href="javascript:void(0)" class="has-arrow"><i class="fe fe-box"></i> Widgets</a>
+                    <ul>
+                        <li><a href="w-cards.html">Cards design</a></li>
+                        <li><a href="w-statistics.html">Statistics</a></li>
+                        <li><a href="w-data.html">Data</a></li>
+                        <li><a href="w-social.html">Social</a></li>
+                        <li><a href="w-store.html">eCommerce</a></li>
+                    </ul>
+                </li>
+                <li class="g_heading">Chart, Froms & Elements</li>
+                <li>
+                    <a href="javascript:void(0)" class="has-arrow"><i class="icon-bar-chart"></i> Charts</a>
+                    <ul>
+                        <li><a href="charts.html">Charts</a></li>
+                        <li><a href="charts-morris.html">Morris Chart</a></li>
+                        <li><a href="charts-flot.html">Flot Chart</a></li>
+                        <li><a href="charts-knob.html">JQuery Knob</a></li>
+                        <li><a href="charts-c3.html">C3 Chart</a></li>
+                        <li><a href="charts-sparkline.html">Sparkline Chart</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="has-arrow"><i class="fe fe-check-square"></i> Forms</a>
+                    <ul>
+                        <li><a href="form-elements.html">Basic Elements</a></li>
+                        <li><a href="form-advanced.html">Advanced Elements</a></li>
+                        <li><a href="form-validation.html">Form Validation</a></li>
+                        <li><a href="form-wizard.html">Form Wizard</a></li>
+                        <li><a href="form-summernote.html">Summernote</a></li>
+                        <li><a href="form-markdown.html">Markdown</a></li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="javascript:void(0)" class="has-arrow"><i class="fe fe-check-square"></i> Tables</a>
+                    <ul>
+                        <li class="active"><a href="table-basic.html">Table Example</a></li>
+                        <li><a href="table-normal.html">Table Normal</a></li>
+                        <li><a href="table-datatable.html">Jquery Datatable</a></li>
+                        <li><a href="table-editable.html">Editable</a></li>
+                        <li><a href="table-color.html">Table Color</a></li>
+                        <li><a href="table-filter.html">Table Filter</a></li>
+                    </ul>
+                </li>
+                <li class="g_heading">Extra</li>
+                <li>
+                    <a href="javascript:void(0)" class="has-arrow"><i class="fe fe-file"></i> Pages</a>
+                    <ul>
+                        <li><a href="page-empty.html">Empty page</a></li>
+                        <li><a href="page-profile.html">Profile</a></li>
+                        <li><a href="page-timeline.html">Timeline</a></li>
+                        <li><a href="page-pricing.html">Pricing cards</a></li>
+                        <li><a href="page-invoices.html">Invoices</a></li>
+                        <li><a href="page-search.html">Search Results</a></li>
+                        <li><a href="page-testimonials.html">Testimonials</a></li>
+                        <li><a href="page-maps.html">Maps</a></li>
+                        <li><a href="page-icons.html">Icons</a></li>
+                        <li><a href="page-carousel.html">Carousel</a></li>
+                        <li><a href="page-gallery.html">Gallery</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="has-arrow"><i class="icon-lock"></i> Auth</a>
+                    <ul>
+                        <a class="dropdown-item" href="login.html">Login</a>
+                        <a class="dropdown-item" href="register.html">Register</a>
+                        <a class="dropdown-item" href="forgot-password.html">Forgot password</a>
+                        <a class="dropdown-item" href="400.html">400 error</a>
+                        <a class="dropdown-item" href="401.html">401 error</a>
+                        <a class="dropdown-item" href="403.html">403 error</a>
+                        <a class="dropdown-item" href="404.html">404 error</a>
+                        <a class="dropdown-item" href="500.html">500 error</a>
+                        <a class="dropdown-item" href="503.html">503 error</a>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="page">
+        <div class="container-fluid">
+            <div class="page-header">
+                <div class="row row-deck">
+                    <div class="col-md-6 col-sm-12">
+                        <h1 class="page-title">Table Basic</h1>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="page-right">
+                            <div class="h_chart">
+                                <div class="float-left mr-10">
+                                    <h6>Visitors</h6>
+                                </div>
+                                <span class="bh_visitors">2,5,1,8,3,6,7,5</span>
+                            </div>
+                            <div class="h_chart">
+                                <div class="float-left mr-10">
+                                    <h6>Visits</h6>
+                                </div>
+                                <span class="bh_visits">10,8,9,3,5,8,5</span>
+                            </div>
+                            <div class="h_chart">
+                                <div class="float-left mr-10">
+                                    <h6>Chats</h6>
+                                </div>
+                                <span class="bh_chats">1,8,5,6,2,4,3,2</span>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-sm btn-primary">Create New</a>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">User List</h3>
+                            <div class="card-options">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i class="fe fe-maximize"></i></a>
+                                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-vcenter text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center w-1"><i class="icon-people"></i></th>
+                                            <th>User</th>
+                                            <th>Usage</th>
+                                            <th class="text-center">Payment</th>
+                                            <th>Activity</th>
+                                            <th class="text-center">Satisfaction</th>
+                                            <th class="text-center"><i class="icon-settings"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <div class="avatar d-block">
+                                                    <img class="rounded-circle" src="../assets/images/xs/avatar7.jpg" alt="avatar">
+                                                    <span class="avatar-status bg-secondary"></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>Teresa Reyes</div>
+                                                <div class="small text-muted">Registered: Mar 4, 2018</div>
+                                            </td>
+                                            <td>
+                                                <div class="clearfix">
+                                                    <div class="float-left"><strong>36%</strong></div>
+                                                    <div class="float-right"><small class="text-muted">Jun 11, 2015 - Jul 10, 2015</small></div>
+                                                </div>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-red" role="progressbar" style="width: 36%" aria-valuenow="36" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <i class="payment payment-ebay"></i>
+                                            </td>
+                                            <td>
+                                                <div class="small text-muted">Last login</div>
+                                                <div>2 minutes ago</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="mx-auto chart-circle chart-circle-xs" data-value="0.36" data-thickness="3" data-color="blue"><canvas width="40" height="40"></canvas>
+                                                    <div class="chart-circle-value">36%</div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="item-action dropdown">
+                                                    <a href="javascript:void(0)" data-toggle="dropdown" class="icon"><i class="fe fe-more-vertical"></i></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <div class="avatar d-block">
+                                                    <img class="rounded-circle" src="../assets/images/xs/avatar3.jpg" alt="avatar">
+                                                    <span class="avatar-status bg-warning"></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>Emma Wade</div>
+                                                <div class="small text-muted">Registered: Mar 20, 2018</div>
+                                            </td>
+                                            <td>
+                                                <div class="clearfix">
+                                                    <div class="float-left"><strong>7%</strong></div>
+                                                    <div class="float-right"><small class="text-muted">Jun 11, 2015 - Jul 10, 2015</small></div>
+                                                </div>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-red" role="progressbar" style="width: 7%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <i class="payment payment-paypal"></i>
+                                            </td>
+                                            <td>
+                                                <div class="small text-muted">Last login</div>
+                                                <div>a minute ago</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="mx-auto chart-circle chart-circle-xs" data-value="0.07" data-thickness="3" data-color="blue"><canvas width="40" height="40"></canvas>
+                                                    <div class="chart-circle-value">7%</div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="item-action dropdown">
+                                                    <a href="javascript:void(0)" data-toggle="dropdown" class="icon"><i class="fe fe-more-vertical"></i></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <div class="avatar d-block">
+                                                    <img class="rounded-circle" src="../assets/images/xs/avatar8.jpg" alt="avatar">
+                                                    <span class="avatar-status bg-success"></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>Carol Henderson</div>
+                                                <div class="small text-muted">Registered: Feb 22, 2018</div>
+                                            </td>
+                                            <td>
+                                                <div class="clearfix">
+                                                    <div class="float-left"><strong>80%</strong></div>
+                                                    <div class="float-right"><small class="text-muted">Jun 11, 2015 - Jul 10, 2015</small></div>
+                                                </div>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-green" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <i class="payment payment-visa"></i>
+                                            </td>
+                                            <td>
+                                                <div class="small text-muted">Last login</div>
+                                                <div>9 minutes ago</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="mx-auto chart-circle chart-circle-xs" data-value="0.8" data-thickness="3" data-color="blue"><canvas width="40" height="40"></canvas>
+                                                    <div class="chart-circle-value">80%</div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="item-action dropdown">
+                                                    <a href="javascript:void(0)" data-toggle="dropdown" class="icon"><i class="fe fe-more-vertical"></i></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <div class="avatar d-block">
+                                                    <img class="rounded-circle" src="../assets/images/xs/avatar2.jpg" alt="avatar">
+                                                    <span class="avatar-status bg-success"></span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>Christopher Harvey</div>
+                                                <div class="small text-muted">Registered: Jan 22, 2018</div>
+                                            </td>
+                                            <td>
+                                                <div class="clearfix">
+                                                    <div class="float-left"><strong>83%</strong></div>
+                                                    <div class="float-right"><small class="text-muted">Jun 11, 2015 - Jul 10, 2015</small></div>
+                                                </div>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar bg-green" role="progressbar" style="width: 83%" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <i class="payment payment-googlewallet"></i>
+                                            </td>
+                                            <td>
+                                                <div class="small text-muted">Last login</div>
+                                                <div>8 minutes ago</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="mx-auto chart-circle chart-circle-xs" data-value="0.83" data-thickness="3" data-color="blue"><canvas width="40" height="40"></canvas>
+                                                    <div class="chart-circle-value">83%</div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="item-action dropdown">
+                                                    <a href="javascript:void(0)" data-toggle="dropdown" class="icon"><i class="fe fe-more-vertical"></i></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">User Details</h3>
+                            <div class="card-options">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i class="fe fe-maximize"></i></a>
+                                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                                <div class="item-action dropdown ml-2">
+                                    <a href="javascript:void(0)" data-toggle="dropdown"><i class="fe fe-more-vertical"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right vivify popIn">
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table_e2">
+                                <table class="table table-hover table-vcenter text-nowrap mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input" name="example-checkbox1" value="option1" checked>
+                                                    <span class="custom-control-label">&nbsp;</span>
+                                                </label>
+                                            </th>
+                                            <th>Name</th>                                    
+                                            <th>Phone</th>                                    
+                                            <th>Address</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="width45">
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input" name="example-checkbox1" value="option1" checked>
+                                                    <span class="custom-control-label">&nbsp;</span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <img src="../assets/images/xs/avatar1.jpg" class="rounded" alt="">
+                                                <span class="c_name">John Smith</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone"><i class="fa fa-phone mr-2"></i>264-625-2583</span>
+                                            </td>                                   
+                                            <td>
+                                                <span><i class="fa fa-map-marker"></i>123 6th St. Melbourne, FL 32904</span>
+                                            </td>
+                                            <td>                                            
+                                                <button type="button" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></button>
+                                                <button type="button" class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input" name="example-checkbox1" value="option1" checked>
+                                                    <span class="custom-control-label">&nbsp;</span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <img src="../assets/images/xs/avatar3.jpg" class="rounded" alt="">
+                                                <span class="c_name">Hossein Shams</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone"><i class="fa fa-phone mr-2"></i>264-625-5689</span>
+                                            </td>                                    
+                                            <td>
+                                                <address><i class="fa fa-map-marker"></i>44 Shirley Ave. West Chicago, IL 60185</address>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></button>
+                                                <button type="button" class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input" name="example-checkbox1" value="option1" checked>
+                                                    <span class="custom-control-label">&nbsp;</span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <img src="../assets/images/xs/avatar9.jpg" class="rounded" alt="">
+                                                <span class="c_name">Frank Camly</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone"><i class="fa fa-phone mr-2"></i>264-625-9999</span>
+                                            </td>
+                                            <td>
+                                                <address><i class="fa fa-map-marker"></i>123 6th St. Melbourne, FL 32904</address>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></button>
+                                                <button type="button" class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input" name="example-checkbox1" value="option1" checked>
+                                                    <span class="custom-control-label">&nbsp;</span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <img src="../assets/images/xs/avatar10.jpg" class="rounded" alt="">
+                                                <span class="c_name">Tim Hank</span>
+                                            </td>
+                                            <td>
+                                                <span class="phone"><i class="fa fa-phone mr-2"></i>264-625-1212</span>
+                                            </td>
+                                            <td>
+                                                <address><i class="fa fa-map-marker"></i>70 Bowman St. South Windsor, CT 06074</address>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></button>
+                                                <button type="button" class="btn btn-danger btn-sm" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Basic Example 2</h3>
+                            <div class="card-options">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i class="fe fe-maximize"></i></a>
+                                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                                <div class="item-action dropdown ml-2">
+                                    <a href="javascript:void(0)" data-toggle="dropdown"><i class="fe fe-more-vertical"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right vivify popIn">
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover text-nowrap mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <th><i class="fa fa-circle text-success"></i></th>
+                                            <td>Twitter</td>
+                                            <td><span>862 Records</span></td>
+                                            <td>35% <i class="fa fa-caret-up "></i></td>
+                                            <td><span class="sparkbar">5,8,6,3,5,9,2</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="fa fa-circle text-info"></i></th>
+                                            <td>Facebook</td>
+                                            <td><span>451 Records</span></td>
+                                            <td>15% <i class="fa fa-caret-up "></i></td>
+                                            <td><span class="sparkbar">8,2,1,5,-2,6,-4</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="fa fa-circle text-warning"></i></th>
+                                            <td>Mailchimp</td>
+                                            <td><span>502 Records</span></td>
+                                            <td>20% <i class="fa fa-caret-down"></i></td>
+                                            <td><span class="sparkbar">2,3,3,-2,-8,4,8</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="fa fa-circle text-danger"></i></th>
+                                            <td>Google</td>
+                                            <td><span>502 Records</span></td>
+                                            <td>20% <i class="fa fa-caret-up "></i></td>
+                                            <td><span class="sparkbar">5,5,5,6,3,2,1</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="fa fa-circle "></i></th>
+                                            <td>Other</td>
+                                            <td><span>237 Records</span></td>
+                                            <td>10% <i class="fa fa-caret-down"></i></td>
+                                            <td><span class="sparkbar">5,8,6,3,5,9,2</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Basic Example 3</h3>
+                            <div class="card-options">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i class="fe fe-maximize"></i></a>
+                                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                                <div class="item-action dropdown ml-2">
+                                    <a href="javascript:void(0)" data-toggle="dropdown"><i class="fe fe-more-vertical"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right vivify popIn">
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover text-nowrap mb-0">
+                                    <tbody>
+                                        <tr>
+                                            <td>Twitter</td>
+                                            <td><span>862 Records</span></td>
+                                            <td><i class="icon-bubble text-info"><span class="ml-1">241</span></i></td>
+                                            <td><i class="icon-like text-success"><span class="ml-1">595</span></i></td>
+                                            <td style="width: 150px;">
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"> <span class="sr-only">40% Complete</span> </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Facebook</td>
+                                            <td><span>451 Records</span></td>
+                                            <td><i class="icon-bubble text-info"><span class="ml-1">540</span></i></td>
+                                            <td><i class="icon-like text-success"><span class="ml-1">1K</span></i></td>
+                                            <td><div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width: 15%;"> <span class="sr-only">15% Complete</span> </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>LinkedIn</td>
+                                            <td><span>502 Records</span></td>
+                                            <td><i class="icon-bubble text-info"><span class="ml-1">102</span></i></td>
+                                            <td><i class="icon-like text-success"><span class="ml-1">201</span></i></td>
+                                            <td><div class="progress progress-xs">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> <span class="sr-only">100% Complete</span> </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Google</td>
+                                            <td><span>502 Records</span></td>
+                                            <td><i class="icon-bubble text-info"><span class="ml-1">21</span></i></td>
+                                            <td><i class="icon-like text-success"><span class="ml-1">28</span></i></td>
+                                            <td><div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"> <span class="sr-only">85% Complete</span> </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Other</td>
+                                            <td><span>237 Records</span></td>
+                                            <td><i class="icon-bubble text-info"><span class="ml-1">9</span></i></td>
+                                            <td><i class="icon-like text-success"><span class="ml-1">15</span></i></td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"> <span class="sr-only">40% Complete</span> </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row clearfix row-deck">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Social Statistics</h3>
+                            <div class="card-options">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i class="fe fe-maximize"></i></a>
+                                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                                <div class="item-action dropdown ml-2">
+                                    <a href="javascript:void(0)" data-toggle="dropdown"><i class="fe fe-more-vertical"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right vivify popIn">
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Media</th>
+                                            <th>Name</th>
+                                            <th>Spent</th>
+                                            <th>Change</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <i class="fa fa-facebook fa-2x"></i>
+                                            </td>
+                                            <td>
+                                                <h6 class="margin-0">Facebook Ads</h6>
+                                                <span>1.2k Likes, 418 Shares</span>
+                                            </td>
+                                            <td>
+                                                <h6 class="mb-0">$ 402</h6>
+                                                <span class="text-muted">Spent</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="text-success">
+                                                    23 <i class="fa fa-long-arrow-up"></i>
+                                                </div>
+                                                <div class="text-muted">up</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="fa fa-twitter fa-2x"></i>
+                                            </td>
+                                            <td>
+                                                <h6 class="margin-0">Twitter Ads</h6>
+                                                <span>1k Likes, 128 Shares</span>
+                                            </td>
+                                            <td>
+                                                <h6 class="mb-0">$ 489</h6>
+                                                <span class="text-muted">Spent</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="text-danger">                                                    
+                                                    -9 <i class="fa fa-long-arrow-down"></i>
+                                                </div>
+                                                <div class="text-muted">down</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="fa fa-instagram fa-2x"></i>
+                                            </td>
+                                            <td>
+                                                <h6 class="margin-0">Instagram Post</h6>
+                                                <span>1k Follows, 228 Likes</span>
+                                            </td>
+                                            <td>
+                                                <h6 class="mb-0">$ 718 </h6>
+                                                <span class="text-muted">Spent</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class=" text-success">
+                                                    16 <i class="fa  fa-long-arrow-up"></i>
+                                                </div>
+                                                <div class="text-muted">up</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="fa fa-linkedin fa-2x"></i>
+                                            </td>
+                                            <td>
+                                                <h6 class="margin-0">LinkedIn Post</h6>
+                                                <span>1k Follows, 228 Likes</span>
+                                            </td>
+                                            <td>
+                                                <h6 class="mb-0">$ 768</h6>
+                                                <span class="text-muted">Spent</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class=" text-success">
+                                                    27 <i class="fa  fa-long-arrow-up"></i>
+                                                </div>
+                                                <div class="text-muted">up</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="fa fa-google-plus-circle fa-2x"></i>
+                                            </td>
+                                            <td>
+                                                <h6 class="margin-0">Google +</h6>
+                                                <span>1k Follows, 228 Likes</span>
+                                            </td>
+                                            <td>
+                                                <h6 class="mb-0">$ 1768</h6>
+                                                <span class="text-muted">Spent</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class=" text-success">
+                                                    27 <i class="fa fa-long-arrow-up"></i>
+                                                </div>
+                                                <div class="text-muted">up</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Social Statistics</h3>
+                            <div class="card-options">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i class="fe fe-maximize"></i></a>
+                                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                                <div class="item-action dropdown ml-2">
+                                    <a href="javascript:void(0)" data-toggle="dropdown"><i class="fe fe-more-vertical"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right vivify popIn">
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-vcenter text-nowrap card-table table_custom">
+                                    <thead>
+                                        <tr>
+                                            <th>Media</th>
+                                            <th>Name</th>
+                                            <th>Like</th>
+                                            <th>Comments</th>
+                                            <th>Share</th>
+                                            <th>Members</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="width40"><i class="fa fa-linkedin"></i></td>
+                                            <td><span class="list-name">Linked In</span>
+                                                <span class="text-muted">Florida, United States</span>
+                                            </td>
+                                            <td>19K</td>
+                                            <td>14K</td>
+                                            <td>10K</td>
+                                            <td>
+                                                <span class="badge badge-success">2341</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-twitter"></i></td>
+                                            <td><span class="list-name">Twitter</span>
+                                                <span class="text-muted">Arkansas, United States</span>
+                                            </td>
+                                            <td>7K</td>
+                                            <td>11K</td>
+                                            <td>21K</td>
+                                            <td>
+                                                <span class="badge badge-success">952</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-facebook"></i></td>
+                                            <td><span class="list-name">Facebook</span>
+                                                <span class="text-muted">Illunois, United States</span>
+                                            </td>
+                                            <td>15K</td>
+                                            <td>18K</td>
+                                            <td>8K</td>
+                                            <td>
+                                                <span class="badge badge-success">6127</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-google-plus"></i></td>
+                                            <td><span class="list-name">Google Plus</span>
+                                                <span class="text-muted">Arizona, United States</span>
+                                            </td>
+                                            <td>15K</td>
+                                            <td>18K</td>
+                                            <td>154</td>
+                                            <td>
+                                                <span class="badge badge-success">325</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-youtube-play"></i></td>
+                                            <td><span class="list-name">YouTube</span>
+                                                <span class="text-muted">Alaska, United States</span>
+                                            </td>
+                                            <td>15K</td>
+                                            <td>18K</td>
+                                            <td>200</td>
+                                            <td>
+                                                <span class="badge badge-success">160</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fa fa-twitter"></i></td>
+                                            <td><span class="list-name">Twitter</span>
+                                                <span class="text-muted">Arkansas, United States</span>
+                                            </td>
+                                            <td>7K</td>
+                                            <td>11K</td>
+                                            <td>21K</td>
+                                            <td>
+                                                <span class="badge badge-success">952</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Project List</h3>
+                            <div class="card-options">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i class="fe fe-maximize"></i></a>
+                                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                                <div class="item-action dropdown ml-2">
+                                    <a href="javascript:void(0)" data-toggle="dropdown"><i class="fe fe-more-vertical"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right vivify popIn">
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">                          
+                            <div class="table-responsive">
+                                <table class="table table-vcenter table-hover mb-0 ">
+                                    <thead>
+                                        <tr>                                    
+                                            <th>Application</th>
+                                            <th>Team</th>
+                                            <th>Change</th>
+                                            <th>Sales</th>                                    
+                                            <th>Price</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h6 class="font600 mb-0">Alpino 4.1</h6>
+                                                <span>WrapTheme To By Again</span>
+                                            </td>
+                                            <td>
+                                                <ul class="list-unstyled team-info mb-0">
+                                                    <li><img src="../assets/images/xs/avatar1.jpg" alt="Avatar"></li>
+                                                    <li><img src="../assets/images/xs/avatar2.jpg" alt="Avatar"></li>
+                                                    <li><img src="../assets/images/xs/avatar3.jpg" alt="Avatar"></li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <div class="sparkbar">3,5,1,6,5,4,8,3</div>
+                                            </td>
+                                            <td>11,200</td>
+                                            <td>$83</td>
+                                            <td><strong>$22,520</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h6 class="font600 mb-0">Compass 2.0</h6>
+                                                <span>WrapTheme To By Again</span>
+                                            </td>
+                                            <td>
+                                                <ul class="list-unstyled team-info mb-0">
+                                                    <li><img src="../assets/images/xs/avatar2.jpg" alt="Avatar"></li>
+                                                    <li><img src="../assets/images/xs/avatar3.jpg" alt="Avatar"></li>                                                    
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <div class="sparkbar">4,6,3,2,5,6,5,4</div>
+                                            </td>
+                                            <td>11,200</td>
+                                            <td>$66</td>
+                                            <td><strong>$13,205</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h6 class="font600 mb-0">Nexa 1.1</h6>
+                                                <span>WrapTheme To By Again</span>
+                                            </td>
+                                            <td>
+                                                <ul class="list-unstyled team-info mb-0">
+                                                    <li><img src="../assets/images/xs/avatar4.jpg" alt="Avatar"></li>                                                
+                                                    <li><img src="../assets/images/xs/avatar6.jpg" alt="Avatar"></li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <div class="sparkbar">7,3,2,1,5,4,6,8</div>
+                                            </td>
+                                            <td>12,080</td>
+                                            <td>$93</td>
+                                            <td><strong>$17,700</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h6 class="font600 mb-0">Oreo 2.2</h6>
+                                                <span>ThemeMakker To By Again</span>
+                                            </td>
+                                            <td>
+                                                <ul class="list-unstyled team-info mb-0">
+                                                    <li><img src="../assets/images/xs/avatar1.jpg" alt="Avatar"></li>
+                                                    <li><img src="../assets/images/xs/avatar3.jpg" alt="Avatar"></li>
+                                                    <li><img src="../assets/images/xs/avatar2.jpg" alt="Avatar"></li>
+                                                    <li><img src="../assets/images/xs/avatar9.jpg" alt="Avatar"></li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <div class="sparkbar">3,1,2,5,4,6,2,3</div>
+                                            </td>
+                                            <td>18,200</td>
+                                            <td>$178</td>
+                                            <td><strong>$17,700</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Basic Example 1</h3>
+                            <div class="card-options">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i class="fe fe-maximize"></i></a>
+                                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                                <div class="item-action dropdown ml-2">
+                                    <a href="javascript:void(0)" data-toggle="dropdown"><i class="fe fe-more-vertical"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right vivify popIn">
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-tag"></i> Action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-edit-2"></i> Another action </a>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-message-square"></i> Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fe fe-link"></i> Separated link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table text-nowrap mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Patients</th>
+                                            <th>Adress</th>
+                                            <th>START Date</th>
+                                            <th>END Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><span>John</span></td>
+                                            <td><span class="text-info">70 Bowman St. South Windsor, CT 06074</span></td>
+                                            <td>Sept 13, 2017</td>
+                                            <td>Sept 16, 2017</td>
+                                            <td><span class="badge badge-success">Admit</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><span>Jack Bird</span></td>
+                                            <td><span class="text-info">123 6th St. Melbourne, FL 32904</span></td>
+                                            <td>Sept 13, 2017</td>
+                                            <td>Sept 22, 2017</td>
+                                            <td><span class="badge badge-default">Discharge</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><span>Dean Otto</span></td>
+                                            <td><span class="text-info">123 6th St. Melbourne, FL 32904</span></td>
+                                            <td>Sept 13, 2017</td>
+                                            <td>Sept 23, 2017</td>
+                                            <td><span class="badge badge-success">Admit</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td><span>Jack Bird</span></td>
+                                            <td><span class="text-info">4 Shirley Ave. West Chicago, IL 60185</span></td>
+                                            <td>Sept 17, 2017</td>
+                                            <td>Sept 16, 2017</td>
+                                            <td><span class="badge badge-default">Discharge</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td><span>Hughe L.</span></td>
+                                            <td><span class="text-info">4 Shirley Ave. West Chicago, IL 60185</span></td>
+                                            <td>Sept 18, 2017</td>
+                                            <td>Sept 18, 2017</td>
+                                            <td><span class="badge badge-success">Admit</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Store</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-vcenter text-nowrap mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Order No</th>
+                                            <th>Product Name</th>
+                                            <th>Purchased On</th>
+                                            <th>Shipping Status</th>
+                                            <th>Payment Method</th>
+                                            <th>Payment Status</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Q01</td>
+                                            <td>Iphone 7</td>
+                                            <td>12 Jan 2018</td>
+                                            <td>Dispatched</td>
+                                            <td>Credit card</td>
+                                            <td><label class="badge badge-success">Approved</label></td>
+                                            <td><a href="javascript:void(0);" class="btn btn-success btn-sm">View Order</a></td>
+                                            <td><button class="btn btn-danger btn-sm"><i class="icon-trash"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Q02</td>
+                                            <td>Galaxy S8</td>
+                                            <td>18 Jan 2018</td>
+                                            <td>Dispatched</td>
+                                            <td>Internet banking</td>
+                                            <td><label class="badge badge-warning">Pending</label></td>
+                                            <td><a href="javascript:void(0);" class="btn btn-success btn-sm">View Order</a></td>
+                                            <td><button class="btn btn-danger btn-sm"><i class="icon-trash"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Q03</td>
+                                            <td>Amazon Echo</td>
+                                            <td>22 Feb 2018</td>
+                                            <td>Dispatched</td>
+                                            <td>Credit card</td>
+                                            <td><label class="badge badge-success">Approved</label></td>
+                                            <td><a href="javascript:void(0);" class="btn btn-success btn-sm">View Order</a></td>
+                                            <td><button class="btn btn-danger btn-sm"><i class="icon-trash"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Q04</td>
+                                            <td>Google Pixel</td>
+                                            <td>22 Feb 2018</td>
+                                            <td>Dispatched</td>
+                                            <td>Cash on delivery</td>
+                                            <td><label class="badge badge-danger">Rejected</label></td>
+                                            <td><a href="javascript:void(0);" class="btn btn-success btn-sm">View Order</a></td>
+                                            <td><button class="btn btn-danger btn-sm"><i class="icon-trash"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Q05</td>
+                                            <td>Mac Mini</td>
+                                            <td>8 March 2018</td>
+                                            <td>Dispatched</td>
+                                            <td>Debit card</td>
+                                            <td><label class="badge badge-success">Approved</label></td>
+                                            <td><a href="javascript:void(0);" class="btn btn-success btn-sm">View Order</a></td>
+                                            <td><button class="btn btn-danger btn-sm"><i class="icon-trash"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row align-items-center flex-row-reverse">
+                    <div class="col-auto ml-lg-auto">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item"><a href="../doc/index.html">Documentation</a></li>
+                                <li class="list-inline-item"><a href="#">FAQ</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-auto">
+                                <a href="#" class="btn btn-outline-primary btn-sm">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+                        Copyright © 2018 <a href="https://themeforest.net/user/thememakker/portfolio">Buzzer</a>. Theme by <a href="https://thememakker.com" target="_blank">thememakker.com</a> All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<script src="assets/bundles/libscripts.bundle.js"></script>
+<script src="assets/bundles/vendorscripts.bundle.js"></script>
+
+<script src="assets/bundles/mainscripts.bundle.js"></script>
+<script src="assets/js/chart/sparkline.js"></script>
+</body>
+</html>

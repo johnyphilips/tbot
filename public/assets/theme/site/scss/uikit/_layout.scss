@@ -1,0 +1,130 @@
+.page {
+	-ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+
+	body.fixed-header & {
+		padding-top: $header-height;
+	}
+
+	body.aside-opened & {
+		@media (min-width: 1600px) {
+			margin-right: $aside-width;
+		}
+    }
+    @include max-screen($break-small - 1px) {
+        margin-top: 55px;
+    }
+}
+
+
+.page-content {
+	margin: .75rem 0;
+
+	@include max-screen($break-small){
+		margin: 1.5rem 0;
+	}
+}
+
+.page-header {
+	@extend .mt-20;
+	padding: 20px 0;
+	align-items: center;
+	flex-wrap: wrap;
+	@include max-screen($break-1024) {
+		margin-top: 0; 
+	  }
+
+	.page-right{
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+
+		@include max-screen($break-small - 1px){
+			display: none;
+		}
+		
+        .h_chart{
+			@extend .pt-5;
+
+			@include max-screen($break-small){
+				display: none;
+			}
+        }
+        .badge_state{
+            @extend .pt-5;
+        }
+		> div{
+		    @extend .ml-20;
+		}
+		> span{
+		    @extend .ml-10;
+		}
+		i{
+		    @extend .font-12;
+		}
+		h6{
+		    @extend .mb-0;
+		}
+		.badge{
+			vertical-align: text-top;
+		}
+	  }
+}
+
+.page-title {	
+	font-size: $h3-font-size;
+	font-weight: $font-weight-400;
+	margin: 0;
+}
+
+.page-title-icon {
+	color: $text-muted;
+	font-size: 1.25rem;
+}
+
+.page-subtitle {
+	color: $text-muted-dark;
+	font-size: px2rem(13px);	
+	margin-left: 2rem;
+
+	a {
+		color: inherit;
+	}
+}
+
+.page-options {
+	margin-left: auto;
+}
+
+.page-breadcrumb {
+	flex-basis: 100%;
+}
+
+.page-description {
+	color: $text-muted-dark;
+	margin: .25rem 0 0;	
+
+	a {
+		color: inherit;
+	}
+}
+
+.page-single {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 0;
+	height: 100vh;
+}
+
+.content-heading {
+	font-weight: 400;
+	margin: 2rem 0 1.5rem;
+	font-size: px2rem(20px);
+	line-height: 1.25;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}

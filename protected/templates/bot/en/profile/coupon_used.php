@@ -1,0 +1,1 @@
+🚫 This coupon has already been used or expired.

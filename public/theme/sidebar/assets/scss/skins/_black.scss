@@ -1,0 +1,54 @@
+﻿$black-1: #292b30 !default;
+$black-2: #212121 !default;
+
+.theme-black{
+
+    ::selection {
+        color: $white; 
+        background: $black-1;
+    }
+    .btn-primary{
+        background: $black-1;
+        color: $white;
+        border-color: $black-1;
+    }
+    .header{
+        background: $black-1;
+        .nav-tabs{
+            color: $gray-500;
+        }
+    }
+    .card{
+        .card-options{
+            a{
+                color: $black-1;
+                &.btn{
+                    color: $white;
+                }
+            }
+        }
+    }
+    .custom-switch-input:checked ~ .custom-switch-indicator{
+        background: $black-1;
+    }
+    .chat_app .chat_windows .my-message .message p{
+        background: $black-1;
+        color: $gray-500;
+    }
+    .metismenu {
+        .active{
+            > a{
+                color: $black-1;
+                background: rgba($black-1, 0.1);
+            }
+            ul{
+                .active{
+                    a{
+                        color: $black-1;
+                        background: transparent;
+                    }
+                }
+            }
+        }
+    }
+}

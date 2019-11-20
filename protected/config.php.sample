@@ -1,0 +1,62 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: novichkov
+ * Date: 14.09.17
+ * Time: 12:53
+ */
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+//error_reporting(E_ALL);
+date_default_timezone_set('UTC');
+define('DEVELOPMENT_MODE', true);
+define('TESTNET_MODE', true);
+define('DS', DIRECTORY_SEPARATOR);
+if(!defined('ROOT_DIR')) {
+    define('ROOT_DIR', str_replace('public', '', rtrim(realpath($_SERVER['DOCUMENT_ROOT']), DS)));
+}
+define('SITE_DIR', 'https://' . str_replace('https://', '', $_SERVER['HTTP_HOST'] . '/'));
+define('DOMAIN', str_replace('https://', '', $_SERVER['HTTP_HOST']));
+$project = 'admin';
+if(count($arr = explode('.', $_SERVER['HTTP_HOST'])) > 2) {
+    $sub_domain = array_shift($arr);
+    define('SUB_DOMAIN', $sub_domain);
+    $project = $sub_domain;
+}
+if(!defined('PROJECT')) {
+    define('PROJECT', $project);
+}
+define('PROTECTED_DIR', ROOT_DIR . 'protected' . DS);
+define('CORE_DIR', PROTECTED_DIR . 'core' . DS);
+define('PUBLIC_DIR', ROOT_DIR . 'public' . DS);
+define('MAIN_SITE_DIR', 'https://' . str_replace('http://', '', implode('.', $arr) . '/'));
+define('TEMPLATE_DIR', PROTECTED_DIR . 'templates' . DS . PROJECT . DS . 'en' . DS);
+define('CONTROLLER_DIR', PROTECTED_DIR . 'controllers' . DS . PROJECT . DS);
+define('LIBS_DIR', PROTECTED_DIR . 'libs' . DS);
+define('IMAGE_DIR', SITE_DIR . '/images/' . PROJECT . '/');
+
+define('DB_NAME', 'lottery');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
+define('DB_HOST', 'localhost');
+define('APP_SECRET', 'llIO*IYBKK&ISasakahdapalsjhdiayjmdbqku7i&^*%&%&*K>S&D');
+define('BOT_1', ''); //Main
+define('BOT_2', ''); //Moderator
+
+define('BOT_NAME', '');
+define('MODERATOR_BOT', '');
+
+define('BOT_LINK', 'https://t.me/' . BOT_NAME);
+define('BTC_SECRET', 'LJHousd897y43ohl8ls784w9&P(&LHHJLKJDSAD9d9sdufsp');
+define('BTC_URL', 'https://ctyptomatrix-service.top/');
+
+define('YOUTUBE_LINK', '');
+define('CHANNEL_NAME', '@');
+define('CHAT_NAME', '@');
+define('WITHDRAWAL_CHANNEL', '@');
+define('CHAT_ADMIN', '');
+
+define('CHECK_TRANSACTION_URL', 'https://www.blockchain.com/btc/tx/');
+
+
+define('SUPPORT_LINK', ' @');
+define('API_SECRET', '9*^HKS09adfoA*O7dalks');

@@ -1,0 +1,68 @@
+﻿
+$green-1: #28a745 !default;
+$green-2: #43a047 !default;
+
+.theme-green{
+
+
+    ::selection {
+        color: $white; 
+        background: $green-1;
+    }
+    .loader{
+        color: $green-1;
+    }
+    .btn-primary{
+        background: $green-1;
+        color: $white;
+        border-color: $green-1;
+    }
+    .header{
+        background: $green-1;
+        .nav-tabs{
+            .nav-link{
+                color: $white;
+                &.active{
+                    border-color: $white; 
+                }
+            }            
+        }
+        .dropdown-menu .dropdown-item:hover,
+        .dropdown-menu .dropdown-item.active{
+            color: $green-1;
+        }
+    }
+    .card{
+        .card-options{
+            a{
+                color: $green-1;
+                &.btn{
+                    color: $white;
+                }
+            }
+        }
+    }
+    .custom-switch-input:checked ~ .custom-switch-indicator{
+        background: $green-1;
+    }
+    .chat_app .chat_windows .my-message .message p{
+        background: $green-1;
+        color: $white;
+    }
+    .metismenu {
+        .active{
+            > a{
+                color: $green-1;
+                background: rgba($green-1, 0.1);
+            }
+            ul{
+                .active{
+                    a{
+                        color: $green-1;
+                        background: transparent;
+                    }
+                }
+            }
+        }
+    }
+}

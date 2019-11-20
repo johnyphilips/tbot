@@ -1,0 +1,250 @@
+.widgets1{
+    display: flex;
+    align-items: center;
+    .icon{
+        width: 80px;
+        text-align: center;
+    }
+}
+.top_counter{
+    display: flex;
+    align-items: center;
+
+    .icon{
+        @extend .mr-20;
+        border-radius: $border-radius-extra-small;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        i{
+            @extend .font-20;
+            color: $white;
+        }
+    }
+}
+.widgets2{
+    display: flex;
+    justify-content: space-between;
+    h2{
+        @extend .mb-20;
+    }
+    h6{
+        @extend .mb-0;
+    }
+    .icon{
+
+        @extend .font-37;
+    }
+}
+.w_sparkline{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.w_task_panding{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.currency_state{
+    display: flex;
+    align-items: center;
+    .icon{
+        @extend .mr-20; 
+        img{
+            width: 40px;
+        }       
+    }
+    .number{
+        @extend .mb-0;
+    }
+}
+.w_bitcoin{
+    .card-body{
+        position: absolute;
+    }
+    #w_bitcoin{
+        margin-bottom: -2px;
+    }
+}
+.gender_overview{
+    @extend .mb-15;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background: $gray-50;    
+
+    .widgets1{
+        margin: 0 20px;
+        .icon{
+            width: 40px;
+        }
+    }    
+}
+.weather2{
+
+    .city-selected{
+        position: relative;
+        overflow: hidden;        
+        border-radius: 3px 3px 0 0;
+
+        .city{
+            @extend .font-24;
+            span{
+                @extend .font-13;               
+                text-transform: lowercase;
+            }            
+        }
+        .night {
+            @extend .font-15;
+            text-transform: uppercase;
+        }
+        .temp {
+            h2{ 
+                @include display-block;
+                @extend .margin-0;
+                font-size: 73px;
+                position: relative;
+            }
+        }
+        .icon{
+            i{
+                font-size: 70px;
+            }
+        }
+    }
+    .table{
+        tbody{
+            tr{
+                td{
+                    padding:14px 20px;
+                }
+            }
+        }
+    }
+    .days-list{
+        @extend .margin-0;
+        .day{
+            @extend .align-center;
+            padding: 20px 10px;
+
+            h5{
+                @extend .mt-0;
+            }
+            i{
+                @extend .font-30;
+            }
+        }
+    }
+    .carousel .carousel-inner{
+        box-shadow: none;
+    }
+}
+.weather_img{
+    overflow: hidden;
+
+    .card-body{
+        padding: 0;
+    }    
+
+    .img{
+        height: 185px;
+        overflow: hidden;
+        position: relative;
+
+        .city{
+            color: $white;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+
+            i{
+                @extend .mt-15;
+                @extend .font-50;
+            }
+        }
+    }    
+
+    .days{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+
+        li{
+            @extend .align-center;
+            width: 100%;
+            border-right: 1px solid $gray-200;
+            &:last-child{
+                border-right: none;
+            }
+
+            h5{
+                @extend .font-14;
+            }
+            i{
+                @extend .font-20;
+            }
+
+            .degrees{
+                @include display-block;
+            }
+        }
+    }
+}
+.weather5{
+
+    overflow: hidden;
+    .widget{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .weatherIcon{
+
+        flex: 1 100%;
+        height: 60%;;        
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 80px;
+        padding: 20px 0;
+
+        i{
+            padding-top: 20px;
+        }
+    }
+    .weatherInfo{
+        color: $white;
+        background: $dark;
+        flex: 0 0 70%;
+        height: 40%;        
+        display: flex;
+        align-items: center;
+        
+        .temperature{
+            flex: 0 0 40%;
+            width: 100%;
+            font-size: 65px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .description{
+            flex: 0 60%;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+        }
+    }
+    .date{
+        @extend .font-28;
+        color: $white;
+        flex: 0 0 30%;
+        height: 40%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        line-height: 97px;
+    }
+}

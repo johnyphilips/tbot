@@ -1,0 +1,71 @@
+.custom-datatable .datatable-header {
+    display: none;
+    overflow-x: auto;
+}
+.custom-datatable .no-sort::after, .custom-datatable .no-sort::before { display: none!important; }
+.custom-datatable .no-sort { pointer-events: none!important; cursor: default!important; }
+#page_content {
+    min-height: 790px;
+}
+.dataTables_paginate {
+    line-height: 4px;
+    float: none !important;
+    text-align: center !important;
+}
+.paginate_button {
+    font-size: 20px !important;
+    margin: 4px;
+    cursor: pointer;
+}
+.dataTables_info {
+    color: black !important;
+    line-height: 4px  !important;
+    float: none !important;
+    text-align: center !important;
+}
+.dataTables_wrapper thead .sorting:before, .dataTables_wrapper thead .sorting_asc:before, .dataTables_wrapper thead .sorting_desc:before {
+    top: 4px !important;
+    font-size: 13px !important;
+    color: #000 !important;
+}
+.dataTables_wrapper thead .sorting:after, .dataTables_wrapper thead .sorting_asc:after, .dataTables_wrapper thead .sorting_desc:after {
+    bottom: 4px !important;
+    font-size: 13px !important;
+    color: #000 !important;
+}
+.mobile_menu_toggler {
+    margin-top: 5px;
+}
+.mobile_menu .menu-item {
+    padding: 5px;
+    border-bottom: 1px solid #d6d5d5;
+    color: black;
+    font-size: 20px;
+}
+.mobile_menu .menu-item.active {
+    background-color: #eee;
+}
+.mobile_menu {
+    background-color: #fff;
+    box-shadow: 0 0 5px;
+    display: none;
+}
+.mobile_menu .menu-item a {
+    color: black;
+}
+.menu-sub-items {
+    display: none;
+}
+.g_heading-mobile {
+    font-size: 20px;
+    border-bottom: 1px solid #d6d5d5;
+}
+@media (min-width: 600px)  {
+    .mobile_menu_toggler {
+        display: none;
+    }
+}
+
+.theme-black .card .card-options a {
+    color: #292b30 !important;
+}

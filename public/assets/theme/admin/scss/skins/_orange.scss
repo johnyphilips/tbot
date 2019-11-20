@@ -1,0 +1,67 @@
+﻿$orange-1: #fd9644 !default;
+$orange-2: #ffce4b !default;
+
+.theme-orange{
+
+
+    ::selection {
+        color: $white; 
+        background: $orange-1;
+    }
+    .loader{
+        color: $orange-1;
+    }
+    .btn-primary{
+        background: $orange-1;
+        color: $white;
+        border-color: $orange-1;
+    }
+    .header{
+        background: $orange-1;
+        .nav-tabs{
+            .nav-link{
+                color: $white;
+                &.active{
+                    border-color: $white; 
+                }
+            }            
+        }
+        .dropdown-menu .dropdown-item:hover,
+        .dropdown-menu .dropdown-item.active{
+            color: $orange-1;
+        }
+    }
+    .card{
+        .card-options{
+            a{
+                color: $orange-1;
+                &.btn{
+                    color: $white;
+                }
+            }
+        }
+    }
+    .custom-switch-input:checked ~ .custom-switch-indicator{
+        background: $orange-1;
+    }
+    .chat_app .chat_windows .my-message .message p{
+        background: $orange-1;
+        color: $white;
+    }
+    .metismenu {
+        .active{
+            > a{
+                color: $orange-1;
+                background: rgba($orange-1, 0.1);
+            }
+            ul{
+                .active{
+                    a{
+                        color: $orange-1;
+                        background: transparent;
+                    }
+                }
+            }
+        }
+    }
+}

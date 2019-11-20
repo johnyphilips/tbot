@@ -1,0 +1,68 @@
+﻿$indigo-1: #6574cd !default;
+$indigo-2: #6574cd !default;
+$indigo-3: #6574cd !default;
+
+.theme-indigo{
+
+
+    ::selection {
+        color: $white; 
+        background: $indigo-1;
+    }
+    .loader{
+        color: $indigo-1;
+    }
+    .btn-primary{
+        background: $indigo-1;
+        color: $white;
+        border-color: $indigo-1;
+    }
+    .header{
+        background: $indigo-1;
+        .nav-tabs{
+            .nav-link{
+                color: $white;
+                &.active{
+                    border-color: $white; 
+                }
+            }            
+        }
+        .dropdown-menu .dropdown-item:hover,
+        .dropdown-menu .dropdown-item.active{
+            color: $indigo-1;
+        }
+    }
+    .card{
+        .card-options{
+            a{
+                color: $indigo-1;
+                &.btn{
+                    color: $white;
+                }
+            }
+        }
+    }
+    .custom-switch-input:checked ~ .custom-switch-indicator{
+        background: $indigo-1;
+    }
+    .chat_app .chat_windows .my-message .message p{
+        background: $indigo-1;
+        color: $white;
+    }
+    .metismenu {
+        .active{
+            > a{
+                color: $indigo-1;
+                background: rgba($indigo-1, 0.1);
+            }
+            ul{
+                .active{
+                    a{
+                        color: $indigo-1;
+                        background: transparent;
+                    }
+                }
+            }
+        }
+    }
+}

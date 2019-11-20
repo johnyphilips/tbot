@@ -1,0 +1,52 @@
+﻿
+$cyan-1: #17a2b8 !default;
+$cyan-2: #00acc1 !default;
+
+.theme-cyan{
+
+
+    ::selection {
+        color: $white; 
+        background: $cyan-1;
+    }
+    .loader{
+        color: $cyan-1;
+    }
+    .btn-primary{
+        background: $cyan-1;
+        color: $white;
+        border-color: $cyan-1;
+    }
+    .header{
+        background: $cyan-1;
+        .nav-tabs{
+            .nav-link{
+                color: $white;
+                &.active{
+                    border-color: $white; 
+                }
+            }            
+        }
+        .dropdown-menu .dropdown-item:hover,
+        .dropdown-menu .dropdown-item.active{
+            color: $cyan-1;
+        }
+    }
+    .card{
+        .card-options{
+            a{
+                color: $cyan-1;
+                &.btn{
+                    color: $white;
+                }
+            }
+        }
+    }
+    .custom-switch-input:checked ~ .custom-switch-indicator{
+        background: $cyan-1;
+    }
+    .chat_app .chat_windows .my-message .message p{
+        background: $cyan-1;
+        color: $white;
+    }
+}

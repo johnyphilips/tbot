@@ -1,0 +1,69 @@
+/* General Styles */
+html {
+    @extend .font-15;
+	height: 100%;
+	direction: ltr;
+}
+
+body {
+	@include transition(all .3s ease-in-out);
+	@extend .font-15;
+    background-color: $gray-50;
+	font-family: $font-family;
+    color: $font-color;
+    
+	direction: ltr;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-text-size-adjust: none;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	-webkit-font-feature-settings: "liga" 0;
+	font-feature-settings: "liga" 0;
+	height: 100%;
+	overflow-y: scroll;
+	position: relative;
+
+	@media print {
+		background: none;
+    }
+    
+    *::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;        
+        transition: .3s background;
+    }
+    *::-webkit-scrollbar-thumb {
+        background: $gray-200;
+    }
+    *:hover::-webkit-scrollbar-thumb {
+        background: $gray-400;
+    }
+}
+a:hover{
+	text-decoration: none;
+}
+
+#main_content{
+	display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+	min-height: 100%;
+	margin-top: 54px;
+	
+	.container{
+		max-width: 1440px
+	}
+}
+
+@include max-screen ($break-xlarge){
+	#main_content{
+		.container{
+			max-width: 1280px
+		}
+	}
+}

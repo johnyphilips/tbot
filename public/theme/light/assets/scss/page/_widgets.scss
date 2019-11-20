@@ -1,0 +1,300 @@
+.page-loader-wrapper{
+    text-align: center;    
+    z-index: 99999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;    
+    overflow: hidden;
+    background: $gray-100;
+    display: flex;
+    .loader {
+        position: relative;
+        top: calc(40% - 30px);
+        justify-content: center;
+        width: 100%;
+    }
+    img{
+        width: 38px;
+        height: 38px;
+    }
+}
+.accordion2 {
+	@extend .margin-0;
+	@extend .padding-0;
+	list-style: none;
+    border-top: 1px solid $gray-100;
+    
+    .accordion-item {
+        border-bottom: 1px solid $gray-100;
+        padding: 0 15px;        
+    }
+
+    /* Thumb */
+    .accordion-thumb {                
+        @extend .margin-0;
+        @extend .font-15;
+        font-weight: $font-weight-600;
+        padding: .8rem 0;
+        cursor: pointer;                
+        
+        // Chevron
+        &::before {
+            @include transition(all .3s ease-in-out);
+            @include inline-block();            
+            content: "\f138";
+            font-family: 'FontAwesome';            
+        }
+
+
+        span{
+            @extend .ml-10;
+        }
+    }
+
+    /* Panel */
+    .accordion-panel {
+        @extend .margin-0;
+        padding-bottom: .8rem;
+        display: none;
+    }
+
+    /* Active */
+    .accordion-item.is-active {
+        .accordion-thumb::before {
+            content: "\f13a";            
+        }
+    }
+}
+.new_timeline {
+
+    padding: 0 0 0 2em;
+    @extend .margin-0;
+    list-style: none;
+    position: relative;
+    
+    &::before {
+        background-color: $gray-200;
+        content: ' ';
+        height: 100%;
+        width: 1px;        
+        position: absolute;
+        top: 0;
+        left: 10px;
+        z-index: 1;
+    }
+
+    > li{
+        @extend .pb-25;
+        &:last-child{
+            @extend .pb-0;
+        }
+    }
+
+    .bullet {
+        @include border-radius(10px);
+        @extend .mt-5;
+        background: $white;
+        left: 5px;
+        width: 10px;
+        height: 10px;
+        z-index: 2;        
+        position: absolute;
+        border: 2px solid;
+        
+        &.pink {
+            border-color: $blush;
+        }
+        
+        &.green {
+            border-color: $green;
+        }
+        
+        &.orange {
+            border-color: $orange;
+        }
+    }
+
+    .time {
+        @extend .font-12;
+    }
+
+    h3 {
+        @extend .font-15;
+        @extend .margin-0;
+        font-weight: $font-weight-600;
+    }
+
+    h4 {
+        @extend .pb-10;
+        @extend .font-13;
+        font-weight: $font-weight-400;
+        color: $gray-600;
+    }
+}
+.team-info{
+    @extend .mt-5;
+    li{        
+        @include transition(all .3s ease-in-out);
+        display: inline-block;
+
+        & + li{
+            margin-left: -10px;
+        }
+        img{
+            width:35px;
+            @include border-radius(50%);
+            border: 2px solid $white;
+            box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+        }
+        &:hover{
+            -webkit-transform: translateY(-4px) scale(1.02);
+            -moz-transform: translateY(-4px) scale(1.02);
+            -ms-transform: translateY(-4px) scale(1.02);
+            -o-transform: translateY(-4px) scale(1.02);
+            transform: translateY(-4px) scale(1.02);            
+            z-index: 999;
+            img{
+                -webkit-box-shadow: 0 14px 24px rgba(62,57,107,.2);
+                box-shadow: 0 14px 24px rgba(62,57,107,.2);
+            }
+        }
+    }
+}
+.taskboard{
+    .dd-handle{
+        @include transition(all .4s ease-in-out);
+        @include border-radius(3px);
+        color: $gray-600;
+        padding: 20px;
+        position: relative;
+
+        &::after{
+            @extend .font-15;
+            content: "\f02e";
+            font-family: "FontAwesome";
+            position: absolute;
+            top: -5px;
+            right: 20px;
+        }
+        &:hover{
+            color: $gray-800;
+        }
+        h6{
+            @extend .mb-0;
+            font-weight: $font-weight-600;
+        }
+        .time{
+            @include display-block;            
+        }
+        p{
+            @extend .font-15;            
+            @extend .mt-10;
+        }
+
+    }
+    .planned_task{
+        .dd-handle{
+            &::after{
+                color: $info;
+            }
+            &:hover{
+                border-color: $info;
+            }
+        }
+    }
+    .progress_task{
+        .dd-handle{
+            &::after{
+                color: $warning;
+            }
+            &:hover{
+                border-color: $warning;
+            }
+        }
+    }
+    .completed_task{
+        .dd-handle{
+            &::after{
+                color: $success;
+            }
+            &:hover{
+                border-color: $success;
+            }
+        }
+    }
+
+    .dd-item{
+        &:hover{
+            cursor: move;
+        }
+        > button{
+            margin: 19px 0 9px 9px;
+            &:before{
+                z-index: 1;
+            }
+        }
+    }
+}
+.paymetn_form2{
+    .nav-item{
+        display: block;
+        .nav-link{
+            padding: .5rem 1rem;
+        }
+        
+    }
+}
+.c_review{
+    li{
+        @extend .mb-15;
+        @extend .pb-15;
+        display: flex;
+        &:last-child{
+            @extend .mb-0;
+            @extend .pb-0;
+        }
+        .c_name{
+            @extend .mb-0;
+            font-weight: $font-weight-600;
+        }
+
+        .c_avatar{
+            @extend .mr-20;
+            width: 70px;
+        }
+        .c_comment{
+            width: calc(100% - 90px);
+        }
+    }
+}
+.table_e2{
+    img{
+        width: 35px;
+    }
+    .c_name{
+        @extend .ml-15;
+        font-weight: $font-weight-700;
+    }
+}
+// End profile css
+
+.testimonials{
+    @extend .align-center;
+}
+.w_color{
+    div{
+        height: 25px;
+        width: 25px;
+    }
+}
+.modal{
+    .modal-header{
+        .close:before{
+            display: none;
+        }
+    }
+}

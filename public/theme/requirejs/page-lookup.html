@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+<title>:: Buzzer RJS :: Lookup</title>
+
+<!-- Bootstrap Core and Font Icon -->
+<link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../assets/plugins/animate-css/vivify.min.css" />
+<link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+
+<!-- Core css -->
+<link rel="stylesheet" href="assets/css/main.css"/>
+</head>
+
+<body class="theme-cyan">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <img src="../assets/images/logo-icon.svg" alt="Buzzer">
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+
+<div id="main_content">
+
+    <div id="header_top" class="header_top">
+        <div class="container">
+            <div class="d-flex">
+                <a class="header-brand" href="index.html"><img src="../assets/images/logo.svg" class="header-brand-img" alt="buzzerlogo"></a>
+                <div class="top_menu d-flex order-lg-2">
+                    <div class="hleft">
+                        <div class="nav-item d-none d-md-flex">
+                            <a href="../doc/index.html" class="btn btn-link">Documentation</a>
+                            <a href="#" class="btn btn-link mega_menu">Mega</a>
+                            <a href="#" class="btn btn-link" target="_blank">Download</a>
+                        </div>
+                    </div>
+                    <div class="hright d-flex">
+                        <div class="dropdown d-flex">                            
+                            <a href="app-calendar.html" class="nav-link icon"><i class="icon-calendar"></i></a>
+                            <a href="app-chat.html" class="nav-link icon"><i class="icon-bubbles"></i></a>
+                            <a href="app-email.html" class="nav-link icon"><i class="icon-envelope"></i><span class="nav-unread"></span></a>
+                            <a class="nav-link icon d-none d-md-flex" data-toggle="dropdown"><i class="icon-bell"></i><span class="nav-unread"></span></a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow vivify swoopInTop">
+                                <a href="#" class="dropdown-item d-flex">
+                                    <span class="avatar mr-3 align-self-center avatar-green">RB</span>
+                                    <div>
+                                        <strong>Nathan</strong> pushed new commit in github.
+                                        <div class="small text-muted">10 minutes ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item d-flex">
+                                    <img class="avatar mr-3 align-self-center" src="../assets/images/xs/avatar2.jpg" alt="" />
+                                    <div>
+                                        <strong>Alice</strong> started new task: buzzerUI design.
+                                        <div class="small text-muted">1 hour ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item d-flex">
+                                    <img class="avatar mr-3 align-self-center" src="../assets/images/xs/avatar3.jpg" alt="" />
+                                    <div>
+                                        <strong>Rose</strong> deployed new version of NodeJS REST
+                                        <div class="small text-muted">2 hours ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item d-flex">
+                                    <span class="avatar mr-3 align-self-center avatar-indigo">RB</span>
+                                    <div>
+                                        <strong>Alice</strong> started new task: buzzerUI design.
+                                        <div class="small text-muted">1 hour ago</div>
+                                    </div>
+                                </a>
+                                <a href="#" class="dropdown-item d-flex">
+                                    <img class="avatar mr-3 align-self-center" src="../assets/images/xs/avatar3.jpg" alt="" />
+                                    <div>
+                                        <strong>Rose</strong> deployed new version of NodeJS REST
+                                        <div class="small text-muted">2 hours ago</div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item text-center text-muted-dark readall">Mark all as read</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
+                                <img class="avatar" src="../assets/images/user.png" alt=""/>
+                                <span class="ml-2 d-none d-lg-block">
+                                    <span class="user_name">Jane Pearson</span>
+                                    <small class="text-muted d-block mt-1">Administrator</small>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow vivify flipInY">
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-user"></i> Profile</a>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-settings"></i> Settings</a>
+                                <a class="dropdown-item" href="#"><span class="float-right"><span class="badge badge-primary">6</span></span><i class="dropdown-icon fe fe-mail"></i> Inbox</a>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-send"></i> Message</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-help-circle"></i> Need help?</a>
+                                <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-log-out"></i> Sign out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-sm btn-primary header-toggler d-lg-none ml-3 ml-lg-0" data-toggle="collapse" data-target="#headerMenuCollapse"><span class="header-toggler-icon"></span></a>
+            </div>
+        </div>
+    </div>
+
+    <div id="mega_menubar" class="mega_menubar">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Subscribe</h3>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Enter Name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" value="" placeholder="Enter Email" class="form-control">
+                                </div>
+                                <button class="btn btn-primary">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Accordion</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="accordion2">
+                                <li class="accordion-item is-active">
+                                    <h3 class="accordion-thumb"><span>Lorem ipsum</span></h3>
+                                    <p class="accordion-panel">
+                                        Lorem ipsum dolor sit amet, elit. Placeat, quibusdam! Voluptate nobis
+                                    </p>
+                                </li>
+                                
+                                <li class="accordion-item">
+                                    <h3 class="accordion-thumb"><span>Dolor sit amet</span></h3>
+                                    <p class="accordion-panel">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing  Voluptate nobis
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Company</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled links">
+                                <li><a href="javascript:void(0);" title="" >Our Facts</a></li>
+                                <li><a href="javascript:void(0);" title="" >Confidentiality</a></li>                                
+                                <li><a href="javascript:void(0);" title="" >About Us</a></li>
+                                <li><a href="javascript:void(0);" title="" >Testimonials</a></li>
+                                <li><a href="javascript:void(0);" title="" >Contact Us</a></li>                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Image Gallery</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-item active">
+                                        <img src="../assets/images/gallery/1.jpg" class="img-fluid" alt="img" />
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../assets/images/gallery/2.jpg" class="img-fluid" alt="img" />
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="../assets/images/gallery/3.jpg" class="img-fluid" alt="img" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rightsidebar" class="right_sidebar">
+        <div class="setting_div">
+            <a href="#" class="settingbar"><i class="fa fa-gear fa-spin"></i></a>
+        </div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#Settings" aria-expanded="true">Settings</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#contact" aria-expanded="false">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#activity" aria-expanded="false">Activity</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane vivify fadeIn active" id="Settings" aria-expanded="true">
+                <div class="sidebar-scroll">                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Color Skins</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="choose-skin list-unstyled">
+                                <li data-theme="black"><div class="black"></div></li>
+                                <li data-theme="azure"><div class="azure"></div></li>
+                                <li data-theme="indigo"><div class="indigo"></div></li>
+                                <li data-theme="purple"><div class="purple"></div></li>
+                                <li data-theme="orange"><div class="orange"></div></li>
+                                <li data-theme="green"><div class="green"></div></li>                                
+                                <li data-theme="cyan" class="active"><div class="cyan"></div></li>
+                                <li data-theme="blush"><div class="blush"></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">General Setting</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="setting-list list-unstyled">
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Report Panel Usage</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Email Redirect</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Notifications</span>
+                                    </label>       
+                                </li>
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Auto Updates</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Offline</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="custom-switch">
+                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                                        <span class="custom-switch-indicator"></span>
+                                        <span class="custom-switch-description">Location Permission</span>
+                                    </label> 
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Storage</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="progress progress-xs mb-0">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 89%;">
+                                </div>
+                            </div>
+                            <small>50MB of 10GB Used</small>
+                            <button type="button" class="btn btn-primary btn-block mt-3">Upgrade Storage</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane vivify fadeIn" id="contact" aria-expanded="false">
+                <div class="sidebar-scroll">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Contact List</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled contact-list">
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar1.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Vincent Porter <span class="d-block">London UK</span></h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar2.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Mike Thomas <span class="d-block">London UK</span></h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar3.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Aiden Chavaz</h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar4.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Vincent Porter <span class="d-block">London UK</span></h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar5.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Mike Thomas <span class="d-block">London UK</span></h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar6.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Aiden Chavaz</h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar7.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Mike Thomas <span class="d-block">London UK</span></h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="contact-img">
+                                        <img src="../assets/images/xs/avatar8.jpg" class="rounded" alt="">
+                                    </span>
+                                    <h4 class="contact-name">Aiden Chavaz</h4>
+                                    <div class="action">
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-skype"></i></a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-o"></i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane vivify fadeIn" id="activity" aria-expanded="false">
+                <div class="sidebar-scroll">
+                    <div class="card">
+                        <div class="card-body">                  
+                            <ul class="new_timeline mt-3">
+                                <li>
+                                    <div class="bullet pink"></div>
+                                    <div class="time">11:00am</div>
+                                    <div class="desc">
+                                        <h3>Attendance</h3>
+                                        <h4>Computer Class</h4>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bullet pink"></div>
+                                    <div class="time">11:30am</div>
+                                    <div class="desc">
+                                        <h3>Added an interest</h3>
+                                        <h4>“Volunteer Activities”</h4>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bullet green"></div>
+                                    <div class="time">12:00pm</div>
+                                    <div class="desc">
+                                        <h3>Developer Team</h3>
+                                        <h4>Hangouts</h4>
+                                        <ul class="list-unstyled team-info margin-0 p-t-5">                                            
+                                            <li><img src="../assets/images/xs/avatar1.jpg" alt="Avatar"></li>
+                                            <li><img src="../assets/images/xs/avatar2.jpg" alt="Avatar"></li>
+                                            <li><img src="../assets/images/xs/avatar3.jpg" alt="Avatar"></li>
+                                            <li><img src="../assets/images/xs/avatar4.jpg" alt="Avatar"></li>                                            
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bullet green"></div>
+                                    <div class="time">2:00pm</div>
+                                    <div class="desc">
+                                        <h3>Responded to need</h3>
+                                        <a href="#">“In-Kind Opportunity”</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bullet orange"></div>
+                                    <div class="time">1:30pm</div>
+                                    <div class="desc">
+                                        <h3>Lunch Break</h3>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="bullet green"></div>
+                                    <div class="time">2:38pm</div>
+                                    <div class="desc">
+                                        <h3>Finish</h3>
+                                        <h4>Go to Home</h4>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="headerMenuCollapse" class="header sticky-top d-lg-flex collapse">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-4 col-lg-3 col-md-2 ml-auto">                    
+                    <form class="input-icon input-group-sm  my-3 my-lg-0">
+                        <input type="search" class="form-control header-search" placeholder="Search&hellip;" tabindex="1">
+                        <div class="input-icon-addon"><i class="icon-magnifier"></i></div>
+                    </form>
+                </div>
+                <div class="col-lg order-lg-first">
+                    <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                        <li class="nav-item"><a href="index.html" class="nav-link"><i class="icon-speedometer"></i> Dashboard</a></li>                        
+                        <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="icon-grid"></i> Application</a>
+                            <div class="dropdown-menu dropdown-menu-arrow submenu_sm">
+                                <a class="dropdown-item" href="app-email.html">Email</a>
+                                <a class="dropdown-item" href="app-chat.html">Chat</a>
+                                <a class="dropdown-item" href="app-calendar.html">Calendar</a>
+                                <a class="dropdown-item" href="app-contact.html">Contact</a>
+                                <a class="dropdown-item" href="app-taskboard.html">TaskBoard</a>
+                                <a class="dropdown-item" href="blog-list.html">Blog List</a>
+                                <a class="dropdown-item" href="blog-grid.html">Blog Grid</a>
+                                <a class="dropdown-item" href="blog-list2.html">Blog v2</a>
+                                <a class="dropdown-item" href="blog-detail.html">Blog Detail</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="icon-bar-chart"></i> Charts</a>
+                            <div class="dropdown-menu dropdown-menu-arrow"><a class="dropdown-item" href="charts.html">Charts</a>
+                                <a class="dropdown-item" href="charts-morris.html">Morris Chart</a>
+                                <a class="dropdown-item" href="charts-flot.html">Flot Chart</a>
+
+                                
+                                <a class="dropdown-item" href="charts-knob.html">JQuery Knob</a>
+                                <a class="dropdown-item" href="charts-c3.html">C3 Chart</a>
+                                
+                                <a class="dropdown-item" href="charts-sparkline.html">Sparkline Chart</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-box"></i> Widgets</a>
+                            <div class="dropdown-menu dropdown-menu-arrow">
+                                <a class="dropdown-item" href="w-cards.html">Cards design</a>
+                                <a class="dropdown-item" href="w-statistics.html">Statistics</a>
+                                <a class="dropdown-item" href="w-data.html">Data</a>
+                                <a class="dropdown-item" href="w-social.html">Social</a>
+                                <a class="dropdown-item" href="w-store.html">eCommerce</a>
+                            </div>
+                        </li>                        
+                        <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-check-square"></i> Forms</a>
+                            <div class="dropdown-menu dropdown-menu-arrow">
+                                <a class="dropdown-item" href="form-elements.html">Basic Elements</a>
+                                <a class="dropdown-item" href="form-advanced.html">Advanced Elements</a>
+                                <a class="dropdown-item" href="form-validation.html">Form Validation</a>
+                                <a class="dropdown-item" href="form-wizard.html">Form Wizard</a>
+                                <a class="dropdown-item" href="form-summernote.html">Summernote</a>
+                                <a class="dropdown-item" href="form-markdown.html">Markdown</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="fe fe-check-square"></i> Tables</a>
+                            <div class="dropdown-menu dropdown-menu-arrow">
+                                <a class="dropdown-item" href="table-basic.html">Table Example</a>
+                                <a class="dropdown-item" href="table-normal.html">Table Normal</a>
+                                <a class="dropdown-item" href="table-datatable.html">Jquery Datatable</a>
+                                <a class="dropdown-item" href="table-editable.html">Editable</a>
+                                <a class="dropdown-item" href="table-color.html">Table Color</a>
+                                <a class="dropdown-item" href="table-filter.html">Table Filter</a>
+                                
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" class="nav-link active" data-toggle="dropdown"><i class="fe fe-file"></i> Pages</a>
+                            <div class="dropdown-menu dropdown-menu-arrow submenu_sm">
+                                <a class="dropdown-item" href="page-empty.html">Empty page</a>
+                                <a class="dropdown-item" href="page-profile.html">Profile</a>
+                                <a class="dropdown-item" href="page-timeline.html">Timeline</a>
+                                <a class="dropdown-item" href="page-pricing.html">Pricing cards</a>
+                                <a class="dropdown-item" href="page-invoices.html">Invoices</a>
+                                <a class="dropdown-item" href="page-search.html">Search Results</a>
+                                <a class="dropdown-item" href="page-testimonials.html">Testimonials</a>
+                                <a class="dropdown-item" href="page-maps.html">Maps</a>
+                                <a class="dropdown-item" href="page-icons.html">Icons</a>
+                                <a class="dropdown-item" href="page-carousel.html">Carousel</a>
+                                <a class="dropdown-item" href="page-gallery.html">Gallery</a>
+                                <a class="dropdown-item" href="page-userslist.html">Users List</a>
+                                <a class="dropdown-item active" href="page-lookup.html">Lookup</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown"><i class="icon-lock"></i> Auth</a>
+                            <div class="dropdown-menu dropdown-menu-arrow">
+                                <a class="dropdown-item" href="login.html">Login</a>
+                                <a class="dropdown-item" href="register.html">Register</a>
+                                <a class="dropdown-item" href="forgot-password.html">Forgot password</a>
+                                <a class="dropdown-item" href="400.html">400 error</a>
+                                <a class="dropdown-item" href="401.html">401 error</a>
+                                <a class="dropdown-item" href="403.html">403 error</a>
+                                <a class="dropdown-item" href="404.html">404 error</a>
+                                <a class="dropdown-item" href="500.html">500 error</a>
+                                <a class="dropdown-item" href="503.html">503 error</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="container">
+            
+            <div class="page-header">
+                <div class="row row-deck">
+                    <div class="col-md-6 col-sm-12">
+                        <h1 class="page-title">Lookup</h1>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="page-right">
+                            <div class="h_chart">
+                                <div class="float-left mr-10">
+                                    <h6>Visitors</h6>
+                                </div>
+                                <span class="bh_visitors">2,5,1,8,3,6,7,5</span>
+                            </div>
+                            <div class="h_chart">
+                                <div class="float-left mr-10">
+                                    <h6>Visits</h6>
+                                </div>
+                                <span class="bh_visits">10,8,9,3,5,8,5</span>
+                            </div>
+                            <div class="h_chart">
+                                <div class="float-left mr-10">
+                                    <h6>Chats</h6>
+                                </div>
+                                <span class="bh_chats">1,8,5,6,2,4,3,2</span>
+                            </div>
+                            <div>
+                                <a href="#" class="btn btn-sm btn-primary">Create New</a>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center mb-6">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-lg rounded d-block" style="background-image: url(https://thememakker.com/wp-content/themes/twentyseventeen-child-2/img/logo.svg)"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="h3 m-0 font-weight-normal">thememakker.com</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="mb-1">Name</h5>
+                                    <div class="text-muted-dark">thememakker.com</div>
+                                </div>
+                                <div class="col">
+                                    <h5 class="mb-1">Legal Name</h5>
+                                    <div class="text-muted-dark">thememakker.com, Inc.</div>
+                                </div>
+                                <div class="col">
+                                    <h5 class="mb-1">Ticker</h5>
+                                    <div class="text-muted-dark">AMZN</div>
+                                </div>
+                                <div class="col">
+                                    <h5 class="mb-1">Founded Year</h5>
+                                    <div class="text-muted-dark">2017</div>
+                                </div>
+                                <div class="col">
+                                    <h5 class="mb-1">Type</h5>
+                                    <div class="text-muted-dark">Public</div>
+                                </div>
+                                <div class="col">
+                                    <h5 class="mb-1">Employees</h5>
+                                    <div class="text-muted-dark">341</div>
+                                </div>
+                                <div class="col">
+                                    <h5 class="mb-1">Annual Revenue</h5>
+                                    <div class="text-muted-dark">$15B</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row gutters-lg">
+                                <div class="col-7">
+                                    <div class="row mb-5">
+                                        <div class="col">
+                                            <h5 class="mb-1">Location</h5>
+                                            <div class="text-muted-dark">207 Boren Ave, Seattle, WA 98109, USA</div>
+                                        </div>
+                                        <div class="col">
+                                            <h5 class="mb-1">Timezone</h5>
+                                            <div class="text-muted-dark">America/Los_Angeles</div>
+                                        </div>
+                                    </div>
+                                    <div class="map-static" style="background-image: url(https://maps.googleapis.com/maps/api/staticmap?center=47.620057,-122.3362675&size=640x120&scale=2&zoom=13&markers=color:blue|47.620057,-122.3362675&key=AIzaSyBEJy4UvF-JfcNciWlvlznyDlUckcspiD4);"></div>
+                                    <hr>
+                                    <h5 class="mb-4">Recent News</h5>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-5">
+                                            <a href="#">Amazons Super Bowl commercial might contain a clue about where HQ2 will be</a>
+                                            <p class="mb-1">Eagleeyed viewers of the Super Bowl spotted something most people missed in Amazons commercial for its Alexa voice assistant Before Alexa lo…</p>
+                                            <div class="row">
+                                                <div class="col text-muted">businessinsider.com</div>
+                                                <div class="col text-muted text-right">2 days ago</div>
+                                            </div>
+                                        </li>
+                                        <li class="mb-5">
+                                            <a href="#">Holiday performance propels Amazon to stellar quarter results</a>
+                                            <p>This story was delivered to BI Intelligence ECommerce Briefing subscribers hours before appearing on Business Insider To be the first to kno…</p>
+                                            <div class="row">
+                                                <div class="col text-muted">businessinsider.com</div>
+                                                <div class="col text-muted text-right">2 days ago</div>
+                                            </div>
+                                        </li>
+                                        <li class="mb-5">
+                                            <a href="#">12 highpaying jobs Amazons HQ2 will likely bring to its future city</a>
+                                            <p class="mb-1">These Amazon jobs all earn over 90000tanleimagesShutterstock</p>
+                                            <div class="row">
+                                                <div class="col text-muted">businessinsider.com</div>
+                                                <div class="col text-muted text-right" title="2018-02-02T12:32:00.000Z">4 days ago</div>
+                                            </div>
+                                        </li>
+                                        <li class="mb-5">
+                                            <a href="http://businessinsider.com/amazon-dominates-online-shopping-2018-2">Amazon is tightening its iron grip online</a>
+                                            <p class="mb-1">ReutersLindsey Wasson To say Amazon is doing well would be an understatement In its latest earnings report the company reported 6045 billion…</p>
+                                            <div class="row">
+                                                <div class="col text-muted">businessinsider.com</div>
+                                                <div class="col text-muted text-right" title="2018-02-02T10:45:00.000Z">5 days ago</div>
+                                            </div>
+                                        </li>
+                                        <li class="mb-4">
+                                            <a href="http://businessinsider.com/tough-amazon-interview-questions-you-should-be-prepared-to-answer-2018-1">21 tough interview questions you may have to answer if you want to work at Amazon</a>
+                                            <p class="mb-1">How would you answer Amazon is a peculiar company whats peculiar about youAlex WongGetty Images</p>
+                                            <div class="row">
+                                                <div class="col text-muted">businessinsider.com</div>
+                                                <div class="col text-muted text-right" title="2018-02-01T11:25:00.000Z">6 days ago</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-5">
+                                    <ul class="list-unstyled list-separated">
+                                        <li class="list-separated-item">
+                                            <h5>Description</h5>
+                                            <div class="text-muted-dark">Online shopping from the earth's biggest selection of books, magazines, music, DVDs, videos, electronics, computers, software, apparel & acc…</div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5>Tags</h5>
+                                            <div>
+                                                <span class="tag">E-Commerce &amp; Marketplaces</span>
+                                                <span class="tag">E-commerce</span>
+                                                <span class="tag">B2C</span>
+                                                <span class="tag">Internet</span>
+                                                <span class="tag">Consumer Discretionary</span>
+                                                <span class="tag">Technology</span>
+                                            </div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">Industry</h5>
+                                            <div>Internet Software &amp; Services</div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">Sector</h5>
+                                            <div>Information Technology</div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">SIC Code</h5>
+                                            <div>59</div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">NAICS Code</h5>
+                                            <div>45</div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">EIN</h5>
+                                            <div>911646860</div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">Technologies</h5>
+                                            <div>
+                                                <span class="tag text-uppercase">amazon associates</span>
+                                                <span class="tag text-uppercase">amazon ses</span>
+                                                <span class="tag text-uppercase">dyn dns</span>
+                                                <span class="tag text-uppercase">omniture adobe analytics</span>
+                                                <span class="tag text-uppercase">typekit by adobe</span>
+                                            </div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">Alexa US Rank</h5>
+                                            <div>5</div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">Alexa Global Rank</h5>
+                                            <div>10</div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">Fiscal Year End</h5>
+                                            <div>End of December</div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">Phone</h5>
+                                            <div><a href="tel:+1 206-266-1000">+1 206-266-1000</a></div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">Crunchbase</h5>
+                                            <div><a href="#">crunchbase.com/organization/thememakker</a></div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">Twitter</h5>
+                                            <div><a href="#">twitter.com/thememakker</a></div>
+                                        </li>
+                                        <li class="list-separated-item">
+                                            <h5 class="mb-1">Facebook</h5>
+                                            <div><a href="#">facebook.com/thememakker</a></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+    </div>    
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-auto ml-lg-auto">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <ul class="list-inline list-inline-dots mb-0">
+                            <li class="list-inline-item"><a href="../doc/index.html">Documentation</a></li>
+                            <li class="list-inline-item"><a href="#">FAQ</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-auto">
+                            <a href="#" class="btn btn-outline-primary btn-sm">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+                    Copyright © 2018 <a href="https://themeforest.net/user/thememakker/portfolio">Buzzer</a>. Theme by <a href="https://thememakker.com" target="_blank">thememakker.com</a> All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="assets/js/require.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

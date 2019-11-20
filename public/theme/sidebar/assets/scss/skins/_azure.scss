@@ -1,0 +1,68 @@
+﻿$azure-1: #45aaf2 !default;
+$azure-2: #3eacff !default;
+$azure-3: #0d97ff !default;
+
+.theme-azure{
+
+
+    ::selection {
+        color: $white; 
+        background: $azure-1;
+    }
+    .loader{
+        color: $azure-1;
+    }
+    .btn-primary{
+        background: $azure-1;
+        color: $white;
+        border-color: $azure-1;
+    }
+    .header{
+        background: $azure-1;
+        .nav-tabs{
+            .nav-link{
+                color: $white;
+                &.active{
+                    border-color: $white; 
+                }
+            }            
+        }
+        .dropdown-menu .dropdown-item:hover,
+        .dropdown-menu .dropdown-item.active{
+            color: $azure-1;
+        }
+    }
+    .card{
+        .card-options{
+            a{
+                color: $azure-1;
+                &.btn{
+                    color: $white;
+                }
+            }
+        }
+    }
+    .custom-switch-input:checked ~ .custom-switch-indicator{
+        background: $azure-1;
+    }
+    .chat_app .chat_windows .my-message .message p{
+        background: $azure-1;
+        color: $white;
+    }
+    .metismenu {
+        .active{
+            > a{
+                color: $azure-1;
+                background: rgba($azure-1, 0.1);
+            }
+            ul{
+                .active{
+                    a{
+                        color: $azure-1;
+                        background: transparent;
+                    }
+                }
+            }
+        }
+    }
+}
