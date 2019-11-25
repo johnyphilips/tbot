@@ -9,7 +9,6 @@ class index_index_controller extends index_helper
 {
     public function content()
     {
-        $this->render('stats', $this->get_stats());
         $this->render('discount', $this->model('system_config')->getByField('config_key', 'discount')['config_value']);
         $this->view('index/index');
     }
