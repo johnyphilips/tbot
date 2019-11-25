@@ -139,4 +139,14 @@ class bitcoin_service extends staticBase
         }
         return false;
     }
+
+    public static function btcToUsd($sum)
+    {
+        return $sum * self::model('system_config')->getByField('config_key','btc_rate')['config_value'];
+    }
+
+    public static function usdToBtc($sum)
+    {
+        return $sum / self::model('system_config')->getByField('config_key','btc_rate')['config_value'];
+    }
 }
