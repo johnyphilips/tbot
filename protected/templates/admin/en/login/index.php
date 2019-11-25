@@ -59,8 +59,6 @@
         crossorigin="anonymous"></script>
 <script type="text/javascript" src="/assets/libs/Notifier.js"></script>
 <script type="text/javascript" src="/assets/js/common.js"></script>
-<script src='https://www.google.com/recaptcha/api.js?render=6Le3M60UAAAAAAphgu5e8p-CnnyDo0lFyzuS8c9C'></script>
-
 <script type="text/javascript">
     $ = jQuery.noConflict();
 
@@ -86,35 +84,26 @@
                     Notifier.error('Неизвестная ошибка');
                 });
             <?php else: ?>
-            grecaptcha.ready(function () {
-                grecaptcha.execute('6Le3M60UAAAAAAphgu5e8p-CnnyDo0lFyzuS8c9C', {action: 'action_name'})
-                    .then(function (token) {
-                        App.ajax.json('captcha', {'token': token}, function (response) {
-                            App.ajax.form('#login_form', 'login',
-                                function (response) {
-                                    location.href = response.url ? response.url : '/';
-                                }, function (response) {
-                                    $("#login_btn").prop('disabled', false);
-                                    if (undefined !== response.error) {
-                                        $commonError.html(response.error);
-                                        $commonError.slideDown();
-                                    }
-                                }, function () {
-                                    $("#login_btn").prop('disabled', false);
-                                    Notifier.error('Неизвестная ошибка');
-                                });
-                        }, function () {
-                            $("#login_btn").prop('disabled', false);
-                            alert('Похоже, вы робот!')
-                        });
-                        return false;
-                    });
-            });
-            <?php endif; ?>
+            App.ajax.form('#login_form', 'login',
+                function (response) {
+                    location.href = response.url ? response.url : '/';
+                }, function (response) {
+                    $("#login_btn").prop('disabled', false);
+                    if (undefined !== response.error) {
+                        $commonError.html(response.error);
+                        $commonError.slideDown();
+                    }
+                }, function () {
+                    $("#login_btn").prop('disabled', false);
+                    Notifier.error('Неизвестная ошибка');
+                });
 
+
+            <?php endif; ?>
             setTimeout(function () {
                 $("#login_btn").prop('disabled', false);
-            }, 5000)
+            }, 5000);
+            return false;
         });
 
         $("body").on("click", "#login_btn", function () {
