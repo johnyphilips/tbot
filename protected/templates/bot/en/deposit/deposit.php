@@ -1,0 +1,1 @@
+Enter sum to deposit from <b><?php echo deposit_service::PLANS['intro']['from']; ?> BTC</b>

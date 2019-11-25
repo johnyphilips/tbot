@@ -39,7 +39,6 @@ class deposit_menu extends bot_commands_class
             exit;
         }
         if(!is_numeric($sum) || $sum < deposit_service::PLANS['intro']['from']) {
-            $this->render('min_sum', deposit_service::PLANS['intro']['from']);
             $this->deposit('deposit_need_number');
             $this->setExpect('deposit@/get_deposit_sum');
         } else {
