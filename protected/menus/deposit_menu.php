@@ -26,7 +26,7 @@ class deposit_menu extends bot_commands_class
                 ]
             ]
         ];
-        $this->sendHTML($this->fetch('profile/' . $message), null, $keyboard);
+        $this->sendHTML($this->fetch('deposit/' . $message), null, $keyboard);
     }
 
     public function get_deposit_sum()
@@ -59,7 +59,7 @@ class deposit_menu extends bot_commands_class
                 $this->menu($this->fetch('deposit/deposit_info'));
                 $this->sendHTML('<code>' . $payment['address'] . '</code>', $buttons);
             } else {
-                $this->sendHTML($this->fetch('profile/deposit_failed'));
+                $this->sendHTML($this->fetch('deposit/deposit_failed'));
                 $this->menu();
                 $this->deposit();
             }
