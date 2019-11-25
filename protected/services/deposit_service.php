@@ -160,7 +160,7 @@ class deposit_service extends staticBase
             'user_id' => $payment['user_id'],
             'chat_id' => $payment['chat_id'],
             'payment_id' => $payment['id'],
-            'sum' => $sum,
+            'amount' => $sum,
             'last_profit' => time(),
             'create_date' => tools_class::gmDate()
         ];
