@@ -7,8 +7,8 @@
  */
 class deposit_menu extends bot_commands_class
 {
-    public function account()
+    public function main()
     {
-        $this->sendHTML('deposit/menu');
+        $this->sendHTML('deposit/main');
     }
 }

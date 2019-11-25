@@ -7,8 +7,8 @@
  */
 class withdraw_menu extends bot_commands_class
 {
-    public function account()
+    public function main()
     {
-        $this->sendHTML('withdraw/menu');
+        $this->sendHTML('withdraw/main');
     }
 }

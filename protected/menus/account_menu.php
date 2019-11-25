@@ -7,8 +7,8 @@
  */
 class account_menu extends bot_commands_class
 {
-    public function account()
+    public function main()
     {
-        $this->sendHTML('account/menu');
+        $this->sendHTML('account/main');
     }
 }

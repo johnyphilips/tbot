@@ -64,7 +64,7 @@ class webhook_bot1_controller extends bot_project
             } else {
                 $class_name = $command . '_menu';
                 if(class_exists($class_name)) {
-                    $message['text'] = '/menu';
+                    $message['text'] = '/main';
                     new $class_name($message);
                     $this->success();
                 }

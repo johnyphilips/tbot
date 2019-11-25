@@ -7,8 +7,8 @@
  */
 class referral_menu extends bot_commands_class
 {
-    public function account()
+    public function main()
     {
-        $this->sendHTML('referral/menu');
+        $this->sendHTML('referral/main');
     }
 }
