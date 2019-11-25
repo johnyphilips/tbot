@@ -12,8 +12,6 @@ class bot_commands_class extends bot_class
             exit;
         }
         $this->init();
-        $this->roulette_information();
-        $this->slots_init();
         if(!$message['data']) {
             $command = ltrim($message['text'], '/');
 //            exit;
