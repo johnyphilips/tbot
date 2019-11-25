@@ -19,7 +19,7 @@ class bitcoin_service extends staticBase
         return bitcoin_api::generateAddress();
     }
 
-    public static function createPayment($user, $sum, $btc_sum, $coupon_id = null)
+    public static function createPayment($user, $sum)
     {
         if(!$address = self::generateWallet()) {
             return false;
@@ -29,9 +29,7 @@ class bitcoin_service extends staticBase
             'user_id' => $user['id'],
             'chat_id' => $user['chat_id'],
             'amount' => $sum,
-            'amount_btc' => $btc_sum,
             'address' => $address,
-            'coupon_id' => $coupon_id,
             'create_date' => tools_class::gmDate()
         ];
         $payment['id'] = self::model('payments')->insert($payment);
