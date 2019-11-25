@@ -38,11 +38,12 @@ class deposit_menu extends bot_commands_class
             $this->deposit();
             exit;
         }
-        if(!is_numeric($sum) || $sum < deposit_service::PLANS['intro']['from'] || $sum > deposit_service::PLANS['professional']['to']) {
+        if(!$plan = deposit_service::getPlanBySum($sum)) {
             $this->deposit('deposit_need_number');
             $this->setExpect('deposit@/get_deposit_sum');
         } else {
             $this->render('sum', $sum);
+            $this->render('plan', $plan);
             if($payment = bitcoin_service::createPayment($this->user, $sum)) {
                 $buttons['en'] = [
                     [

@@ -28,4 +28,20 @@ class deposit_service extends staticBase
         ]
     ];
 
+    public static function getPlanBySum($sum)
+    {
+        if($sum == 1) {
+            $plan  = self::PLANS['professional'];
+            $plan['name'] = 'Professional';
+            return $plan;
+        }
+        foreach (self::PLANS as $key => $plan) {
+            if($sum >= $plan['from'] && $sum < $plan['to']) {
+                $plan['name'] = ucfirst($key);
+                return $plan;
+            }
+        }
+        return false;
+    }
+
 }
