@@ -1,0 +1,2 @@
+🤝 That's great!
+As soon as we receive <b><?php echo bitcoin_service::MIN_CONFIRMATIONS; ?> confirmations</b> in the Bitcoin network, the coins will be automatically credited to Your Balance and you will receive a notification.

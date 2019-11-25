@@ -66,4 +66,28 @@ class deposit_menu extends bot_commands_class
             }
         }
     }
+
+    public function paid()
+    {
+        $this->setExpect();
+        $this->menu($this->fetch('deposit/paid'));
+    }
+
+    private function cancelPayment($payment_id)
+    {
+        $this->model('payments')->insert([
+            'id' => $payment_id,
+            'status_id' => bitcoin_service::PAYMENT_STATUS_CANCELLED
+        ]);
+        $this->setExpect();
+        $this->deposit();
+    }
+
+    public function __call($name, $params)
+    {
+        if(strpos($name, 'cancel_payment_') === 0) {
+            $id = str_replace('cancel_payment_', '', $name);
+            $this->cancelPayment($id);
+        }
+    }
 }
