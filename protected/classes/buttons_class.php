@@ -17,7 +17,7 @@ class buttons_class
             ],
             'en' => [
                 [
-                    ['text' => hex2bin('F09F8C90') . ' My Account (Balance 0$)'],
+                    ['text' => hex2bin('F09F8C90') . ' My Account (Balance ' . $user['balance'] . '$)'],
                 ],
                 [
                     ['text' => hex2bin('F09F8C90') . ' Deposit'],
