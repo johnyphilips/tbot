@@ -11,6 +11,7 @@ class bitcoin_service extends staticBase
     const   PAYMENT_STATUS_NO_CONFIRMATIONS = 1;
     const   PAYMENT_STATUS_CONFIRMED = 2;
     const   PAYMENT_STATUS_CANCELLED = 3;
+    const   PAYMENT_STATUS_LOW = 4;
     const   WAIT_FOR_PAYMENT = 60 * 60; //in seconds
     const   MIN_CONFIRMATIONS = 3;
 
@@ -39,8 +40,11 @@ class bitcoin_service extends staticBase
     public static function checkTransactions()
     {
         foreach (self::model('payments')->getByField('status_id', self::PAYMENT_STATUS_NEW, true) as $payment) {
+            if(DEVELOPMENT_MODE === true) {
+                $res['response'] = $payment['amount'];
+            }
             $res = bitcoin_api::getReceivedByAddress($payment['address'], 0);
-            if($res['response'] && $res['status'] === 'success' || DEVELOPMENT_MODE === true) {
+            if(($res['response'] && $res['status'] === 'success' || DEVELOPMENT_MODE === true) && $res['response'] > $payment['paid']) {
                 self::model('payments')->insert([
                     'id' => $payment['id'],
                     'pay_date' => gmdate('Y-m-d H:i:s'),
@@ -60,24 +64,19 @@ class bitcoin_service extends staticBase
         }
         foreach (self::model('payments')->getByField('status_id', self::PAYMENT_STATUS_NO_CONFIRMATIONS, true) as $payment) {
             $res = bitcoin_api::getReceivedByAddress($payment['address'], self::MIN_CONFIRMATIONS);
-            if($res['response'] && $res['status'] === 'success'  || DEVELOPMENT_MODE === true) {
+            if(DEVELOPMENT_MODE === true) {
+                $res['response'] = $payment['amount'];
+            }
+            if(($res['response'] && $res['status'] === 'success'  || DEVELOPMENT_MODE === true) && $res['response'] > $payment['paid']) {
+                $payment['paid'] = $payment['paid'] + $res['response'];
                 self::model('payments')->insert([
                     'id' => $payment['id'],
                     'pay_date' => gmdate('Y-m-d H:i:s'),
-                    'status_id' => self::PAYMENT_STATUS_CONFIRMED
+                    'status_id' => self::PAYMENT_STATUS_CONFIRMED,
+                    'paid' => $payment['paid']
                 ]);
-                if(DEVELOPMENT_MODE === true) {
-                    $res['response'] = $payment['amount_btc'];
-                }
-                if($payment['coupon_id']) {
-                    $coupon = self::model('coupons')->getById($payment['coupon_id']);
-                    balance_service::useCoupon($coupon['id']);
-                    self::render('discount', $coupon['profit']);
-                }
-                balance_service::topUp($payment, $res['response']);
+                deposit_service::topUp($payment, $res['response']);
                 self::render('sum', $payment['amount']);
-
-//
                 $user = self::model('bot_users')->getById($payment['user_id']);
                 queue_service::add($payment['chat_id'], self::fetch('queue/topped_up'), null, buttons_class::getMenu($user));
             }

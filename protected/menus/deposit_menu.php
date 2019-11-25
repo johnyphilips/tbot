@@ -15,10 +15,18 @@ class deposit_menu extends bot_commands_class
         $this->sendHTML('deposit/main', $buttons);
     }
 
-    public function deposit($message = 'deposit')
+    public function deposit($message = 'deposit', $payment_id = null)
     {
         $this->render('btc_rate', $this->model('system_config')->getByField('config_key','btc_rate')['config_value']);
-        $this->setExpect('deposit@/get_deposit_sum');
+        if($payment_id) {
+            $payment = $this->model('payments')->getById($payment_id);
+            $min_sum = deposit_service::PLANS['intro']['from'] - $payment['paid'];
+            $this->setExpect('deposit@/get_deposit_sum_' . $payment_id);
+        } else {
+            $min_sum = deposit_service::PLANS['intro']['from'];
+            $this->setExpect('deposit@/get_deposit_sum');
+        }
+        $this->render('min_sum', $min_sum);
         $keyboard = [
             'en' => [
                 [
@@ -29,7 +37,7 @@ class deposit_menu extends bot_commands_class
         $this->sendHTML($this->fetch('deposit/' . $message), null, $keyboard);
     }
 
-    public function get_deposit_sum()
+    public function get_deposit_sum($payment_id = null)
     {
         $this->setExpect();
         $sum = $this->message['text'];
@@ -44,7 +52,12 @@ class deposit_menu extends bot_commands_class
         } else {
             $this->render('sum', $sum);
             $this->render('plan', $plan);
-            if($payment = bitcoin_service::createPayment($this->user, $sum)) {
+            if(!$payment_id) {
+                $payment = bitcoin_service::createPayment($this->user, $sum);
+            } else {
+                $payment = $this->model('payments')->getById($payment_id);
+            }
+            if($payment) {
                 $buttons['en'] = [
                     [
                         ['text' => 'I paid',  'callback_data' => 'deposit@/paid'],
@@ -88,6 +101,16 @@ class deposit_menu extends bot_commands_class
         if(strpos($name, 'cancel_payment_') === 0) {
             $id = str_replace('cancel_payment_', '', $name);
             $this->cancelPayment($id);
+        }
+
+        if(strpos($name, 'deposit_') === 0) {
+            $id = str_replace('deposit_', '', $name);
+            $this->deposit('deposit', $id);
+        }
+
+        if(strpos($name, 'get_deposit_sum_') === 0) {
+            $id = str_replace('get_deposit_sum_', '', $name);
+            $this->get_deposit_sum($id);
         }
     }
 }

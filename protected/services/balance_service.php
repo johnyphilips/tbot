@@ -99,16 +99,8 @@ class balance_service extends staticBase
         return false;
     }
 
-    public static function topUp($payment, $btc_sum, $coupon = null)
+    public static function topUp($payment, $sum)
     {
-        if($payment['amount_btc'] == $btc_sum) {
-            $sum = $payment['amount'];
-        } else {
-            $sum = floor($btc_sum/self::COIN_COST);
-        }
-        if($coupon) {
-            $sum += $sum / 100 * $coupon['profit'];
-        }
         self::balancePlus($payment['user_id'], $sum);
         $user = self::model('bot_users')->getById($payment['user_id']);
         if($user['referrer_id'] && $user['referrer_id'] != 1) {
