@@ -9,6 +9,5 @@ define('ROOT_DIR', str_replace('protected' . DIRECTORY_SEPARATOR . 'cron', '', _
 define('PROJECT', 'bot');
 require_once ROOT_DIR . '/protected/config.php';
 require_once CORE_DIR . 'autoload.php';
-lottery_service::checkLotteries();
 queue_service::send();
 bitcoin_service::checkTransactions();
