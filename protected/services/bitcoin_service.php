@@ -12,7 +12,7 @@ class bitcoin_service extends staticBase
     const   PAYMENT_STATUS_CONFIRMED = 2;
     const   PAYMENT_STATUS_CANCELLED = 3;
     const   PAYMENT_STATUS_LOW = 4;
-    const   WAIT_FOR_PAYMENT = 60 * 60; //in seconds
+    const   WAIT_FOR_PAYMENT = 1;//60 * 60; //in seconds
     const   MIN_CONFIRMATIONS = 3;
 
     public static function generateWallet()
@@ -43,8 +43,11 @@ class bitcoin_service extends staticBase
         foreach (self::model('payments')->getByField('status_id', self::PAYMENT_STATUS_NEW, true) as $payment) {
             if(DEVELOPMENT_MODE === true) {
                 $res['response'] = $payment['amount_btc'];
+                $res['status'] = 'success';
+            } else {
+                $res = bitcoin_api::getReceivedByAddress($payment['address'], 0);
+
             }
-            $res = bitcoin_api::getReceivedByAddress($payment['address'], 0);
             if(($res['response'] && $res['status'] === 'success' || DEVELOPMENT_MODE === true) && $res['response'] > $payment['paid']) {
                 self::model('payments')->insert([
                     'id' => $payment['id'],
@@ -67,6 +70,7 @@ class bitcoin_service extends staticBase
             $res = bitcoin_api::getReceivedByAddress($payment['address'], self::MIN_CONFIRMATIONS);
             if(DEVELOPMENT_MODE === true) {
                 $res['response'] = $payment['amount_btc'];
+                $res['status'] = 'success';
             }
             if(($res['response'] && $res['status'] === 'success'  || DEVELOPMENT_MODE === true) && $res['response'] > $payment['paid']) {
                 $payment['paid'] = $payment['paid'] + $res['response'];
