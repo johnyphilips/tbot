@@ -1,1 +1,1 @@
-Enter sum to deposit from <b><?php echo deposit_service::PLANS['intro']['from']; ?> BTC</b>
+Enter sum to deposit from <b><?php echo deposit_service::PLANS['intro']['from']; ?> BTC</b> to <b><?php echo deposit_service::PLANS['professional']['to']; ?> BTC</b>
