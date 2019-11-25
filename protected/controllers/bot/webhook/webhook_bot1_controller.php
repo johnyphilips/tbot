@@ -2,26 +2,11 @@
 class webhook_bot1_controller extends bot_project
 {
     private $text_commands = [
-        '🌐 Лотерея' => 'lottery',
-        '🎰 Lottery' => 'lottery',
-        '👥 Личный Кабинет' => 'profile',
-        '👥 My Profile' => 'profile',
-        '🍀 My Profile' => 'profile',
-        '🍀 Личный кабинет' => 'profile',
-        '❓Информация' => 'information',
-        '⚙️ About Us' => 'information',
-        '❓ About Us' => 'information',
-        '❓ Information' => 'information',
-        '🌟 Бесплатная Лотерея' => 'free_lottery',
-        '🎉 Бесплатная Лотерея' => 'free_lottery',
-        '🌟 Free Lottery' => 'free_lottery',
-        '🎉 Free Lottery' => 'free_lottery',
-        '🧿 Mini Roulette' => 'roulette',
-        '💰 Get Coins' => 'profile@/topup_btc',
-        '📤 Withdraw' => 'profile@/withdraw',
-        '🃏 Joker' => 'slots@/slots',
-        '🃏 Joker Free Demo' => 'slots@/slots_demo',
-        '🏁 Finish Game' => 'slots@/finish'
+        '🌐 My Account' => 'account',
+        '🌐 Deposit' => 'deposit',
+        '🌐 Withdraw Funds' => 'withdraw',
+        '🌐 Referral Program' => 'referral',
+        '🌐 About Us' => 'information'
     ];
 
 	public function end()
@@ -60,9 +45,15 @@ class webhook_bot1_controller extends bot_project
                 $this->success();
             }
         }
-        if(array_key_exists($message['text'], $this->text_commands)) {
-            if(strpos( $this->text_commands[$message['text']],'@')) {
-                $arr = explode('@', $this->text_commands[$message['text']]);
+        if(strpos($message['text'], '🌐 My Account') === 0) {
+            $command = 'account';
+        }
+        if(!empty($command) || array_key_exists($message['text'], $this->text_commands)) {
+            if(empty($command)) {
+                $command = $this->text_commands[$message['text']];
+            }
+            if(strpos( $command,'@')) {
+                $arr = explode('@', $command);
                 $class_name = $arr[0] . '_menu';
 
                 if(class_exists($class_name)) {
@@ -71,9 +62,9 @@ class webhook_bot1_controller extends bot_project
                     $this->success();
                 }
             } else {
-                $class_name = $this->text_commands[$message['text']] . '_menu';
+                $class_name = $command . '_menu';
                 if(class_exists($class_name)) {
-                    $message['text'] = '/' . $this->text_commands[$message['text']];
+                    $message['text'] = '/' . $command;
                     new $class_name($message);
                     $this->success();
                 }
