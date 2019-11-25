@@ -129,28 +129,32 @@ class deposit_service extends staticBase
 
     public static function topUp($payment, $sum)
     {
-        if($plan = self::getPlanBySum($sum) || $sum > 1) {
-            if($sum > 1) {
-                $plan  = self::PLANS['professional'];
-                $plan['name'] = 'Professional';
-            }
-            var_dump($plan);
+        if($sum > 1) {
+            $plan  = self::PLANS['professional'];
+            $plan['name'] = 'Professional';
+        } else {
+            $plan = self::getPlanBySum($sum);
+        }
+        if($plan) {
             if(self::createDeposit($sum, $payment, $plan)) {
                 $user = self::model('bot_users')->getById($payment['user_id']);
                 foreach (self::getReferrers($user) as $referrer) {
                     self::referrerPayout($payment, $referrer, $sum, $user['t_user_name']);
                 }
+                return true;
             }
+        } else {
+            self::model('payments')->insert([
+                'id' => $payment['id'],
+                'status_id' => bitcoin_service::PAYMENT_STATUS_LOW
+            ]);
+            self::render('sum', $sum);
+            $buttons['en'] = [
+                [['text' => 'Deposit Funds',  'callback_data' => 'deposit@/deposit_' . $payment['id']]],
+            ];
+            queue_service::add($payment['chat_id'], self::fetch('queue/min_sum'), $buttons);
+            return false;
         }
-        self::model('payments')->insert([
-            'id' => $payment['id'],
-            'status_id' => bitcoin_service::PAYMENT_STATUS_LOW
-        ]);
-        self::render('sum', $sum);
-        $buttons['en'] = [
-            [['text' => 'Deposit Funds',  'callback_data' => 'deposit@/deposit_' . $payment['id']]],
-        ];
-        queue_service::add($payment['chat_id'], self::fetch('queue/min_sum'), $buttons);
         return false;
     }
 
