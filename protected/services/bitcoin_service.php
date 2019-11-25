@@ -29,7 +29,7 @@ class bitcoin_service extends staticBase
             'status_id' => self::PAYMENT_STATUS_NEW,
             'user_id' => $user['id'],
             'chat_id' => $user['chat_id'],
-            'amount' => $sum,
+            'amount_btc' => $sum,
             'address' => $address,
             'create_date' => tools_class::gmDate()
         ];

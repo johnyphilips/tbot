@@ -117,7 +117,7 @@ class deposit_service extends staticBase
             'user_id' => $referrer['id'],
             'referral_id' => $payment['user_id'],
             'payment_id' => $payment['id'],
-            'amount' => $amount,
+            'amount_btc' => $amount,
             'level' => $referrer['level'],
             'create_date' => tools_class::gmDate()
         ];
@@ -134,7 +134,6 @@ class deposit_service extends staticBase
                 $plan  = self::PLANS['professional'];
                 $plan['name'] = 'Professional';
             }
-            print_r($plan);
             if(self::createDeposit($sum, $payment, $plan)) {
                 $user = self::model('bot_users')->getById($payment['user_id']);
                 foreach (self::getReferrers($user) as $referrer) {
@@ -161,7 +160,7 @@ class deposit_service extends staticBase
             'user_id' => $payment['user_id'],
             'chat_id' => $payment['chat_id'],
             'payment_id' => $payment['id'],
-            'amount' => $sum,
+            'amount_btc' => $sum,
             'last_profit' => time(),
             'create_date' => tools_class::gmDate()
         ];
