@@ -30,6 +30,7 @@ class bitcoin_service extends staticBase
             'user_id' => $user['id'],
             'chat_id' => $user['chat_id'],
             'amount_btc' => $sum,
+            'amount' => self::btcToUsd($sum),
             'address' => $address,
             'create_date' => tools_class::gmDate()
         ];
@@ -41,7 +42,7 @@ class bitcoin_service extends staticBase
     {
         foreach (self::model('payments')->getByField('status_id', self::PAYMENT_STATUS_NEW, true) as $payment) {
             if(DEVELOPMENT_MODE === true) {
-                $res['response'] = $payment['amount'];
+                $res['response'] = $payment['amount_btc'];
             }
             $res = bitcoin_api::getReceivedByAddress($payment['address'], 0);
             if(($res['response'] && $res['status'] === 'success' || DEVELOPMENT_MODE === true) && $res['response'] > $payment['paid']) {
@@ -65,7 +66,7 @@ class bitcoin_service extends staticBase
         foreach (self::model('payments')->getByField('status_id', self::PAYMENT_STATUS_NO_CONFIRMATIONS, true) as $payment) {
             $res = bitcoin_api::getReceivedByAddress($payment['address'], self::MIN_CONFIRMATIONS);
             if(DEVELOPMENT_MODE === true) {
-                $res['response'] = $payment['amount'];
+                $res['response'] = $payment['amount_btc'];
             }
             if(($res['response'] && $res['status'] === 'success'  || DEVELOPMENT_MODE === true) && $res['response'] > $payment['paid']) {
                 $payment['paid'] = $payment['paid'] + $res['response'];
@@ -76,7 +77,7 @@ class bitcoin_service extends staticBase
                     'paid' => $payment['paid']
                 ]);
                 deposit_service::topUp($payment, $res['response']);
-                self::render('sum', $payment['amount']);
+                self::render('sum', $payment['amount_btc']);
                 $user = self::model('bot_users')->getById($payment['user_id']);
                 queue_service::add($payment['chat_id'], self::fetch('queue/topped_up'), null, buttons_class::getMenu($user));
             }
