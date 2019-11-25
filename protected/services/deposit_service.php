@@ -161,6 +161,7 @@ class deposit_service extends staticBase
             'chat_id' => $payment['chat_id'],
             'payment_id' => $payment['id'],
             'amount_btc' => $sum,
+            'amount' => bitcoin_service::btcToUsd($sum),
             'last_profit' => time(),
             'create_date' => tools_class::gmDate()
         ];
