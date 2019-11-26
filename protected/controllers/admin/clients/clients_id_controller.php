@@ -24,7 +24,17 @@ class clients_id_controller extends admin_project
             'referrer_id' => $user['id'],
             'status_id' => bot_commands_class::USER_ACTIVE_STATUS
         ], true) as $referral) {
-            $referrals[1][] = $referral;
+            $referrals[1][$referral['id']] = $referral;
+            $deposits = 0;
+            foreach ($this->model('deposits')->getByField('user_id', $referral['id'], true) as $item) {
+                $deposits += $item['amount_btc'];
+            }
+            $profits = 0;
+            foreach ($this->model('profits')->getByField('user_id', $referral['id'], true) as $item) {
+                $profits += $item['amount_btc'];
+            }
+            $referrals[1][$referral['id']]['deposits'] = $deposits;
+            $referrals[1][$referral['id']]['profits'] = $profits;
             $in[] = $referral['id'];
         }
         if($in) {
