@@ -42,7 +42,7 @@
                     </tr>
                     <tr>
                         <td>Вывел</td>
-                        <td><?php echo bitcoin_service::formatBTC($total['profit']); ?></td>
+                        <td><?php echo bitcoin_service::formatBTC($total['withdrawal']); ?></td>
                     </tr>
                     <tr>
                         <td>Реф профит</td>
