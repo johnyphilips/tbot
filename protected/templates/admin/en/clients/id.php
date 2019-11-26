@@ -29,7 +29,7 @@
                     <?php if ($referrer): ?>
                         <tr>
                             <td>Referrer</td>
-                            <td><?php echo $referrer['t_user_name']; ?></td>
+                            <td><a href="/clients/id?id=<?php echo $referrer['id']; ?>"><?php echo $referrer['t_user_name']; ?></a> </td>
                         </tr>
                     <?php endif; ?>
                     <tr>
