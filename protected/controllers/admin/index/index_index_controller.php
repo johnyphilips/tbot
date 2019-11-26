@@ -122,6 +122,6 @@ class index_index_controller extends index_helper
 
     public function test()
     {
-        var_dump(tools_class::dateDiff(date('Y-m-d', strtotime('2019-11-01')))->days);
+        var_dump(deposit_service::PLANS['intro']['term'] - tools_class::dateDiff(date('Y-m-d', strtotime('2019-11-01')))->days);
     }
 }
