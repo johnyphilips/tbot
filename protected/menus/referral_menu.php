@@ -30,9 +30,9 @@ class referral_menu extends bot_commands_class
                 }
             }
         }
-        print_r($referrals);exit;
         $this->render('referrals', $referrals);
-
+        $this->render('referral_link', tools_class::getReferralLink($this->user));
+        $this->sendHTML($this->fetch('referral/referral_link'));
         $this->sendHTML($this->fetch('referral/main'));
     }
 }

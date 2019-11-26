@@ -1,0 +1,1 @@
+<b>Your referral link:</b> <?php echo $referral_link; ?>
