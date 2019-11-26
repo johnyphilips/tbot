@@ -114,7 +114,6 @@ class deposit_service extends staticBase
 
     public static function referrerPayout($payment, $referrer, $sum, $referral_name)
     {
-        print_r($referrer);
         $amount = round( $sum/100 * self::REFERRER_PAYOUTS[$referrer['level']], 8);
         self::balancePlus($referrer['id'], $amount);
         $row = [
@@ -144,7 +143,6 @@ class deposit_service extends staticBase
             if(self::createDeposit($sum, $payment, $plan)) {
                 $user = self::model('bot_users')->getById($payment['user_id']);
                 foreach (self::getReferrers($user) as $referrer) {
-                    print_r($referrer);
                     self::referrerPayout($payment, $referrer, $sum, $user['t_user_name']);
                 }
                 return true;
