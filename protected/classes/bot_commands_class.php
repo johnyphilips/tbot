@@ -33,30 +33,23 @@ class bot_commands_class extends bot_class
                                 'referrer_id' => $referrer['id']
                             ]);
                             $this->user['referrer_id'] = $referrer['id'];
-
-                            if($promo = $this->model('promos')->getByFields([
-                                'promo_code' => 'bingo',
-                                'status_id' => 1
-                            ])) {
-                                $promo_res = $this->promo($promo);
-                            }
                         }
                     } else {
-                        if($promo = $this->model('promos')->getByFields([
-                            'promo_code' => $referral_parameter,
-                            'status_id' => 1
-                        ])) {
-                            $promo_res = $this->promo($promo);
-                        } else {
-                            $this->model('bot_users')->insert([
-                                'id' => $this->user['id'],
-                                'referrer_id' => 1
-                            ]);
-                        }
+//                        if($promo = $this->model('promos')->getByFields([
+//                            'promo_code' => $referral_parameter,
+//                            'status_id' => 1
+//                        ])) {
+//                            $promo_res = $this->promo($promo);
+//                        } else {
+//                            $this->model('bot_users')->insert([
+//                                'id' => $this->user['id'],
+//                                'referrer_id' => 1
+//                            ]);
+//                        }
                     }
 
                 }
-                $this->start($promo_res);
+                $this->start();
             } else if($this->user['expect_message']) {
                 self::checkUserStatus();
                 $command = $this->user['expect_message'];
