@@ -41,11 +41,11 @@ class index_index_controller extends index_helper
                 $stats[$date]['balances'] = $item['balances'] ? $item['balances'] : 0;
             }
         }
-//        foreach ($this->model('payments')->count30DaysPayments() as $date => $item) {
-//            if($stats[$date]) {
-//                $stats[$date]['payments'] = $item;
-//            }
-//        }
+        foreach ($this->model('withdrawals')->count30DaysWithdrawals() as $date => $item) {
+            if($stats[$date]) {
+                $stats[$date]['withdrawals'] = $item;
+            }
+        }
         foreach ($this->model('bot_users')->count30DaysUsers() as $date => $item) {
             if($stats[$date]) {
                 $stats[$date]['new_users'] = $item ? $item : 0;
