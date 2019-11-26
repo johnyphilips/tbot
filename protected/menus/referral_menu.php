@@ -14,7 +14,7 @@ class referral_menu extends bot_commands_class
         foreach ($this->model('bot_users')->getByFields([
             'referrer_id' => $this->user['id'],
             'status_id' => bot_commands_class::USER_ACTIVE_STATUS
-        ], true) as $referral) {
+        ], true, null, null, 2) as $referral) {
             $referrals[1][] = $referral;
             $in[] = $referral['id'];
         }
