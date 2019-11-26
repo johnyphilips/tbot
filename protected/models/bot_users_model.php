@@ -11,21 +11,21 @@ class bot_users_model extends model
     {
         $stm = $this->pdo->prepare('
             SELECT
-                *,
+                b.*,
                 sum(d.amount_btc) deposits
             FROM
                 bot_users u 
             LEFT JOIN
                 deposits d ON u.id = d.user_id
             WHERE
-                u.id IN(' . implode(',', $ids) . ') 
+                u.referrer_id IN(' . implode(',', $ids) . ') 
                     AND
                 u.status_id = ' . bot_commands_class::USER_ACTIVE_STATUS . '
             GROUP BY u.id
         ');
         return $this->get_all($stm);
     }
-    
+
     public function count24HoursUsers()
     {
         $stm = $this->pdo->prepare('
