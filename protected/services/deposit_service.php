@@ -195,6 +195,7 @@ class deposit_service extends staticBase
                     'status_id' => 2
                 ]);
                 self::balancePlus($deposit['user_id'], $deposit['amount_btc']);
+                $user['balance'] += $deposit['amount_btc'];
                 queue_service::add($deposit['chat_id'], self::fetch('queue/deposit_closed'), null, buttons_class::getMenu($user));
                 break;
             }
@@ -206,7 +207,6 @@ class deposit_service extends staticBase
                 'last_profit' => time()
             ]);
             self::render('profit', $profit);
-
             queue_service::add($deposit['chat_id'], self::fetch('queue/profit'), null, buttons_class::getMenu($user));
         }
     }
