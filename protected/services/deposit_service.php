@@ -153,7 +153,7 @@ class deposit_service extends staticBase
             ]);
             self::render('sum', $sum);
             $buttons['en'] = [
-                [['text' => 'Deposit Funds',  'callback_data' => 'deposit@/deposit_' . $payment['id']]],
+                [['text' => 'Deposit Lacking Funds',  'callback_data' => 'deposit@/deposit_' . $payment['id']]],
             ];
             queue_service::add($payment['chat_id'], self::fetch('queue/min_sum'), $buttons);
             return false;
