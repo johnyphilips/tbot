@@ -32,17 +32,16 @@ class deposit_service extends staticBase
         2 => 2,
         3 => 1
     ];
+    const UPDATE_PROFIT_PER_DAY = 8;
     static $last_error;
 
     public static function balancePlus($user_id, $sum)
     {
         $user = self::model('bot_users')->getById($user_id);
-        print_r($user);
         if(self::model('bot_users')->insert([
             'id' => $user['id'],
             'balance' => $user['balance'] + $sum
         ])) {
-            echo 111;
             return true;
         }
         return false;
@@ -179,6 +178,23 @@ class deposit_service extends staticBase
         ];
         $deposit['id'] = self::model('deposits')->insert($deposit);
         return $deposit;
+    }
+
+    public static function makeProfits()
+    {
+        $deposits = self::model('deposits')->getProfitDeposits();
+        foreach ($deposits as $deposit) {
+            $plan = self::PLANS[strtolower($deposit['plan'])];
+            $profit = ($deposit['amount_btc'] / $plan['percent'] * 100) / self::UPDATE_PROFIT_PER_DAY;
+            self::balancePlus($deposit['user_id'], $profit);
+            self::model('deposits')->insert([
+                'id' => $deposit['id'],
+                'profit' => $deposit['profit'] + $profit,
+                'last_profit' => time()
+            ]);
+            self::render('profit', $profit);
+            queue_service::add($deposit['chat_id'], self::fetch('queue/profit'));
+        }
     }
 
 }
