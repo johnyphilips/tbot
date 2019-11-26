@@ -117,7 +117,6 @@
                         <td>Уровень</td>
                         <td>Юзер</td>
                         <td>Депозиты</td>
-                        <td>Профит</td>
                     </tr>
                     <tbody>
                     <?php if ($referrals): ?>
@@ -127,9 +126,6 @@
                                     <td><?php echo $level; ?></td>
                                     <td><a href="/cliets/id?id=<?php echo $referral['id']; ?>"><?php echo $referral['t_user_name']; ?></a></td>
                                     <td><?php echo $referral['deposits']; ?></td>
-                                    <td>
-                                        <?php echo $referral['profits']; ?>
-                                    </td>
                                 </tr>
                             <?php endforeach; ?>
 
