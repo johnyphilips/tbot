@@ -56,7 +56,7 @@ class deposit_menu extends bot_commands_class
             $this->render('min_sum', deposit_service::PLANS['intro']['from'] - $payment['paid']);
             $this->render('max_sum', deposit_service::PLANS['professional']['to'] - $payment['paid']);
             if($payment) {
-                $this->deposit('deposit_need_number_' . $payment['id']);
+                $this->deposit('deposit_need_number', $payment['id']);
                 $this->setExpect('deposit@/get_deposit_sum_' . $payment['id']);
             } else {
                 $this->deposit('deposit_need_number');
