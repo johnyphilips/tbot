@@ -33,6 +33,7 @@ class deposit_service extends staticBase
         3 => 1
     ];
     const UPDATE_PROFIT_PER_DAY = 8;
+    const MIN_WITHDRAW = 0.0001;
     static $last_error;
 
     public static function balancePlus($user_id, $sum)
