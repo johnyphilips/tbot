@@ -19,27 +19,18 @@
                         <tr>
                             <th>Дата</th>
                             <th>Новые пользователи</th>
-                            <th>Поступления</th>
-                            <th>Выплаты</th>
-                            <th>Лотерей</th>
-                            <th>БП Лотерей</th>
-                            <th colspan="3">Рулетки</th>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th>Кол-во</th>
-                            <th>Выиграно</th>
-                            <th>Потрачено</th>
+                            <th>На балансе</th>
+                            <th>Депозитов</th>
+                            <th>Выводов</th>
+                            <th>Деп/выв</th>
+                            <th>Всего профита</th>
+                            <th>Выплаты рефералам</th>
+                            <th>Наш профит</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php foreach ($stats as $date => $stat): ?>
-                            <tr>Я
+                            <tr>
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo $stat['new_users']; ?></td>
                                 <td><?php echo $stat['balances']; ?></td>
