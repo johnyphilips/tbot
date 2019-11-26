@@ -68,7 +68,7 @@ class withdraw_menu extends bot_commands_class
                     ]
                 ]
             ];
-            $this->sendHTML($this->fetch('profile/' . $message), null, $keyboard);
+            $this->sendHTML($this->fetch('withdraw/' . $message), null, $keyboard);
             exit;
         }
     }
@@ -94,10 +94,10 @@ class withdraw_menu extends bot_commands_class
                 balance_service::balanceMinus($this->user['id'], $withdrawal['amount_btc']);
                 $this->render('sum', $withdrawal['amount_btc']);
                 $this->render('tx_id', $withdrawal['tx_id']);
-                $this->sendHTML($this->fetch('profile/withdrawal_success'));
+                $this->sendHTML($this->fetch('withdraw/withdrawal_success'));
                 queue_service::add(WITHDRAWAL_CHANNEL, $this->fetch('queue/withdrawal_channel'));
             } else {
-                $this->sendHTML($this->fetch('profile/withdrawal_unsuccess'));
+                $this->sendHTML($this->fetch('withdraw/withdrawal_unsuccess'));
             }
             $this->menu();
         }
