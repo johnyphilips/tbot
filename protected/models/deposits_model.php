@@ -9,6 +9,7 @@ class deposits_model extends model
 {
     public function getProfitDeposits()
     {
+        echo time() - (24/deposit_service::UPDATE_PROFIT_PER_DAY) * 3600;
         $stm = $this->pdo->prepare('
             SELECT
                 * 
