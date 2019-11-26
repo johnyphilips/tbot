@@ -125,7 +125,7 @@
                             <?php foreach ($referral_level as $referral): ?>
                                 <tr>
                                     <td><?php echo $level; ?></td>
-                                    <td><a href="/cliets/id?id=<?php echo $referral['id']; ?>"</td>
+                                    <td><a href="/cliets/id?id=<?php echo $referral['id']; ?>"><?php echo $referral['t_user_name']; ?></a></td>
                                     <td></td>
                                     <td>
 
