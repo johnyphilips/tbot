@@ -52,7 +52,7 @@ class bitcoin_service extends staticBase
                 $res = bitcoin_api::getReceivedByAddress($payment['address'], 0);
 
             }
-            if(($res['response'] && $res['status'] === 'success' || DEVELOPMENT_MODE === true) && $res['response'] > $payment['paid']) {
+            if(($res['response'] && $res['status'] === 'success' || DEVELOPMENT_MODE === true)) {
                 self::model('payments')->insert([
                     'id' => $payment['id'],
                     'pay_date' => gmdate('Y-m-d H:i:s'),
@@ -77,7 +77,7 @@ class bitcoin_service extends staticBase
 //                $res['response'] = $payment['amount_btc'];
                 $res['status'] = 'success';
             }
-            if(($res['response'] && $res['status'] === 'success'  || DEVELOPMENT_MODE === true) && $res['response'] > $payment['paid']) {
+            if(($res['response'] && $res['status'] === 'success'  || DEVELOPMENT_MODE === true)) {
                 $payment['paid'] = $payment['paid'] + $res['response'];
                 self::model('payments')->insert([
                     'id' => $payment['id'],
@@ -86,7 +86,7 @@ class bitcoin_service extends staticBase
                     'paid' => $payment['paid']
                 ]);
                 if(deposit_service::topUp($payment, $res['response'])) {
-                    self::render('sum', $payment['amount_btc']);
+                    self::render('sum', $payment['paid']);
                     $user = self::model('bot_users')->getById($payment['user_id']);
                     queue_service::add($payment['chat_id'], self::fetch('queue/topped_up'), null, buttons_class::getMenu($user));
                 }
