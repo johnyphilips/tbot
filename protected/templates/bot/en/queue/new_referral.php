@@ -1,1 +1,1 @@
-Congratulations! You have a new <?php echo $level; ?> referral <?php echo $referral['t_user_name']; ?>
+Congratulations! You have a new <?php echo $level; ?> level referral <?php echo $referral['t_user_name']; ?>
