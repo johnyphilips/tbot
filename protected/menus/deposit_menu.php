@@ -53,6 +53,8 @@ class deposit_menu extends bot_commands_class
             $payment = $this->model('payments')->getById($payment_id);
         }
         if(!$plan = deposit_service::getPlanBySum($sum, $payment)) {
+            $this->render('min_sum', deposit_service::PLANS['intro']['from'] - $payment['paid']);
+            $this->render('min_sum', deposit_service::PLANS['professional']['to'] - $payment['paid']);
             $this->deposit('deposit_need_number');
             $this->setExpect('deposit@/get_deposit_sum');
         } else {
