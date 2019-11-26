@@ -37,10 +37,12 @@ class deposit_service extends staticBase
     public static function balancePlus($user_id, $sum)
     {
         $user = self::model('bot_users')->getById($user_id);
+        print_r($user);
         if(self::model('bot_users')->insert([
             'id' => $user['id'],
             'balance' => $user['balance'] + $sum
         ])) {
+            echo 111;
             return true;
         }
         return false;
