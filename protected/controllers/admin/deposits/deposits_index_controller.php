@@ -23,7 +23,7 @@ class deposits_index_controller extends admin_project
             'DATEDIFF(NOW(), d.create_date)',
             'd.amount_btc',
             'd.profit',
-            '<a href=\"/clients/id?id=", r.id, "\">u.t_user_name</a>',
+            'CONCAT("<a href=\"/clients/id?id=", r.id, "\">",u.t_user_name, "</a>")',
             "d.create_date"
         ];
         $params['join']['bot_users'] = [
