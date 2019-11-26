@@ -206,6 +206,12 @@ class deposit_service extends staticBase
                 'profit' => $deposit['profit'] + $profit,
                 'last_profit' => time()
             ]);
+            self::model('profits')->insert([
+                'user_id' => $user['id'],
+                'deposit_id' => $deposit['id'],
+                'amount_btc' => $profit,
+                'create_date' => tools_class::gmDate()
+            ]);
             self::render('profit', $profit);
             queue_service::add($deposit['chat_id'], self::fetch('queue/profit'), null, buttons_class::getMenu($user));
         }
