@@ -16,8 +16,18 @@ class clients_id_controller extends admin_project
         $referrer = $this->model('bot_users')->getById($user['referrer_id']);
         $this->render('referrer', $referrer);
         $this->render('user', $user);
-        $this->render('deposits', $this->model('deposits')->getByField('user_id', $user['id'], true));
-        $this->render('withdrawals', $this->model('withdrawals')->getByField('user_id', $user['id'], true));
+        $deposits = $this->model('deposits')->getByField('user_id', $user['id'], true);
+        $total['deposit'] = 0;
+        foreach ($deposits as $deposit) {
+            $total['deposit'] += $deposit['amount_btc'];
+        }
+        $this->render('deposits', $deposits);
+        $withdrawals = $this->model('withdrawals')->getByField('user_id', $user['id'], true);
+        $total['withdrawal'] = 0;
+        foreach ($withdrawals as $withdrawal) {
+            $total['withdrawal'] += $withdrawal['amount_btc'];
+        }
+        $this->render('withdrawals', $withdrawals);
         $in = [];
         $referrals = [];
         $referral_profit = 0;

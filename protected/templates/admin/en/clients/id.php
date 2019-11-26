@@ -37,6 +37,14 @@
                         <td><?php echo bitcoin_service::formatBTC($user['balance']); ?></td>
                     </tr>
                     <tr>
+                        <td>Внес</td>
+                        <td><?php echo bitcoin_service::formatBTC($total['deposit']); ?></td>
+                    </tr>
+                    <tr>
+                        <td>Вывел</td>
+                        <td><?php echo bitcoin_service::formatBTC($total['profit']); ?></td>
+                    </tr>
+                    <tr>
                         <td>Реф профит</td>
                         <td><?php echo bitcoin_service::formatBTC($referral_profit); ?></td>
                     </tr>
