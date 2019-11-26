@@ -192,6 +192,7 @@ class deposit_service extends staticBase
                 'profit' => $deposit['profit'] + $profit,
                 'last_profit' => time()
             ]);
+            self::render('deposit', $deposit);
             self::render('profit', $profit);
             queue_service::add($deposit['chat_id'], self::fetch('queue/profit'));
         }
