@@ -18,7 +18,9 @@ class bot_users_model extends model
             LEFT JOIN
                 deposits d ON u.id = d.user_id
             WHERE
-                u.id IN(' . implode(',', $ids) . ')
+                u.id IN(' . implode(',', $ids) . ') 
+                    AND
+                u.status_id = ' . bot_commands_class::USER_ACTIVE_STATUS . '
             GROUP BY u.id
         ');
         return $this->get_all($stm);
