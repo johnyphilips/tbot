@@ -164,12 +164,22 @@ class bot_commands_class extends bot_class
             'status_id' => self::USER_ACTIVE_STATUS
         ]);
         if($referrer = $this->model('bot_users')->getById($this->user['referrer_id'])) {
-            $this->render('user_name', $this->user['t_user_name']);
+            $this->render('referral', $this->user['t_user_name']);
+            $this->render('level', 1);
             $message = $this->fetch('queue/new_referral');
-            if($referrer['chat_id'] != '143220442') {
+            queue_service::add($referrer['chat_id'], $message);
+            if($referrer = $this->model('bot_users')->getById($referrer['referrer_id'])) {
+                $this->render('referral', $this->user['t_user_name']);
+                $this->render('level', 2);
+                $message = $this->fetch('queue/new_referral');
                 queue_service::add($referrer['chat_id'], $message);
+                if($referrer = $this->model('bot_users')->getById($referrer['referrer_id'])) {
+                    $this->render('referral', $this->user['t_user_name']);
+                    $this->render('level', 3);
+                    $message = $this->fetch('queue/new_referral');
+                    queue_service::add($referrer['chat_id'], $message);
+                }
             }
-            balance_service::checkUserReferrals($referrer);
         }
         self::menu();
 	}
