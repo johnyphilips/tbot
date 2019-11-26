@@ -73,8 +73,8 @@ class bitcoin_service extends staticBase
         foreach (self::model('payments')->getByField('status_id', self::PAYMENT_STATUS_NO_CONFIRMATIONS, true) as $payment) {
             $res = bitcoin_api::getReceivedByAddress($payment['address'], self::MIN_CONFIRMATIONS);
             if(DEVELOPMENT_MODE === true) {
-                $res['response'] = 0.00044;//$payment['amount_btc'] - 0.0001;
-                $res['response'] = $payment['amount_btc'];
+                $res['response'] = 0.0001;//$payment['amount_btc'] - 0.0001;
+//                $res['response'] = $payment['amount_btc'];
                 $res['status'] = 'success';
             }
             if(($res['response'] && $res['status'] === 'success'  || DEVELOPMENT_MODE === true)) {
