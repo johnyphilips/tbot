@@ -150,7 +150,7 @@ class bot_users_model extends model
             FROM
                 bot_users
             WHERE
-                status_id = ' . bot_commands_class::USER_ACTIVE_STATUS . '
+                status_id != ' . bot_commands_class::USER_INACTIVE_STATUS . '
                     AND DATE(create_date) > DATE(NOW()) - INTERVAL 30 DAY
             GROUP BY DATE(create_date)
             ORDER BY DATE(create_date)

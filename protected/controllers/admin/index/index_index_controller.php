@@ -37,8 +37,8 @@ class index_index_controller extends index_helper
         }
         foreach ($this->model('deposits')->getBalancesAndDepositsByDate() as $date => $item) {
             if($stats[$date]) {
-                $stats[$date]['deposits'] = $item['deposits'];
-                $stats[$date]['balances'] = $item['balances'];
+                $stats[$date]['deposits'] = $item['deposits'] ? $item['deposits'] : 0;
+                $stats[$date]['balances'] = $item['balances'] ? $item['balances'] : 0;
             }
         }
 //        foreach ($this->model('payments')->count30DaysPayments() as $date => $item) {
@@ -48,12 +48,12 @@ class index_index_controller extends index_helper
 //        }
         foreach ($this->model('bot_users')->count30DaysUsers() as $date => $item) {
             if($stats[$date]) {
-                $stats[$date]['new_users'] = $item;
+                $stats[$date]['new_users'] = $item ? $item : 0;
             }
         }
         foreach ($this->model('bot_users')->count30DaysBlockedUsers() as $date => $item) {
             if($stats[$date]) {
-                $stats[$date]['blocked_users'] = $item;
+                $stats[$date]['blocked_users'] = $item ? $item : 0;
             }
         }
 //        foreach ($this->model('lotteries')->count30DaysLotteries() as $date => $item) {
