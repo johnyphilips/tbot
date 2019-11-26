@@ -41,6 +41,11 @@ class index_index_controller extends index_helper
                 $stats[$date]['balances'] = $item['balances'] ? $item['balances'] : 0;
             }
         }
+        foreach ($this->model('deposits')->getProfitsByDate() as $date => $item) {
+            if($stats[$date]) {
+                $stats[$date]['profits'] = $item;
+            }
+        }
         foreach ($this->model('withdrawals')->count30DaysWithdrawals() as $date => $item) {
             if($stats[$date]) {
                 $stats[$date]['withdrawals'] = $item;

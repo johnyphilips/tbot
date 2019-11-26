@@ -23,9 +23,10 @@
                             <th>Депозитов</th>
                             <th>Выводов</th>
                             <th>Деп/выв</th>
-                            <th>Всего профита</th>
+                            <th>Профит юзеров</th>
                             <th>Выплаты рефералам</th>
-                            <th>Наш профит</th>
+                            <th>Профит</th>
+                            <th>Пот. профит</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -37,9 +38,10 @@
                                 <td><?php echo $stat['deposits']; ?></td>
                                 <td><?php echo $stat['withdrawals']; ?></td>
                                 <td><?php echo round($stat['deposits']/$stat['withdrawals'], 8); ?></td>
-                                <td><?php echo $stat['roulettes']['qty']; ?></td>
-                                <td><?php echo $stat['roulettes']['won']; ?></td>
-                                <td><?php echo $stat['roulettes']['spent']; ?></td>
+                                <td><?php echo $stat['profits']; ?></td>
+                                <td><?php echo $stat['referrals']; ?></td>
+                                <td><?php echo $stat['deposits'] - $stat['withdrawals']; ?></td>
+                                <td><?php echo $stat['deposits'] - $stat['withdrawals'] - $stat['balances']; ?></td>
                             </tr>
                         <?php endforeach; ?>
                         </tbody>
