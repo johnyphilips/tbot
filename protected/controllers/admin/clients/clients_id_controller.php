@@ -32,7 +32,7 @@ class clients_id_controller extends admin_project
                 $payouts += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[1];
             }
             $referrals[1][$referral['id']]['deposits'] = $deposits;
-            $referrals[2][$referral['id']]['payouts'] = $payouts;
+            $referrals[1][$referral['id']]['payouts'] = $payouts;
             $in[] = $referral['id'];
         }
         if($in) {
