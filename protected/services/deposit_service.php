@@ -185,7 +185,7 @@ class deposit_service extends staticBase
         $deposits = self::model('deposits')->getProfitDeposits();
         foreach ($deposits as $deposit) {
             $plan = self::PLANS[strtolower($deposit['plan'])];
-            $profit = ($deposit['amount_btc'] / $plan['percent'] * 100) / self::UPDATE_PROFIT_PER_DAY;
+            $profit = round(($deposit['amount_btc'] / $plan['percent'] * 100) / self::UPDATE_PROFIT_PER_DAY, 8);
             self::balancePlus($deposit['user_id'], $profit);
             self::model('deposits')->insert([
                 'id' => $deposit['id'],
