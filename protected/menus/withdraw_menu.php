@@ -99,6 +99,7 @@ class withdraw_menu extends bot_commands_class
             } else {
                 $this->sendHTML($this->fetch('withdraw/withdrawal_unsuccess'));
             }
+            $this->user = $this->model('bot_users')->getById($this->user['id']);
             $this->menu();
         }
     }
