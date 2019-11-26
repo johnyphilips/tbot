@@ -188,6 +188,7 @@ class deposit_service extends staticBase
             $plan = self::PLANS[strtolower($deposit['plan'])];
             $user = self::model('bot_users')->getById($deposit['user_id']);
             self::render('deposit', $deposit);
+            self::writeLog('test', time() - strtotime($deposit['create_date']));
             if(time() - strtotime($deposit['create_date']) >= $plan['term'] * 24 * 3600) {
                 self::model('deposits')->insert([
                     'id' => $deposit['id'],
