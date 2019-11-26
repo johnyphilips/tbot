@@ -57,6 +57,38 @@
         </div>
         <div class="card">
             <div class="card-header">
+                <h3 class="card-title">Рефералы</h3>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <td>Уровень</td>
+                        <td>Юзер</td>
+                        <td>Депозиты</td>
+                        <td>Выплаты</td>
+                    </tr>
+                    <tbody>
+                    <?php if ($referrals): ?>
+                        <?php foreach ($referrals as $level => $referral_level): ?>
+                            <?php foreach ($referral_level as $referral): ?>
+                                <tr>
+                                    <td><?php echo $level; ?></td>
+                                    <td><a href="/cliets/id?id=<?php echo $referral['id']; ?>"><?php echo $referral['t_user_name']; ?></a></td>
+                                    <td><?php echo bitcoin_service::formatBTC($referral['deposits']); ?></td>
+                                    <td><?php echo bitcoin_service::formatBTC($referral['payouts']); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
                 <h3 class="card-title">Депозиты</h3>
             </div>
             <div class="card-body">
@@ -111,38 +143,6 @@
                                     <?php endif; ?>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Рефералы</h3>
-            </div>
-            <div class="card-body">
-                <table class="table">
-                    <tr>
-                        <td>Уровень</td>
-                        <td>Юзер</td>
-                        <td>Депозиты</td>
-                        <td>Выплаты</td>
-                    </tr>
-                    <tbody>
-                    <?php if ($referrals): ?>
-                        <?php foreach ($referrals as $level => $referral_level): ?>
-                            <?php foreach ($referral_level as $referral): ?>
-                                <tr>
-                                    <td><?php echo $level; ?></td>
-                                    <td><a href="/cliets/id?id=<?php echo $referral['id']; ?>"><?php echo $referral['t_user_name']; ?></a></td>
-                                    <td><?php echo bitcoin_service::formatBTC($referral['deposits']); ?></td>
-                                    <td><?php echo bitcoin_service::formatBTC($referral['payouts']); ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-
                         <?php endforeach; ?>
                     <?php endif; ?>
                     </tbody>
