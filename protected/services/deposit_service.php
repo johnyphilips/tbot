@@ -143,6 +143,7 @@ class deposit_service extends staticBase
             if(self::createDeposit($sum, $payment, $plan)) {
                 $user = self::model('bot_users')->getById($payment['user_id']);
                 foreach (self::getReferrers($user) as $referrer) {
+                    print_r($referrer);
                     self::referrerPayout($payment, $referrer, $sum, $user['t_user_name']);
                 }
                 return true;
