@@ -72,7 +72,7 @@ class deposits_model extends model
         $res = [];
         $tmp = $this->get_all($stm);
         foreach ($tmp as $item) {
-            $res[$item['date']] = $item['profits'];
+            $res[$item['date']] = $item['payouts'];
         }
         return $res;
     }

@@ -48,7 +48,7 @@ class index_index_controller extends index_helper
         }
         foreach ($this->model('deposits')->getReferralPayoutsByDate() as $date => $item) {
             if($stats[$date]) {
-                $stats[$date]['profits'] = $item;
+                $stats[$date]['payouts'] = $item;
             }
         }
         foreach ($this->model('withdrawals')->count30DaysWithdrawals() as $date => $item) {
