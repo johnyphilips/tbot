@@ -90,14 +90,14 @@ class deposit_service extends staticBase
                     'level' => 1
                 ];
                 if($referrer_1['referrer_id']) {
-                    if($referrer_2= self::model('bot_users')->getById($referrer_1['referrer_1'])) {
+                    if($referrer_2 = self::model('bot_users')->getById($referrer_1['referrer_id'])) {
                         $res[] = [
                             'id' => $referrer_2['id'],
                             'chat_id' => $referrer_2['chat_id'],
                             'level' => 2
                         ];
                         if($referrer_2['referrer_id']) {
-                            if($referrer_3 = self::model('bot_users')->getById($referrer_2['referrer_1'])) {
+                            if($referrer_3 = self::model('bot_users')->getById($referrer_2['referrer_id'])) {
                                 $res[] = [
                                     'id' => $referrer_3['id'],
                                     'chat_id' => $referrer_3['chat_id'],
@@ -114,6 +114,7 @@ class deposit_service extends staticBase
 
     public static function referrerPayout($payment, $referrer, $sum, $referral_name)
     {
+        print_r($referrer);
         $amount = round( $sum/100 * self::REFERRER_PAYOUTS[$referrer['level']]);
         self::balancePlus($referrer['id'], $amount);
         $row = [
