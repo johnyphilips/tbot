@@ -27,7 +27,7 @@ class bot_commands_class extends bot_class
                 if(!$this->user['referrer_id']) {
                     $referral_parameter = array_pop(explode(' ', $command));
                     if(is_numeric($referral_parameter)) {
-                        if($referrer = $this->model('bot_users')->getByid($referral_parameter - self::REFERRER_SALT)) {
+                        if($referrer = $this->model('bot_users')->getByid($referral_parameter + self::REFERRER_SALT)) {
                             $this->model('bot_users')->insert([
                                 'id' => $this->user['id'],
                                 'referrer_id' => $referrer['id']
