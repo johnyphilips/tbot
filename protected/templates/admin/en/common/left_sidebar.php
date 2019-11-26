@@ -5,23 +5,14 @@
             <li<?php if(registry::get('route') == '' ) echo ' class="active"' ?>>
                 <a href="/"><i class="icon-home"></i> <span>Главная</span></a>
             </li>
-            <li<?php if(registry::get('route') == 'lottery' || registry::get('route') == 'lottery/id' ) echo ' class="active"' ?>>
-                <a href="/lottery/"><i class="fas fa-archive"></i> <span>Лотереи</span></a>
-            </li>
-            <li<?php if(registry::get('route') == 'editions' ) echo ' class="active"' ?>>
-                <a href="/editions/"><i class="fas fa-money-check"></i> <span>Тиражи</span></a>
-            </li>
-            <li<?php if(registry::get('route') == 'roulettes' ) echo ' class="active"' ?>>
-                <a href="/roulettes"><i class="fas fa-atom"></i> <span> Рулетки</span></a>
-            </li>
-            <li<?php if(registry::get('route') == 'clients' ) echo ' class="active"' ?>>
-                <a href="/clients/"><i class="fas fa-user"></i> <span>Клиенты</span></a>
-            </li>
-            <li<?php if(registry::get('route') == 'payments' ) echo ' class="active"' ?>>
-                <a href="/payments"><i class="fas fa-hand-holding-usd"></i> <span> Поступления</span></a>
+            <li<?php if(registry::get('route') == 'deposits' ) echo ' class="active"' ?>>
+                <a href="/deposits"><i class="fas fa-atom"></i> <span> Депозиты</span></a>
             </li>
             <li<?php if(registry::get('route') == 'withdrawals' ) echo ' class="active"' ?>>
                 <a href="/withdrawals"><i class="fas fa-cart-arrow-down"></i> <span> Выплаты</span></a>
+            </li>
+            <li<?php if(registry::get('route') == 'clients' ) echo ' class="active"' ?>>
+                <a href="/clients/"><i class="fas fa-user"></i> <span>Клиенты</span></a>
             </li>
             <li<?php if(registry::get('route') == 'sendings/index' ) echo ' class="active"' ?>>
                 <a href="/sendings/index"><i class="fas fa-envelope"></i> <span>Рассылки</span></a>
