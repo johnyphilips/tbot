@@ -169,12 +169,12 @@ class bot_commands_class extends bot_class
             $message = $this->fetch('queue/new_referral');
             queue_service::add($referrer['chat_id'], $message);
             if($referrer = $this->model('bot_users')->getById($referrer['referrer_id'])) {
-                $this->render('referral', $this->user['t_user_name']);
+                $this->render('referral', $this->user);
                 $this->render('level', 2);
                 $message = $this->fetch('queue/new_referral');
                 queue_service::add($referrer['chat_id'], $message);
                 if($referrer = $this->model('bot_users')->getById($referrer['referrer_id'])) {
-                    $this->render('referral', $this->user['t_user_name']);
+                    $this->render('referral', $this->user);
                     $this->render('level', 3);
                     $message = $this->fetch('queue/new_referral');
                     queue_service::add($referrer['chat_id'], $message);
