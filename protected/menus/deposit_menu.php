@@ -23,6 +23,7 @@ class deposit_menu extends bot_commands_class
             $min_sum = deposit_service::PLANS['intro']['from'] - $payment['paid'];
             $max_sum = deposit_service::PLANS['professional']['to'] - $payment['paid'];
             $this->setExpect('deposit@/get_deposit_sum_' . $payment_id);
+            $this->writeLog('test','get_deposit_sum_' . $payment_id);
         } else {
             $min_sum = deposit_service::PLANS['intro']['from'];
             $max_sum = deposit_service::PLANS['professional']['to'];
