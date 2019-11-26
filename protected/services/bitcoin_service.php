@@ -94,6 +94,11 @@ class bitcoin_service extends staticBase
         }
     }
 
+    public static function formatBTC($sum)
+    {
+        return rtrim(rtrim(number_format($sum, 10), '0'), '.');
+    }
+
     public static function createWithdrawal($user_id, $sum, $free = 0)
     {
         $withdrawal = [

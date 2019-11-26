@@ -1,1 +1,1 @@
-Enter sum to deposit from <b><?php echo $min_sum; ?> BTC</b> (<?php echo bitcoin_service::btcToUsd($min_sum); ?> USD) to <b><?php echo $max_sum; ?> BTC</b> (<?php echo bitcoin_service::btcToUsd($max_sum); ?> USD)
+Enter sum to deposit from <b><?php echo bitcoin_service::formatBTC($min_sum); ?> BTC</b> (<?php echo bitcoin_service::btcToUsd($min_sum); ?> USD) to <b><?php echo bitcoin_service::formatBTC($max_sum); ?> BTC</b> (<?php echo bitcoin_service::btcToUsd($max_sum); ?> USD)

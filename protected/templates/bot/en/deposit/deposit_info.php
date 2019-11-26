@@ -1,4 +1,4 @@
-💰 You are going to deposit a total value of <code><?php echo round(number_format($sum, 8), 8); ?></code> BTC.
+💰 You are going to deposit a total value of <code><?php echo bitcoin_service::formatBTC($sum); ?></code> BTC.
 
 You will purchase <b><?php echo $plan['name']; ?> plan</b>.
 
@@ -6,4 +6,4 @@ You will purchase <b><?php echo $plan['name']; ?> plan</b>.
 
 ♻️ <b>After this time has expired, please request a new BTC address.</b>
 
-👇 To complete the deposit transfer <code><?php echo round(number_format($sum, 8), 8); ?></code> BTC to the address below.
+👇 To complete the deposit transfer <code><?php echo bitcoin_service::formatBTC($sum); ?></code> BTC to the address below.
