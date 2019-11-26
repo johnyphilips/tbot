@@ -11,7 +11,7 @@ class bot_users_model extends model
     {
         $stm = $this->pdo->prepare('
             SELECT
-                b.*,
+                u.*,
                 sum(d.amount_btc) deposits
             FROM
                 bot_users u 
