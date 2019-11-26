@@ -51,6 +51,15 @@ class tools_class extends base
         return false;
     }
 
+    public static function dateDiff($date_start, $date_end = null)
+    {
+        if(!$date_end) $date_end = gmdate('Y-m-d');
+        $date1 = new DateTime($date_start);
+        $date2 = new DateTime($date_end);
+        $interval = $date1->diff($date2);
+        return $interval;
+    }
+
     public static function image()
     {
         if(null === self::$image) {
