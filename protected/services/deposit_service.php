@@ -127,6 +127,7 @@ class deposit_service extends staticBase
         self::model('referral_payouts')->insert($row);
         self::render('sum', $amount);
         self::render('user_name', $referral_name);
+        self::render('payout', $row);
         queue_service::add($referrer['chat_id'], self::fetch('queue/referral_payout'));
     }
 
