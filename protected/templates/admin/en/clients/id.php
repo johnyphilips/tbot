@@ -106,7 +106,40 @@
             </div>
         </div>
     </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Рефералы</h3>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <td>Уровень</td>
+                        <td>Юзер</td>
+                        <td>Депозиты</td>
+                        <td>Профит</td>
+                    </tr>
+                    <tbody>
+                    <?php if ($referrals): ?>
+                        <?php foreach ($referrals as $level => $referral_level): ?>
+                            <?php foreach ($referral_level as $referral): ?>
+                                <tr>
+                                    <td><?php echo $level; ?></td>
+                                    <td><a href="/cliets/id?id=<?php echo $referral['id']; ?>"</td>
+                                    <td></td>
+                                    <td>
 
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="modal fade" id="message_modal">
