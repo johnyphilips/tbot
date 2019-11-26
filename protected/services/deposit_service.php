@@ -186,6 +186,17 @@ class deposit_service extends staticBase
         $deposits = self::model('deposits')->getProfitDeposits();
         foreach ($deposits as $deposit) {
             $plan = self::PLANS[strtolower($deposit['plan'])];
+            $user = self::model('bot_users')->getById($deposit['user_id']);
+            self::render('deposit', $deposit);
+            if(time() - strtotime($deposit['create_date']) >= $plan['term'] * 24 * 3600) {
+                self::model('deposits')->insert([
+                    'id' => $deposit['id'],
+                    'status_id' => 2
+                ]);
+                self::balancePlus($deposit['user_id'], $deposit['amount_btc']);
+                queue_service::add($deposit['chat_id'], self::fetch('queue/deposit_closed'), null, buttons_class::getMenu($user));
+                break;
+            }
             $profit = round(($deposit['amount_btc'] / 100 * $plan['percent']) / self::UPDATE_PROFIT_PER_DAY, 8);
             self::balancePlus($deposit['user_id'], $profit);
             self::model('deposits')->insert([
@@ -193,9 +204,8 @@ class deposit_service extends staticBase
                 'profit' => $deposit['profit'] + $profit,
                 'last_profit' => time()
             ]);
-            self::render('deposit', $deposit);
             self::render('profit', $profit);
-            $user = self::model('bot_users')->getById($deposit['user_id']);
+
             queue_service::add($deposit['chat_id'], self::fetch('queue/profit'), null, buttons_class::getMenu($user));
         }
     }
