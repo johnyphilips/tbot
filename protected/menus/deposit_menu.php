@@ -39,6 +39,7 @@ class deposit_menu extends bot_commands_class
             ]
         ];
         $this->sendHTML($this->fetch('deposit/' . $message), null, $keyboard);
+        exit;
     }
 
     public function get_deposit_sum($payment_id = null)
