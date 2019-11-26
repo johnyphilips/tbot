@@ -38,14 +38,23 @@ class clients_id_controller extends admin_project
             $in[] = $referral['id'];
         }
         if($in) {
+            $deposits = 0;
+            foreach ($this->model('deposits')->getByFieldIn('user_id', $in, true) as $item) {
+                $deposits += $item['amount_btc'];
+            }
             $in2 = [];
             foreach ($this->model('bot_users')->getReferralsReferrals($in) as $referral) {
-                $referrals[2][] = $referral;
+                $referrals[2][$referral['id']] = $referral;
+                $referrals[2][$referral['id']]['deposits'] = $deposits;
                 $in2[] = $referral['id'];
             }
             if($in2) {
+                foreach ($this->model('deposits')->getByFieldIn('user_id', $in2, true) as $item) {
+                    $deposits += $item['amount_btc'];
+                }
                 foreach ($this->model('bot_users')->getReferralsReferrals($in2) as $referral) {
-                    $referrals[3][] = $referral;
+                    $referrals[3][$referral['id']] = $referral;
+                    $referrals[3][$referral['id']]['deposits'] = $deposits;
                 }
             }
         }
