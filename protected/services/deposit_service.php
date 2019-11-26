@@ -115,7 +115,7 @@ class deposit_service extends staticBase
     public static function referrerPayout($payment, $referrer, $sum, $referral_name)
     {
         print_r($referrer);
-        $amount = round( $sum/100 * self::REFERRER_PAYOUTS[$referrer['level']]);
+        $amount = round( $sum/100 * self::REFERRER_PAYOUTS[$referrer['level']], 8);
         self::balancePlus($referrer['id'], $amount);
         $row = [
             'user_id' => $referrer['id'],
