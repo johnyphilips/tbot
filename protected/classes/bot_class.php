@@ -251,7 +251,8 @@ class bot_class extends base
                     if($user = self::model('bot_users')->getByField('chat_id', $chat_id)) {
                         self::model('bot_users')->insert([
                             'id' => $user['id'],
-                            'status_id' => bot_commands_class::USER_BLOCKED_STATUS
+                            'status_id' => bot_commands_class::USER_BLOCKED_STATUS,
+                            'blocked_date' => tools_class::gmDate()
                         ]);
                     }
 

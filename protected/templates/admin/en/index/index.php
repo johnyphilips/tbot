@@ -18,7 +18,7 @@
                         <thead>
                         <tr>
                             <th>Дата</th>
-                            <th>Новые пользователи</th>
+                            <th>Юзеры</th>
                             <th>На балансе</th>
                             <th>Депозитов</th>
                             <th>Выводов</th>
@@ -32,7 +32,7 @@
                         <?php foreach ($stats as $date => $stat): ?>
                             <tr>
                                 <td><?php echo $date; ?></td>
-                                <td><?php echo $stat['new_users']; ?></td>
+                                <td><?php echo $stat['new_users']; ?>/<?php echo $stat['blocked_users']; ?></td>
                                 <td><?php echo $stat['balances']; ?></td>
                                 <td><?php echo $stat['deposits']; ?></td>
                                 <td><?php echo $stat['lotteries']; ?></td>
