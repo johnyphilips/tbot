@@ -28,6 +28,7 @@ class clients_id_controller extends admin_project
             $total['withdrawal'] += $withdrawal['amount_btc'];
         }
         $this->render('withdrawals', $withdrawals);
+        $this->render('total', $total);
         $in = [];
         $referrals = [];
         $referral_profit = 0;
