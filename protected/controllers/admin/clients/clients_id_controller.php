@@ -17,7 +17,7 @@ class clients_id_controller extends admin_project
         $this->render('referrer', $referrer);
         $this->render('user', $user);
         $this->render('deposits', $this->model('deposits')->getByField('user_id', $user['id'], true));
-        $this->render('withdrawals', $this->model('lotteries')->getByField('user_id', $user['id'], true));
+        $this->render('withdrawals', $this->model('withdrawals')->getByField('user_id', $user['id'], true));
         $in = [];
         $referrals = [];
         foreach ($this->model('bot_users')->getByFields([
