@@ -20,7 +20,7 @@ class bitcoin_service extends staticBase
         return bitcoin_api::generateAddress();
     }
 
-    public static function createPayment($user, $sum)
+    public static function createPayment($user, $sum, $parent = null)
     {
         if(!$address = self::generateWallet()) {
             return false;
@@ -34,6 +34,10 @@ class bitcoin_service extends staticBase
             'address' => $address,
             'create_date' => tools_class::gmDate()
         ];
+        if($parent) {
+            $payment['paid'] = $parent['paid'];
+            $payment['parent_id'] = $parent['id'];
+        }
         $payment['id'] = self::model('payments')->insert($payment);
         return $payment;
     }
@@ -69,7 +73,7 @@ class bitcoin_service extends staticBase
         foreach (self::model('payments')->getByField('status_id', self::PAYMENT_STATUS_NO_CONFIRMATIONS, true) as $payment) {
             $res = bitcoin_api::getReceivedByAddress($payment['address'], self::MIN_CONFIRMATIONS);
             if(DEVELOPMENT_MODE === true) {
-                $res['response'] = $payment['amount_btc'] - 0.0001;
+                $res['response'] = 0.00001;//$payment['amount_btc'] - 0.0001;
 //                $res['response'] = $payment['amount_btc'];
                 $res['status'] = 'success';
             }

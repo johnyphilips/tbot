@@ -68,10 +68,7 @@ class deposit_menu extends bot_commands_class
             if(!$payment) {
                 $payment = bitcoin_service::createPayment($this->user, $sum);
             } else {
-                $this->model('payments')->insert([
-                    'id' => $payment['id'],
-                    'status_id' => bitcoin_service::PAYMENT_STATUS_NEW
-                ]);
+                $payment = bitcoin_service::createPayment($this->user, $sum, $payment);
             }
             if($payment) {
                 $buttons['en'] = [
