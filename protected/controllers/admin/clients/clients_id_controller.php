@@ -20,6 +20,7 @@ class clients_id_controller extends admin_project
         $this->render('withdrawals', $this->model('withdrawals')->getByField('user_id', $user['id'], true));
         $in = [];
         $referrals = [];
+        $referral_profit = 0;
         foreach ($this->model('bot_users')->getByFields([
             'referrer_id' => $user['id'],
             'status_id' => bot_commands_class::USER_ACTIVE_STATUS
@@ -31,6 +32,7 @@ class clients_id_controller extends admin_project
                 $deposits += $item['amount_btc'];
                 $payouts += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[1];
             }
+            $referral_profit += $payouts;
             $referrals[1][$referral['id']]['deposits'] = $deposits;
             $referrals[1][$referral['id']]['payouts'] = $payouts;
             $in[] = $referral['id'];
@@ -42,6 +44,7 @@ class clients_id_controller extends admin_project
                 $deposits += $item['amount_btc'];
                 $payouts += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[2];
             }
+            $referral_profit += $payouts;
             $in2 = [];
             foreach ($this->model('bot_users')->getReferralsReferrals($in) as $referral) {
                 $referrals[2][$referral['id']] = $referral;
@@ -56,6 +59,7 @@ class clients_id_controller extends admin_project
                     $deposits += $item['amount_btc'];
                     $payouts += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[3];
                 }
+                $referral_profit += $payouts;
                 foreach ($this->model('bot_users')->getReferralsReferrals($in2) as $referral) {
                     $referrals[3][$referral['id']] = $referral;
                     $referrals[3][$referral['id']]['deposits'] = $deposits;
@@ -64,6 +68,7 @@ class clients_id_controller extends admin_project
             }
         }
         $this->render('referrals', $referrals);
+        $this->render('referral_profit', $referral_profit);
         $this->view('clients/id');
     }
 

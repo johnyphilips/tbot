@@ -34,7 +34,11 @@
                     <?php endif; ?>
                     <tr>
                         <td>Баланс</td>
-                        <td><?php echo $user['balance']; ?></td>
+                        <td><?php echo bitcoin_service::formatBTC($user['balance']); ?></td>
+                    </tr>
+                    <tr>
+                        <td>Реф профит</td>
+                        <td><?php echo bitcoin_service::formatBTC($referral_profit); ?></td>
                     </tr>
                     <tr>
                         <td>Дата</td>
@@ -62,7 +66,7 @@
                         <?php foreach ($deposits as $deposit): ?>
                             <tr>
                                 <td><?php echo $deposit['plan']; ?></td>
-                                <td><?php echo $deposit['amount_btc']; ?></td>
+                                <td><?php echo bitcoin_service::formatBTC($deposit['amount_btc']); ?></td>
                                 <td><?php echo $deposit['status_id']; ?></td>
                                 <td><?php echo $deposit['create_date']; ?></td>
                             </tr>
@@ -126,8 +130,8 @@
                                 <tr>
                                     <td><?php echo $level; ?></td>
                                     <td><a href="/cliets/id?id=<?php echo $referral['id']; ?>"><?php echo $referral['t_user_name']; ?></a></td>
-                                    <td><?php echo $referral['deposits']; ?></td>
-                                    <td><?php echo $referral['payouts']; ?></td>
+                                    <td><?php echo bitcoin_service::formatBTC($referral['deposits']); ?></td>
+                                    <td><?php echo bitcoin_service::formatBTC($referral['payouts']); ?></td>
                                 </tr>
                             <?php endforeach; ?>
 
