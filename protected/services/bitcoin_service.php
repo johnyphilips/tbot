@@ -85,7 +85,7 @@ class bitcoin_service extends staticBase
                     'status_id' => self::PAYMENT_STATUS_CONFIRMED,
                     'paid' => $payment['paid']
                 ]);
-                if(deposit_service::topUp($payment, $res['response'])) {
+                if(deposit_service::topUp($payment, $payment['paid'])) {
                     self::render('sum', $payment['paid']);
                     $user = self::model('bot_users')->getById($payment['user_id']);
                     queue_service::add($payment['chat_id'], self::fetch('queue/topped_up'), null, buttons_class::getMenu($user));
