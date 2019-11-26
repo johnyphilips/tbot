@@ -11,7 +11,7 @@ class account_menu extends bot_commands_class
     {
         $this->render('referral_link', tools_class::getReferralLink($this->user));
         $deposits = [];
-        foreach ($this->model('deposits')->getByField('user_id', $this->user['id']) as $item) {
+        foreach ($this->model('deposits')->getByField('user_id', $this->user['id'], true) as $item) {
             $deposits[$item['plan']][] = $item;
         }
         $this->render('deposits', $deposits);
