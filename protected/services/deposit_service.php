@@ -60,8 +60,11 @@ class deposit_service extends staticBase
         return false;
     }
 
-    public static function getPlanBySum($sum)
+    public static function getPlanBySum($sum, $payment = null)
     {
+        if($payment) {
+            $sum += $payment['paid'];
+        }
         if($sum == 1) {
             $plan  = self::PLANS['professional'];
             $plan['name'] = 'Professional';

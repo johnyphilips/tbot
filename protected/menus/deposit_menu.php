@@ -49,16 +49,17 @@ class deposit_menu extends bot_commands_class
             $this->deposit();
             exit;
         }
-        if(!$plan = deposit_service::getPlanBySum($sum)) {
+        if($payment_id) {
+            $payment = $this->model('payments')->getById($payment_id);
+        }
+        if(!$plan = deposit_service::getPlanBySum($sum, $payment)) {
             $this->deposit('deposit_need_number');
             $this->setExpect('deposit@/get_deposit_sum');
         } else {
             $this->render('sum', $sum);
             $this->render('plan', $plan);
-            if(!$payment_id) {
+            if(!$payment) {
                 $payment = bitcoin_service::createPayment($this->user, $sum);
-            } else {
-                $payment = $this->model('payments')->getById($payment_id);
             }
             if($payment) {
                 $buttons['en'] = [
