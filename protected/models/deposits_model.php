@@ -14,7 +14,7 @@ class deposits_model extends model
             SELECT
                 * 
             FROM
-                deposits WHERE last_profit <= "' . $time . '"
+                deposits WHERE last_profit <= "' . $time . '" AND status_id = 1
         ');
         return $this->get_all($stm);
     }
