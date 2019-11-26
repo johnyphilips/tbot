@@ -18,4 +18,26 @@ class deposits_model extends model
         ');
         return $this->get_all($stm);
     }
+
+    public function getBalancesAndDepositsByDate()
+    {
+        $stm = $this->pdo->prepare('
+            select
+            sum(u.balance) balances,
+            sum(d.amount_btc) deposits,
+            date(d.create_date) date
+        FROM
+            bot_users u JOIN deposits d on d.user_id = u.id
+        GROUP BY date(d.create_date);
+        ');
+        $res = [];
+        $tmp = $this->get_all($stm);
+        foreach ($tmp as $item) {
+            $res[$item['date']] = [
+                'balances' => $item['balances'],
+                'deposits' => $item['deposits']
+            ];
+        }
+        return $res;
+    }
 }

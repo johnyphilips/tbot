@@ -9,6 +9,7 @@ class index_index_controller extends index_helper
 {
     public function content()
     {
+        $this->render('stats', $this->get_stats());
         $this->render('discount', $this->model('system_config')->getByField('config_key', 'discount')['config_value']);
         $this->view('index/index');
     }
@@ -34,36 +35,37 @@ class index_index_controller extends index_helper
                 'free_lotteries' => 0
             ];
         }
-        foreach ($this->model('withdrawals')->count30DaysWithdrawals() as $date => $item) {
+        foreach ($this->model('deposits')->getBalancesAndDepositsByDate() as $date => $item) {
             if($stats[$date]) {
-                $stats[$date]['withdrawals'] = $item;
+                $stats[$date]['deposits'] = $item['deposits'];
+                $stats[$date]['balances'] = $item['balances'];
             }
         }
-        foreach ($this->model('payments')->count30DaysPayments() as $date => $item) {
-            if($stats[$date]) {
-                $stats[$date]['payments'] = $item;
-            }
-        }
-        foreach ($this->model('bot_users')->count30DaysUsers() as $date => $item) {
-            if($stats[$date]) {
-                $stats[$date]['new_users'] = $item;
-            }
-        }
-        foreach ($this->model('lotteries')->count30DaysLotteries() as $date => $item) {
-            if($stats[$date]) {
-                $stats[$date]['lotteries'] = $item;
-            }
-        }
-        foreach ($this->model('lotteries')->count30DaysFreeLotteries() as $date => $item) {
-            if($stats[$date]) {
-                $stats[$date]['free_lotteries'] = $item;
-            }
-        }
-        foreach ($this->model('roulettes')->count30DaysRoulettes() as $date => $item) {
-            if($stats[$date]) {
-                $stats[$date]['roulettes'] = $item;
-            }
-        }
+//        foreach ($this->model('payments')->count30DaysPayments() as $date => $item) {
+//            if($stats[$date]) {
+//                $stats[$date]['payments'] = $item;
+//            }
+//        }
+//        foreach ($this->model('bot_users')->count30DaysUsers() as $date => $item) {
+//            if($stats[$date]) {
+//                $stats[$date]['new_users'] = $item;
+//            }
+//        }
+//        foreach ($this->model('lotteries')->count30DaysLotteries() as $date => $item) {
+//            if($stats[$date]) {
+//                $stats[$date]['lotteries'] = $item;
+//            }
+//        }
+//        foreach ($this->model('lotteries')->count30DaysFreeLotteries() as $date => $item) {
+//            if($stats[$date]) {
+//                $stats[$date]['free_lotteries'] = $item;
+//            }
+//        }
+//        foreach ($this->model('roulettes')->count30DaysRoulettes() as $date => $item) {
+//            if($stats[$date]) {
+//                $stats[$date]['roulettes'] = $item;
+//            }
+//        }
         return $stats;
 //        print_r($stats);
     }

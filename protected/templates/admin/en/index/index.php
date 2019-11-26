@@ -42,8 +42,8 @@
                             <tr>Я
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo $stat['new_users']; ?></td>
-                                <td><?php echo $stat['payments']; ?></td>
-                                <td><?php echo $stat['withdrawals']; ?></td>
+                                <td><?php echo $stat['balances']; ?></td>
+                                <td><?php echo $stat['deposits']; ?></td>
                                 <td><?php echo $stat['lotteries']; ?></td>
                                 <td><?php echo $stat['free_lotteries']; ?></td>
                                 <td><?php echo $stat['roulettes']['qty']; ?></td>
