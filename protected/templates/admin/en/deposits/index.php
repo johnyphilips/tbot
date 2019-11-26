@@ -26,6 +26,14 @@
                                 <option value="2">Закрыт</option>
                             </select>
                         </th>
+                        <th>
+                            <select name="d.plan" data-sign="=" class="form-control filter-field">
+                                <option value=""></option>
+                                <option value="Intro">Intro</option>
+                                <option value="Popular">Popular</option>
+                                <option value="Professional">Professional</option>
+                            </select>
+                        </th>
                         <th><input type="text" name="DATEDIFF(NOW(), d.create_date)" data-sign="=" class="form-control filter-field"></th>
                         <th><input type="text" name="d.amount_btc" data-sign="=" class="form-control filter-field"></th>
                         <th><input type="text" name="d.profit" data-sign="like" class="form-control filter-field"></th>
