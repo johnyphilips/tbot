@@ -15,6 +15,12 @@ class bot_class extends base
 		$user = $this->model('bot_users')->getByField('chat_id', $message['chat']['id']);
 		if($user) {
 			$this->user = $user;
+			if($this->user['status_id'] == self::USER_BLOCKED_STATUS) {
+			    $this->model('bot_users')->insert([
+			        'id' => $user['id'],
+                    'status_id' => self::USER_ACTIVE_STATUS
+                ]);
+            }
 			return true;
 		} elseif($message) {
 			return $this->createUser($message);
