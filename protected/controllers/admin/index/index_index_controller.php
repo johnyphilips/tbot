@@ -51,6 +51,11 @@ class index_index_controller extends index_helper
                 $stats[$date]['new_users'] = $item;
             }
         }
+        foreach ($this->model('bot_users')->count30DaysBlockedUsers() as $date => $item) {
+            if($stats[$date]) {
+                $stats[$date]['new_users'] = $item;
+            }
+        }
 //        foreach ($this->model('lotteries')->count30DaysLotteries() as $date => $item) {
 //            if($stats[$date]) {
 //                $stats[$date]['lotteries'] = $item;

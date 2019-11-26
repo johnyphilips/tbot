@@ -39,6 +39,19 @@ class bot_users_model extends model
         return $this->get_row($stm)['qty'];
     }
 
+    public function count24HoursBlockedUsers()
+    {
+        $stm = $this->pdo->prepare('
+            SELECT
+                count(id) qty
+            FROM
+                bot_users
+            WHERE
+                blocked_date > NOW() -  INTERVAL 24 HOUR
+        ');
+        return $this->get_row($stm)['qty'];
+    }
+
     public function getUserTotalWin($user_id)
     {
         $stm = $this->pdo->prepare('
@@ -141,6 +154,28 @@ class bot_users_model extends model
                     AND DATE(create_date) > DATE(NOW()) - INTERVAL 30 DAY
             GROUP BY DATE(create_date)
             ORDER BY DATE(create_date)
+        ');
+        $tmp = $this->get_all($stm);
+        $res = [];
+        foreach ($tmp as $item) {
+            $res[$item['date']] = $item['sum'];
+        }
+        return $res;
+    }
+
+    public function count30DaysBlockedUsers()
+    {
+        $stm = $this->pdo->prepare('
+            SELECT 
+                DATE(create_date) date, 
+                COUNT(id) sum
+            FROM
+                bot_users
+            WHERE
+                status_id = ' . bot_commands_class::USER_BLOCKED_STATUS . '
+                    AND DATE(blocked_date) > DATE(NOW()) - INTERVAL 30 DAY
+            GROUP BY DATE(blocked_date)
+            ORDER BY DATE(blocked_date)
         ');
         $tmp = $this->get_all($stm);
         $res = [];
