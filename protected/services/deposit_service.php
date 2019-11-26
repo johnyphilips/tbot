@@ -194,7 +194,8 @@ class deposit_service extends staticBase
             ]);
             self::render('deposit', $deposit);
             self::render('profit', $profit);
-            queue_service::add($deposit['chat_id'], self::fetch('queue/profit'));
+            $user = self::model('bot_users')->getById($deposit['user_id']);
+            queue_service::add($deposit['chat_id'], self::fetch('queue/profit'), null, buttons_class::getMenu($user));
         }
     }
 
