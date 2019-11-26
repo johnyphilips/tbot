@@ -33,14 +33,6 @@
                         <th><input type="text" name="DATE(d.create_date)" data-sign="=" class="form-control filter-field dp"></th>
                     </tr>
                     <tr>
-                        d.id',
-                        'IF(d.status_id = 1, "Открыт", "Закрыт")',
-                        'd.plan',
-                        'DATEDIFF(NOW(), d.create_date)',
-                        'd.amount_btc',
-                        'd.profit',
-                        '<a href=\"/clients/id?id=", r.id, "\">u.t_user_name</a>',
-                        "d.create_date"
                         <th>Id</th>
                         <th>Статус</th>
                         <th>План</th>
