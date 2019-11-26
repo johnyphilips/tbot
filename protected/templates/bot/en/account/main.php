@@ -10,7 +10,7 @@ Account Menu
 <?php foreach ($plan_deposits as $deposit): ?>
 Deposit: <?php echo bitcoin_service::formatBTC($deposit['amount_btc']); ?> BTC
 Profit: <?php echo bitcoin_service::formatBTC($deposit['profit']); ?> BTC
-            <?php echo tools_class::dateDiff(date('Y-m-d', strtotime($deposit['create_date']))); ?>
+            <?php echo deposit_service::PLANS[$plan]['term']; ?>
 End in <?php echo (deposit_service::PLANS[$plan]['term'] - tools_class::dateDiff(date('Y-m-d', strtotime($deposit['create_date'])))->days); ?> days
 
 <?php endforeach; ?>
