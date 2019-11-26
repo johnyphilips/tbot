@@ -36,7 +36,7 @@
                                 <td><?php echo $stat['balances']; ?></td>
                                 <td><?php echo $stat['deposits']; ?></td>
                                 <td><?php echo $stat['withdrawals']; ?></td>
-                                <td><?php echo round($stat['deposits']/$stat['withdrawals'], 8); ?></td>
+                                <td><?php echo round($stat['deposits']/$stat['withdrawals'] ? $stat['withdrawals'] : 1, 8); ?></td>
                                 <td><?php echo $stat['roulettes']['qty']; ?></td>
                                 <td><?php echo $stat['roulettes']['won']; ?></td>
                                 <td><?php echo $stat['roulettes']['spent']; ?></td>
