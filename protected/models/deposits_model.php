@@ -45,7 +45,7 @@ class deposits_model extends model
     {
         $stm = $this->pdo->prepare('
             select
-            sum(p.amount_btc) profits
+            sum(p.amount_btc) profits,
             date(p.create_date) date
         FROM
             profits p 
