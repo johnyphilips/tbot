@@ -122,13 +122,6 @@ class index_index_controller extends index_helper
 
     public function test()
     {
-//        lottery_service::updateMenu('s', false);
-//        foreach ($this->model('fake_transactions')->getAll('create_date', '2') as $item) {
-//            $this->render('tx_id', $item['tx_id']);
-//            $this->render('sum', $item['amount']);
-//            queue_service::add(WITHDRAWAL_CHANNEL, self::fetch('templates/bot/en/queue/withdrawal_channel', true));
-//
-//        }
-//        channel_service::sendPastWiathdrawals();
+        var_dump(tools_class::dateDiff(date('Y-m-d', strtotime('2019-11-01')))->days);
     }
 }
