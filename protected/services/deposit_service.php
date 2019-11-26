@@ -121,7 +121,7 @@ class deposit_service extends staticBase
             'referral_id' => $payment['user_id'],
             'payment_id' => $payment['id'],
             'amount_btc' => $amount,
-            'referral_level' => $referrer['level'],
+            'referrer_level' => $referrer['level'],
             'create_date' => tools_class::gmDate()
         ];
         self::model('referral_payouts')->insert($row);
