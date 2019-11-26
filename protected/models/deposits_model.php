@@ -58,4 +58,22 @@ class deposits_model extends model
         }
         return $res;
     }
+
+    public function getReferralPayoutsByDate()
+    {
+        $stm = $this->pdo->prepare('
+            select
+            sum(p.amount_btc) payouts,
+            date(p.create_date) date
+        FROM
+            referral_payouts p 
+        GROUP BY date(p.create_date);
+        ');
+        $res = [];
+        $tmp = $this->get_all($stm);
+        foreach ($tmp as $item) {
+            $res[$item['date']] = $item['profits'];
+        }
+        return $res;
+    }
 }
