@@ -47,7 +47,7 @@ class withdraw_menu extends bot_commands_class
             exit;
         }
         if (!is_numeric($sum) || $sum < deposit_service::MIN_WITHDRAW || $sum > $this->user['balance']) {
-            $this->render('min_sum', balance_service::MIN_WITHDRAW);
+            $this->render('min_sum', deposit_service::MIN_WITHDRAW);
             $this->render('max_sum', $this->user['balance']);
             $this->main('need_number');
         } else {
