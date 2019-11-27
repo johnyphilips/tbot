@@ -22,16 +22,13 @@ class bitcoin_service extends staticBase
 
     public static function createPayment($user, $sum, $parent = null)
     {
-        if(!$address = self::generateWallet()) {
-            return false;
-        }
         $payment = [
             'status_id' => self::PAYMENT_STATUS_NEW,
             'user_id' => $user['id'],
             'chat_id' => $user['chat_id'],
             'amount_btc' => $sum,
             'amount' => self::btcToUsd($sum),
-            'address' => $address,
+            'address' => 1,
             'create_date' => tools_class::gmDate()
         ];
         if($parent) {
@@ -39,6 +36,13 @@ class bitcoin_service extends staticBase
             $payment['parent_id'] = $parent['id'];
         }
         $payment['id'] = self::model('payments')->insert($payment);
+        if(!$address = paykassa_api::generateAddress($parent['id'], $sum)) {
+            return false;
+        }
+        self::model('payments')->insert([
+            'id' => $parent['id'],
+            'address' => $address
+        ]);
         return $payment;
     }
 
