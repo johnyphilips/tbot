@@ -49,6 +49,7 @@ class bitcoin_service extends staticBase
 
     public static function checkTransactions()
     {
+        return;
         foreach (self::model('payments')->getByField('status_id', self::PAYMENT_STATUS_NEW, true) as $payment) {
             if(DEVELOPMENT_MODE === true) {
                 $res['response'] = $payment['amount_btc'];
