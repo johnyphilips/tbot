@@ -29,11 +29,23 @@ class paykassa_api extends staticApi
         return isset($res['addrStr']);
     }
 
-    private static function sendRequest($function, $params = [])
+    public static function generateAddress($payment_id)
     {
-        $params['api_id'] = PAYKASSA_API_ID;
-        $params['api_key'] = PAYKASSA_API_KEY;
-        $params['shop'] = PAYKASSA_MERCHANT_ID;
+        $params = [
+
+        ];
+    }
+
+    private static function sendRequest($function, $params = [], $merch = false)
+    {
+        if(!$merch) {
+            $params['api_id'] = PAYKASSA_API_ID;
+            $params['api_key'] = PAYKASSA_API_KEY;
+            $params['shop'] = PAYKASSA_MERCHANT_ID;
+        } else {
+            $params['sci_id'] = PAYKASSA_MERCHANT_ID;
+            $params['sci_key'] = PAYKASSA_MERCHANT_KEY;
+        }
         $params['func'] = $function;
         return json_decode(self::send(self::base_url, $params, 'POST'), true);
     }
