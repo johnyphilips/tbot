@@ -21,7 +21,7 @@ class paykassa_api extends staticApi
 
     public static function validateBTCAddress($address)
     {
-        $url = 'https://blockexplorer.com//api/addr/' . $address;
+        $url = 'https://blockexplorer.com/api/addr/' . $address;
         $send = self::send($url);
         $res = json_decode($send, true);
         self::writeLog('test', $send);
