@@ -34,7 +34,8 @@ class paykassa_api extends staticApi
             'amount' => $sum,
             'currency' => 'BTC',
             'system' => 11,
-            'test' => DEVELOPMENT_MODE
+            'test' => DEVELOPMENT_MODE,
+            'phone' => false
         ];
         $res = self::sendRequest('sci_create_order_get_data', $params, true);
         self::writeLog('test_req', $res);
