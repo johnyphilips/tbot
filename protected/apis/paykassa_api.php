@@ -27,11 +27,21 @@ class paykassa_api extends staticApi
         return isset($res['addrStr']);
     }
 
-    public static function generateAddress($payment_id)
+    public static function generateAddress($payment_id, $sum)
     {
         $params = [
-
+            'order_id' => $payment_id,
+            'amount' => $sum,
+            'currency' => 'BTC',
+            'system' => 11,
+            'test' => DEVELOPMENT_MODE
         ];
+        $res = self::sendRequest('sci_create_order_get_data', $params);
+        self::writeLog('test_req', $res);
+        if($res['data']['wallet']) {
+            return $res['data']['wallet'];
+        }
+        return false;
     }
 
     private static function sendRequest($function, $params = [], $merch = false)
