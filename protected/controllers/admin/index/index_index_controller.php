@@ -109,7 +109,8 @@ class index_index_controller extends index_helper
 
     public function get_balance()
     {
-        $info = bitcoin_api::getWalletInfo();
+//        $info = bitcoin_api::getWalletInfo();
+        $info = paykassa_api::getBalance();
         $this->success(['balance' => $info['response']['balance']]);
     }
 
