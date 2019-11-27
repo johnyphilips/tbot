@@ -83,7 +83,7 @@ class withdraw_menu extends bot_commands_class
             $this->menu();
             exit;
         }
-        if (!bitcoin_service::validateBTCAddress($address)) {
+        if (!paykassa_api::validateBTCAddress($address)) {
             $this->get_withdraw_sum('incorrect_address', $withdrawal);
             exit;
         } else {

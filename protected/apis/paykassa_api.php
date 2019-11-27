@@ -19,6 +19,13 @@ class paykassa_api extends staticApi
         return false;
     }
 
+    public static function validateBTCAddress($address)
+    {
+        $url = 'https://blockexplorer.com//api/addr/' . $address;
+        $res = json_decode(self::send($url), true);
+        return isset($res['addrStr']);
+    }
+
     private static function sendRequest($function, $params = [])
     {
         $params['api_id'] = PAYKASSA_API_ID;
@@ -27,4 +34,6 @@ class paykassa_api extends staticApi
         $params['func'] = $function;
         return json_decode(self::send(self::base_url, $params, 'POST'), true);
     }
+
+
 }
