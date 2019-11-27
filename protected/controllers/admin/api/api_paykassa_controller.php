@@ -13,6 +13,9 @@ class api_paykassa_controller extends api_helper
         self::writeLog('test_paykassa', $_GET);
         self::writeLog('test_paykassa', $_POST);
         self::writeLog('test_paykassa', file_get_contents('php://input'));
+        self::writeLog('test_paykassa', file_get_contents('php://input')['hash']);
+
+
     }
 
     public function successful()

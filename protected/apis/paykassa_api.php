@@ -24,8 +24,6 @@ class paykassa_api extends staticApi
         $url = 'https://blockexplorer.com/api/addr/' . $address;
         $send = self::send($url);
         $res = json_decode($send, true);
-        self::writeLog('test', $send);
-        self::writeLog('test', $res);
         return isset($res['addrStr']);
     }
 
