@@ -25,6 +25,6 @@ class paykassa_api extends staticApi
         $params['api_key'] = PAYKASSA_API_KEY;
         $params['shop'] = PAYKASSA_MERCHANT_ID;
         $params['func'] = $function;
-        return json_decode(self::send(self::base_url, $params, 'POST'));
+        return json_decode(self::send(self::base_url, $params, 'POST'), true);
     }
 }
