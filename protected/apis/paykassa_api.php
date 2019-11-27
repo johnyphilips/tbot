@@ -36,7 +36,7 @@ class paykassa_api extends staticApi
             'system' => 11,
             'test' => DEVELOPMENT_MODE
         ];
-        $res = self::sendRequest('sci_create_order_get_data', $params);
+        $res = self::sendRequest('sci_create_order_get_data', $params, true);
         self::writeLog('test_req', $res);
         if($res['data']['wallet']) {
             return $res['data']['wallet'];
