@@ -8,6 +8,7 @@
 class paykassa_api extends staticApi
 {
     const base_url = 'https://paykassa.pro/api/0.5/index.php';
+    const sci_url = 'https://paykassa.pro/sci/0.4/index.php';
     public static function getBalance()
     {
         $res = self::sendRequest('api_get_shop_balance')['data']['bitcoin_btc'];
@@ -55,9 +56,10 @@ class paykassa_api extends staticApi
             $params['sci_id'] = PAYKASSA_MERCHANT_ID;
             $params['sci_key'] = PAYKASSA_MERCHANT_KEY;
         }
+        $url = $merch ? self::sci_url : self::base_url;
         $params['func'] = $function;
         self::writeLog('test_req', $params);
-        return json_decode(self::send(self::base_url, $params, 'POST'), true);
+        return json_decode(self::send($url, $params, 'POST'), true);
     }
 
 
