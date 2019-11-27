@@ -26,7 +26,7 @@ class api_paykassa_controller extends api_helper
                     queue_service::add($payment['chat_id'], self::fetch('queue/topped_up'), null, buttons_class::getMenu($user));
                 }
             }
-            echo 1;
+            echo $payment['id'];
         }
         self::writeLog('test_paykassa', $res);
         self::writeLog('test_paykassa', $_POST['private_hash']);
