@@ -54,6 +54,8 @@ class paykassa_api extends staticApi
         ];
         $res = self::sendRequest('sci_confirm_order', $params, true);
         self::writeLog('test_req', $res);
+        self::writeLog('test_req', ['data']['error']);
+        self::writeLog('test_req', ['data']['amount']);
         if($res['data']['error'] === false && $res['data']['amount']) {
             return $res['data']['amount'];
         }
