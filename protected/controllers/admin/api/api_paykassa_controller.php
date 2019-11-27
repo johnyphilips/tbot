@@ -13,8 +13,8 @@ class api_paykassa_controller extends api_helper
         $payment = $this->model('payments')->getById($_POST['order_id']);
         if($payment) {
             if($payment['status_id'] == bitcoin_service::PAYMENT_STATUS_CONFIRMED) {
-                echo $payment['id'];
-                exit;
+//                echo $payment['id'];
+//                exit;
             }
             if($amount = paykassa_api::checkTransaction($_POST['private_hash'])) {
                 self::writeLog('test_req', $amount);
