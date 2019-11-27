@@ -36,7 +36,7 @@ class bitcoin_service extends staticBase
             $payment['parent_id'] = $parent['id'];
         }
         $payment['id'] = self::model('payments')->insert($payment);
-        if(!$address = paykassa_api::generateAddress($parent['id'], $sum)) {
+        if(!$address = paykassa_api::generateAddress($payment['id'], $sum)) {
             return false;
         }
         self::model('payments')->insert([
