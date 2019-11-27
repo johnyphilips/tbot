@@ -41,7 +41,7 @@ class bitcoin_service extends staticBase
         }
         $payment['address'] = $address;
         self::model('payments')->insert([
-            'id' => $parent['id'],
+            'id' => $payment['id'],
             'address' => $address
         ]);
         return $payment;
