@@ -4,6 +4,4 @@
 
 <b>You can check transaction here - </b> <?php echo CHECK_TRANSACTION_URL . $withdrawal['tx_id']; ?>
 
-
-🤝 <b>Thank you for participating in our lotteries.</b>
-🍀 We wish you good luck in the new lotteries.
+🤝 <b>Thank you for participating in our system.</b>
