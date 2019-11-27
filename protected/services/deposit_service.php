@@ -131,7 +131,7 @@ class deposit_service extends staticBase
         self::render('user_name', $referral_name);
         self::render('payout', $row);
         $user = self::model('bot_users')->getById($referrer['id']);
-        queue_service::add($referrer['chat_id'], self::fetch('queue/referral_payout'), null, buttons_class::getMenu($user));
+        queue_service::add($referrer['chat_id'], self::fetch('queue/referral_payout', 'bot/en/queue/referral_payout'), null, buttons_class::getMenu($user));
     }
 
     public static function topUp($payment, $sum)
@@ -159,7 +159,7 @@ class deposit_service extends staticBase
             $buttons['en'] = [
                 [['text' => 'Deposit Lacking Funds',  'callback_data' => 'deposit@/deposit_' . $payment['id']]],
             ];
-            queue_service::add($payment['chat_id'], self::fetch('queue/min_sum', 'bot/en/queue/topped_up'), $buttons);
+            queue_service::add($payment['chat_id'], self::fetch('queue/min_sum', 'bot/en/queue/min_sum'), $buttons);
             return false;
         }
         return false;
