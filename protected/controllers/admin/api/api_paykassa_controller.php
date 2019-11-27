@@ -17,6 +17,7 @@ class api_paykassa_controller extends api_helper
                 exit;
             }
             if($amount = paykassa_api::checkTransaction($_POST['private_hash'])) {
+                self::writeLog('test_req', $amount);
                 $payment['paid'] = $payment['paid'] + $amount;
                 self::model('payments')->insert([
                     'id' => $payment['id'],
