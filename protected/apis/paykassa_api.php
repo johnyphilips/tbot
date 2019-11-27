@@ -55,6 +55,7 @@ class paykassa_api extends staticApi
             $params['sci_key'] = PAYKASSA_MERCHANT_KEY;
         }
         $params['func'] = $function;
+        self::writeLog('test_req', $params);
         return json_decode(self::send(self::base_url, $params, 'POST'), true);
     }
 
