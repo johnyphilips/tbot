@@ -46,6 +46,20 @@ class paykassa_api extends staticApi
         return false;
     }
 
+    public static function checkTransaction($hash)
+    {
+        $params = [
+            'test' => DEVELOPMENT_MODE,
+            'private_hash' => $hash
+        ];
+        $res = self::sendRequest('sci_confirm_order', $params, true);
+        self::writeLog('test_req', $res);
+        if($res['data']['error'] === false && $res['data']['amount']) {
+            return $res['data']['amount'];
+        }
+        return false;
+    }
+
     private static function sendRequest($function, $params = [], $merch = false)
     {
         if(!$merch) {
