@@ -9,8 +9,10 @@ class api_paykassa_controller extends api_helper
 {
     public function handler()
     {
-        $hash = json_decode(file_get_contents('php://input'), true)['private_hash'];
-        self::writeLog('test_paykassa', $hash);
+        $res = json_decode(file_get_contents('php://input'), true);
+        self::writeLog('test_paykassa', $res);
+        self::writeLog('test_paykassa', $res['private_hash']);
+        echo 1;
 
     }
 
