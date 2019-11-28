@@ -5,7 +5,7 @@
 ➖➖➖➖➖➖➖➖➖
 👫 <b>Total Referrals Invited:</b> <?php echo $referrals; ?>
 <b>Active Referrals:</b> <?php echo $active_referrals; ?>
-<b>Earned from Referrals:  <?php echo $earned_referrals; ?> BTC
+<b>Earned from Referrals:</b>  <?php echo $earned_referrals; ?> BTC
 
 ♾ <b>My referral link:</b> <?php echo $referral_link; ?>
 ➖➖➖➖➖➖➖➖➖
