@@ -20,7 +20,7 @@ class account_menu extends bot_commands_class
             $invested += $item['amount_btc'];
         }
         $earned = 0;
-        foreach ($this->model('deposits')->getByField('user_id', $this->user['id'], true) as $item) {
+        foreach ($this->model('profits')->getByField('user_id', $this->user['id'], true) as $item) {
             $earned += $item['amount_btc'];
         }
         $this->render('deposits', $deposits);
