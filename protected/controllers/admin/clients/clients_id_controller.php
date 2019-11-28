@@ -55,6 +55,7 @@ class clients_id_controller extends admin_project
 //            }
             $in2 = [];
             foreach ($this->model('bot_users')->getReferralsReferrals($in, 2) as $referral) {
+                print_r($referral);
                 $referrals[2][$referral['id']] = $referral;
                 $referrals[2][$referral['id']]['deposits'] = $referral['deposits'];
                 $referrals[2][$referral['id']]['payouts'] = $referral['payouts'];
