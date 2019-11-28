@@ -2,7 +2,7 @@
 class webhook_bot1_controller extends bot_project
 {
     private $text_commands = [
-        '🌐 My Account' => 'account',
+        '🔐 My Account' => 'account',
         '🌐 Deposit' => 'deposit',
         '🌐 Withdraw Funds' => 'withdraw',
         '🌐 Referral Program' => 'referral',
@@ -45,7 +45,7 @@ class webhook_bot1_controller extends bot_project
                 $this->success();
             }
         }
-        if(strpos($message['text'], '🌐 My Account') === 0) {
+        if(strpos($message['text'], '🔐 My Account') === 0) {
             $command = 'account';
         }
         if(!empty($command) || array_key_exists($message['text'], $this->text_commands)) {

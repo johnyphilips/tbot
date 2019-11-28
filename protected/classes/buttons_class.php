@@ -17,7 +17,7 @@ class buttons_class
             ],
             'en' => [
                 [
-                    ['text' => hex2bin('F09F8C90') . ' My Account (Balance ' . bitcoin_service::formatBTC($user['balance']) . '$)'],
+                    ['text' => hex2bin('F09F9490') . ' My Account (Balance ' . bitcoin_service::formatBTC($user['balance']) . '$)'],
                 ],
                 [
                     ['text' => hex2bin('F09F8C90') . ' Deposit'],

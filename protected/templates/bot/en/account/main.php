@@ -1,19 +1,25 @@
-Account Menu
-<b>Your Balance: </b><code><?php echo bitcoin_service::formatBTC($user['balance']); ?> BTC</code>
+<b>Current Balance:</b> <code><?php echo bitcoin_service::formatBTC($user['balance']); ?> BTC</code>
+<b>Total invested:</b>  <code><?php echo bitcoin_service::formatBTC($invested); ?> BTC</code>
+<b>Total earned:</b> <code><?php echo bitcoin_service::formatBTC($earned); ?> BTC</code>
+<b>Active Investment plans:</b> <?php echo $deposits; ?> plan<?php echo $deposit > 1 ? 's' : '' ?>
+➖➖➖➖➖➖➖➖➖
+👫 <b>Total Referrals Invited:</b> <?php echo $referrals; ?>
+<b>Active Referrals:</b> <?php echo $active_referrals; ?>
+<b>Earned from Referrals:  <?php echo $earned_referrals; ?> BTC
 
-<b>Your referral link: </b><?php echo $referral_link; ?>
+♾ <b>My referral link:</b> <?php echo $referral_link; ?>
+➖➖➖➖➖➖➖➖➖
 
 <?php if ($deposits): ?>
-<b>Your deposits</b>
+💰 <b>My Active Investment(s):</b>
 <?php foreach ($deposits as $plan => $plan_deposits): ?>
-<b><?php echo ucfirst($plan); ?></b>
+<b> - <?php echo strtoupper($plan); ?></b>, payouts every 3 hours.
 <?php foreach ($plan_deposits as $deposit): ?>
-Deposit: <?php echo bitcoin_service::formatBTC($deposit['amount_btc']); ?> BTC
-Profit: <?php echo bitcoin_service::formatBTC($deposit['profit']); ?> BTC
+<b>Daily profit</b> <?php echo deposit_service::PLANS[strtolower($plan)]['percent']; ?>%, <b>duration</b> <?php echo deposit_service::PLANS[strtolower($plan)]['term']; ?> days, <b>Profit</b>:  <?php echo deposit_service::PLANS[strtolower($plan)]['term'] * deposit_service::PLANS[strtolower($plan)]['precent']; ?>%
 <?php if ($deposit['status_id'] == 1): ?>
-End in <?php echo (deposit_service::PLANS[strtolower($plan)]['term'] - tools_class::dateDiff(date('Y-m-d', strtotime($deposit['create_date'])))->days); ?> days
+Next payment: <?php echo $deposit['next_payment']; ?> (UTC)
 <?php else: ?>
-Closed
+<b>Closed</b>
 <?php endif; ?>
 
 <?php endforeach; ?>
