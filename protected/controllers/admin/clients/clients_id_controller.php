@@ -53,9 +53,8 @@ class clients_id_controller extends admin_project
 //                $deposits += $item['amount_btc'];
 //                $payouts += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[2];
 //            }
-
             $in2 = [];
-            foreach ($this->model('bot_users')->getReferralsReferrals($in) as $referral) {
+            foreach ($this->model('bot_users')->getReferralsReferrals($in, 2) as $referral) {
                 $referrals[2][$referral['id']] = $referral;
                 $referrals[2][$referral['id']]['deposits'] = $referral['deposits'];
                 $referrals[2][$referral['id']]['payouts'] = $referral['payouts'];
@@ -71,7 +70,7 @@ class clients_id_controller extends admin_project
 //                    $payouts += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[3];
 //                }
 //                $referral_profit += $payouts;
-                foreach ($this->model('bot_users')->getReferralsReferrals($in2) as $referral) {
+                foreach ($this->model('bot_users')->getReferralsReferrals($in2, 3) as $referral) {
                     $referrals[3][$referral['id']] = $referral;
                     $referrals[3][$referral['id']]['deposits'] = $referral['deposits'];
                     $referrals[3][$referral['id']]['payouts'] = $referral['payouts'];
