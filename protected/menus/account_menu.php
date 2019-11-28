@@ -33,6 +33,7 @@ class account_menu extends bot_commands_class
                 $active_referrals += 1;
                 $earned_referrals += $referral['deposits'];
             }
+            $in[] = $referral['id'];
         }
         if($in) {
             $in2 = [];
@@ -42,6 +43,7 @@ class account_menu extends bot_commands_class
                     $active_referrals += 1;
                 }
                 $earned_referrals += $referral['deposits'];
+                $in2[] = $referral['id'];
             }
             if($in2) {
                 foreach ($this->model('bot_users')->getReferralsReferrals($in2) as $referral) {
