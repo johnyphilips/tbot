@@ -31,7 +31,7 @@ class account_menu extends bot_commands_class
             $referrals += 1;
             $deposits = $this->model('deposits')->getByField('user_id', $referral['id'], true);
             foreach ($deposits as $item) {
-                $earned_referrals += $item['amount_btc'];
+                $earned_referrals += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[1];
             }
             if($deposits) {
                 $active_referrals += 1;
@@ -45,7 +45,10 @@ class account_menu extends bot_commands_class
                 if($referral['deposits']) {
                     $active_referrals += 1;
                 }
-                $earned_referrals += $referral['deposits'];
+                $deposits = $this->model('deposits')->getByField('user_id', $referral['id'], true);
+                foreach ($deposits as $item) {
+                    $earned_referrals += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[1];
+                }
                 $in2[] = $referral['id'];
             }
             if($in2) {
@@ -54,7 +57,10 @@ class account_menu extends bot_commands_class
                     if($referral['deposits']) {
                         $active_referrals += 1;
                     }
-                    $earned_referrals += $referral['deposits'];
+                    $deposits = $this->model('deposits')->getByField('user_id', $referral['id'], true);
+                    foreach ($deposits as $item) {
+                        $earned_referrals += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[1];
+                    }
                 }
             }
         }
