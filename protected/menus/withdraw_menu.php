@@ -95,6 +95,7 @@ class withdraw_menu extends bot_commands_class
                 $this->render('sum', $withdrawal['amount_btc']);
                 $this->render('tx_id', $withdrawal['tx_id']);
                 $this->sendHTML($this->fetch('withdraw/withdrawal_success'));
+                $this->sendHTML($this->fetch('queue/forward'));
                 queue_service::add(WITHDRAWAL_CHANNEL, $this->fetch('queue/withdrawal_channel'));
             } else {
                 $this->sendHTML($this->fetch('withdraw/withdrawal_unsuccess'));
