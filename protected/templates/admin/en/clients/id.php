@@ -73,7 +73,7 @@
                             <?php foreach ($referral_level as $referral): ?>
                                 <tr>
                                     <td><?php echo $level; ?></td>
-                                    <td><a href="/cliets/id?id=<?php echo $referral['id']; ?>"><?php echo $referral['t_user_name']; ?></a></td>
+                                    <td><a href="/clients/id?id=<?php echo $referral['id']; ?>"><?php echo $referral['t_user_name']; ?></a></td>
                                     <td><?php echo bitcoin_service::formatBTC($referral['deposits']); ?></td>
                                     <td><?php echo bitcoin_service::formatBTC($referral['payouts']); ?></td>
                                 </tr>
