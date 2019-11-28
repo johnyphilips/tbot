@@ -2,7 +2,6 @@
 <b>Total invested:</b>  <code><?php echo bitcoin_service::formatBTC($invested); ?> BTC</code>
 <b>Total earned:</b> <code><?php echo bitcoin_service::formatBTC($earned); ?> BTC</code>
 <b>Active Investment plans:</b> <?php echo $deposits_qty; ?> plan<?php echo $deposits_qty > 1 ? 's' : '' ?>
-
 ➖➖➖➖➖➖➖➖➖
 👫 <b>Total Referrals Invited:</b> <?php echo $referrals; ?>
 
@@ -11,6 +10,7 @@
 <b>Earned from Referrals:</b>  <?php echo $earned_referrals; ?> BTC
 
 ♾ <b>My referral link:</b> <?php echo $referral_link; ?>
+
 ➖➖➖➖➖➖➖➖➖
 
 <?php if ($deposits): ?>
