@@ -128,6 +128,7 @@ class deposit_service extends staticBase
                 deposit_service::balancePlus($user['id'], $sum);
                 self::render('sum', bitcoin_service::formatBTC($sum));
                 $message = self::fetch('queue/forward_withdrawal_prize');
+                $user['balance'] += $sum;
                 queue_service::add($user['chat_id'], $message, null, buttons_class::getMenu($user));
                 return true;
             }
