@@ -9,10 +9,11 @@ class deposit_menu extends bot_commands_class
 {
     public function main()
     {
-        $buttons['en'] = [
-            [['text' => 'Deposit Funds',  'callback_data' => 'deposit@/deposit']],
-        ];
-        $this->sendHTML('deposit/main', $buttons);
+//        $buttons['en'] = [
+//            [['text' => 'Deposit Funds',  'callback_data' => 'deposit@/deposit']],
+//        ];
+//        $this->sendHTML('deposit/main', $buttons);
+        $this->deposit();
     }
 
     public function deposit($message = 'deposit', $payment_id = null)
