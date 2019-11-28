@@ -121,7 +121,12 @@ class bitcoin_service extends staticBase
     {
         if(DEVELOPMENT_MODE === true) {
             $tx_id = 'f702374e18b1334e3ab429c1b5c5df3158f92c0756a080135358ab1d96429499';
+            self::model('withdrawals')->insert([
+                'id' => $withdrawal['id'],
+                'tx_id' => $tx_id
+            ]);
             return $tx_id;
+
         }
 //        if($tx_id = bitcoin_api::sendBTC($withdrawal['address'], $withdrawal['amount_btc'])['tx_id']) {
 //            $withdrawal['tx_id'] = $tx_id;

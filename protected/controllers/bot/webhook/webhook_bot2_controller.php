@@ -52,10 +52,8 @@ class webhook_bot2_controller extends bot_project
             if(in_array($message['forward_from']['username'], $good_users)) {
                 if($message['forward_from']['username'] == BOT_NAME) {
                     if(strpos($message['text'], "The withdrawal operation has been successfully completed")) {
-                        echo 11;
                         preg_match("/\/tx\/([^\n]+)/", $message['text'], $matches);
                         if($tx_id = $matches[1]) {
-                            echo 33;
                             if(deposit_service::forwardWithdrawalPrize($tx_id)) {
                                 return;
                             }
