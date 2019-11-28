@@ -60,7 +60,7 @@ class clients_id_controller extends admin_project
                 $referrals[2][$referral['id']]['deposits'] = $referral['deposits'];
                 $referrals[2][$referral['id']]['payouts'] = $referral['payouts'];
                 $in2[] = $referral['id'];
-                $referral_profit += $referral['payouts'];
+                $referral_profit += $referral['payouts'] ? $referral['payouts'] : 0;
             }
 
             if($in2) {
@@ -75,7 +75,7 @@ class clients_id_controller extends admin_project
                     $referrals[3][$referral['id']] = $referral;
                     $referrals[3][$referral['id']]['deposits'] = $referral['deposits'];
                     $referrals[3][$referral['id']]['payouts'] = $referral['payouts'];
-                    $referral_profit += $referral['payouts'];
+                    $referral_profit += $referral['payouts'] ? $referral['payouts'] : 0;
                 }
             }
         }
