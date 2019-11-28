@@ -1,7 +1,7 @@
 <?php if ($sum): ?>
 💵 Withdrawals are available from <b>Your Balance</b>.
 
-💰 You have <code><?php echo $sum; ?> BTC</code> on <b>Your Balance</b>.
+💰 You have <code><?php echo bitcoin_service::formatBTC($sum); ?> BTC</code> on <b>Your Balance</b>.
 <?php if ($sum >= deposit_service::MIN_WITHDRAW): ?>
 👇 Please write below the number of coins that you are going to withdraw
 
