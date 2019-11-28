@@ -12,7 +12,7 @@ class bot_users_model extends model
         $stm = $this->pdo->prepare('
             SELECT
                 u.*,
-                sum(d.amount_btc) deposits
+                sum(d.amount_btc) deposits,
                 sum(d.amount_btc)/100 * ' . deposit_service::REFERRER_PAYOUTS[$level] . ' payouts
             FROM
                 bot_users u 
