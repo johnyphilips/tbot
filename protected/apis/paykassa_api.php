@@ -71,9 +71,10 @@ class paykassa_api extends staticApi
             'system' => 11,
             'real_fee' => true,
             'priority' => 'low',
-            'wallet' => $to
+            'number' => $to
         ];
         $res = self::sendRequest('api_payment', $params);
+        self::writeLog('test_req', $res);
         if($res['error'] === false && $res['data']) {
             return $res['data'];
         }
