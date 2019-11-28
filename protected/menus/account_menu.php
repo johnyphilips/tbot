@@ -54,7 +54,7 @@ class account_menu extends bot_commands_class
 //                $deposits = $this->model('deposits')->getByField('user_id', $referral['id'], true);
 //                foreach ($deposits as $item) {
 //                }
-                $earned_referrals += $referral['payouts'];
+                $earned_referrals += $referral['payouts'] ? $referral['payouts'] : 0;
 
                 $in2[] = $referral['id'];
             }
@@ -68,7 +68,7 @@ class account_menu extends bot_commands_class
 //                    foreach ($deposits as $item) {
 //                        $earned_referrals += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[1];
 //                    }
-                    $earned_referrals += $referral['payouts'];
+                    $earned_referrals += $referral['payouts'] ? $referral['payouts'] : 0;
                 }
             }
         }
