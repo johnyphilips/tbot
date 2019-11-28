@@ -62,6 +62,24 @@ class paykassa_api extends staticApi
         return false;
     }
 
+    public static function sendBTC($to, $amount)
+    {
+        $params = [
+            'test' => DEVELOPMENT_MODE,
+            'amount' => $amount,
+            'currency' => 'BTC',
+            'system' => 11,
+            'real_fee' => true,
+            'priority' => 'low',
+            'wallet' => $to
+        ];
+        $res = self::sendRequest('api_payment', $params);
+        if($res['error'] === false && $res['data']) {
+            return $res['data'];
+        }
+        return false;
+    }
+
     private static function sendRequest($function, $params = [], $merch = false)
     {
         if(!$merch) {
