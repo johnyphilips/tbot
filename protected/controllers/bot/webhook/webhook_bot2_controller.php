@@ -39,11 +39,10 @@ class webhook_bot2_controller extends bot_project
             BOT_NAME,
             MODERATOR_BOT,
             CHAT_ADMIN,
-            'bingoclub_payouts',
+            str_replace('@', '',CHANNEL_NAME),
             str_replace('@', '', CHANNEL_NAME),
-            'bingo_club_moderator',
-            'BingoClub_bot',
-            'bingoclub_chat'
+            str_replace('@', '',MODERATOR_BOT),
+            str_replace('@', '',CHAT_NAME)
         );
         
         if(in_array($user_telegram, $good_users)){
@@ -52,27 +51,10 @@ class webhook_bot2_controller extends bot_project
         if(array_key_exists('forward_from', $message)){
             if(in_array($message['forward_from']['username'], $good_users)) {
                 if($message['forward_from']['username'] == BOT_NAME) {
-                    if(strpos($message['text'], "The winner is:")) {
-                        preg_match("/ID: ([^\n]+)/", $message['text'], $matches);
-                        if($chat_id = $matches[1]) {
-                            preg_match("/Free Lottery #([0-9]+)/", $message['text'], $matches);
-                            if($edition_id = $matches[1]) {
-                                if(balance_service::forwardFreePrize($chat_id, $edition_id)) {
-                                    return;
-                                }
-                            }
-                            preg_match("/Lottery #([0-9]+)/", $message['text'], $matches);
-                            if($edition_id = $matches[1]) {
-                                if(balance_service::forwardPrize($chat_id, $edition_id)) {
-                                    return;
-                                }
-                            }
-                        }
-                    }
                     if(strpos($message['text'], "The withdrawal operation has been successfully completed")) {
                         preg_match("/\/tx\/([^\n]+)/", $message['text'], $matches);
                         if($tx_id = $matches[1]) {
-                            if(balance_service::forwardWithdrawalPrize($tx_id)) {
+                            if(deposit_service::forwardWithdrawalPrize($tx_id)) {
                                 return;
                             }
                         }
@@ -108,10 +90,6 @@ class webhook_bot2_controller extends bot_project
             'blockchain.com',
             't.me',
             'www.blockchain.com',
-            'random.org',
-            'bingo-club.site',
-            'verify.bingo-club.site',
-            'md5.host'
         );
 
 
@@ -124,7 +102,7 @@ class webhook_bot2_controller extends bot_project
             BOT_NAME,
             MODERATOR_BOT,
             str_replace('@', '', CHANNEL_NAME),
-            'bingoclub_chat'
+            str_replace('@', '', CHAT_NAME),
         );
 
         if($telegram_bots) {

@@ -1,0 +1,1 @@
+Thanks for sharing your success! We present you <code><?php echo $sum; ?> BTC</code> on your balance for that

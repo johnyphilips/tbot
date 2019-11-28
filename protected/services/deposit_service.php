@@ -34,6 +34,7 @@ class deposit_service extends staticBase
     ];
     const UPDATE_PROFIT_PER_DAY = 8;
     const MIN_WITHDRAW = 0.0001;
+    const FORWARD_PRIZE_PERCENT = 3;
     static $last_error;
 
     public static function balancePlus($user_id, $sum)
@@ -112,6 +113,26 @@ class deposit_service extends staticBase
             }
         }
         return $res;
+    }
+
+    public static function forwardWithdrawalPrize($tx_id)
+    {
+        if($withdrawal = self::model('withdrawals')->getByField('tx_id', $tx_id)) {
+            if(!$withdrawal['forward_prize']) {
+                $user = self::model('bot_users')->getByid($withdrawal['user_id']);
+                self::model('withdrawals')->insert([
+                    'id' => $withdrawal['id'],
+                    'forward_prize' => $user['id']
+                ]);
+                $sum = round($withdrawal['amount_btc'] / 100 * self::FORWARD_PRIZE_PERCENT, 8);
+                deposit_service::balancePlus($user['id'], $sum);
+                self::render('sum', bitcoin_service::formatBTC($sum));
+                $message = self::fetch('queue/forward_withdrawal_prize');
+                queue_service::add($user['chat_id'], $message, null, buttons_class::getMenu($user));
+                return true;
+            }
+        }
+        return false;
     }
 
     public static function referrerPayout($payment, $referrer, $sum, $referral_name)
