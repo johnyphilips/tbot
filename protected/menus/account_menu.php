@@ -29,15 +29,10 @@ class account_menu extends bot_commands_class
             'status_id' => bot_commands_class::USER_ACTIVE_STATUS
         ], true) as $referral) {
             $referrals += 1;
-            $payouts = 0;
             if($referral['deposits']) {
                 $active_referrals += 1;
+                $earned_referrals += $referral['deposits'];
             }
-            foreach ($this->model('deposits')->getByField('user_id', $referral['id'], true) as $item) {
-                $payouts += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[1];
-            }
-            $earned_referrals += $payouts;
-
         }
         if($in) {
             $in2 = [];
