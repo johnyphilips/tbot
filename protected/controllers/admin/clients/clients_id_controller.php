@@ -49,32 +49,33 @@ class clients_id_controller extends admin_project
             $in[] = $referral['id'];
         }
         if($in) {
-            $payouts = 0;
-            $deposits = 0;
-            foreach ($this->model('deposits')->getByFieldIn('user_id', $in, true) as $item) {
-                $deposits += $item['amount_btc'];
-                $payouts += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[2];
-            }
-            $referral_profit += $payouts;
+//            foreach ($this->model('deposits')->getByFieldIn('user_id', $in, true) as $item) {
+//                $deposits += $item['amount_btc'];
+//                $payouts += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[2];
+//            }
+
             $in2 = [];
             foreach ($this->model('bot_users')->getReferralsReferrals($in) as $referral) {
                 $referrals[2][$referral['id']] = $referral;
-                $referrals[2][$referral['id']]['deposits'] = $deposits;
-                $referrals[2][$referral['id']]['payouts'] = $payouts;
+                $referrals[2][$referral['id']]['deposits'] = $referral['deposits'];
+                $referrals[2][$referral['id']]['payouts'] = $referral['payouts'];
                 $in2[] = $referral['id'];
+                $referral_profit += $referral['payouts'];
             }
+
             if($in2) {
-                $deposits = 0;
-                $payouts = 0;
-                foreach ($this->model('deposits')->getByFieldIn('user_id', $in2, true) as $item) {
-                    $deposits += $item['amount_btc'];
-                    $payouts += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[3];
-                }
-                $referral_profit += $payouts;
+//                $deposits = 0;
+//                $payouts = 0;
+//                foreach ($this->model('deposits')->getByFieldIn('user_id', $in2, true) as $item) {
+//                    $deposits += $item['amount_btc'];
+//                    $payouts += $item['amount_btc']/100 * deposit_service::REFERRER_PAYOUTS[3];
+//                }
+//                $referral_profit += $payouts;
                 foreach ($this->model('bot_users')->getReferralsReferrals($in2) as $referral) {
                     $referrals[3][$referral['id']] = $referral;
-                    $referrals[3][$referral['id']]['deposits'] = $deposits;
-                    $referrals[3][$referral['id']]['payouts'] = $payouts;
+                    $referrals[3][$referral['id']]['deposits'] = $referral['deposits'];
+                    $referrals[3][$referral['id']]['payouts'] = $referral['payouts'];
+                    $referral_profit += $referral['payouts'];
                 }
             }
         }
