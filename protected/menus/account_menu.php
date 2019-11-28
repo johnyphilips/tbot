@@ -25,7 +25,7 @@ class account_menu extends bot_commands_class
         $referrals = 0;
         $active_referrals = 0;
         foreach ($this->model('bot_users')->getByFields([
-            'referrer_id' => $user['id'],
+            'referrer_id' => $this->user['id'],
             'status_id' => bot_commands_class::USER_ACTIVE_STATUS
         ], true) as $referral) {
             $referrals += 1;
