@@ -29,9 +29,12 @@ class account_menu extends bot_commands_class
             'status_id' => bot_commands_class::USER_ACTIVE_STATUS
         ], true) as $referral) {
             $referrals += 1;
-            if($referral['deposits']) {
+            $deposits = $this->model('deposits')->getByField('user_id', $referral['id'], true);
+            foreach ($deposits as $item) {
+                $earned_referrals += $item['amount_btc'];
+            }
+            if($deposits) {
                 $active_referrals += 1;
-                $earned_referrals += $referral['deposits'];
             }
             $in[] = $referral['id'];
         }
