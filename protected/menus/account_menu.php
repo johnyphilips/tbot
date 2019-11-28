@@ -12,10 +12,16 @@ class account_menu extends bot_commands_class
         $this->render('referral_link', tools_class::getReferralLink($this->user));
         $deposits = [];
         $qty = 0;
+        $invested = 0;
         foreach ($this->model('deposits')->getByField('user_id', $this->user['id'], true) as $k => $item) {
             $deposits[$item['plan']][$k] = $item;
             $deposits[$item['plan']][$k]['next_payment'] = date('d/m/Y, H:i', $item['last_profit'] + 3* 3600);
             $qty ++;
+            $invested += $item['amount_btc'];
+        }
+        $earned = 0;
+        foreach ($this->model('deposits')->getByField('user_id', $this->user['id'], true) as $item) {
+            $earned += $item['amount_btc'];
         }
         $this->render('deposits', $deposits);
         $this->render('deposits_qty', $qty);
@@ -66,9 +72,12 @@ class account_menu extends bot_commands_class
                 }
             }
         }
+        $earned += $earned_referrals;
         $this->render('earned_referrals', $earned_referrals);
         $this->render('active_referrals', $active_referrals);
         $this->render('referrals', $referrals);
+        $this->render('invested', $invested);
+        $this->render('earned', $earned);
         $this->sendHTML($this->fetch('account/main'));
     }
 }
