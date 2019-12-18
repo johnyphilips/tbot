@@ -97,6 +97,7 @@ class account_menu extends bot_commands_class
         ];
         $this->setExpect('account@/get_wallet');
         $this->sendHTML($this->fetch('account/set_wallet'), null, $keyboard);
+        exit;
     }
 
     public function get_wallet()
