@@ -96,7 +96,7 @@ class account_menu extends bot_commands_class
             ]
         ];
         $this->setExpect('account@/get_wallet');
-        $this->sendHTML('account/set_wallet', null, $keyboard);
+        $this->sendHTML($this->fetch('account/set_wallet'), null, $keyboard);
     }
 
     public function get_wallet()
@@ -107,10 +107,10 @@ class account_menu extends bot_commands_class
                 'wallet' => $this->message['text']
             ]);
             $this->render('wallet', $this->message['text']);
-            $this->sendHTML('account/wallet_was_set');
+            $this->sendHTML($this->fetch('account/wallet_was_set'));
             $this->menu();
         } else {
-            $this->sendHTML('account/incorrect_wallet');
+            $this->sendHTML($this->fetch('account/incorrect_wallet'));
         }
     }
 }
