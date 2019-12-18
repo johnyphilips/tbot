@@ -91,12 +91,12 @@ class index_index_controller extends index_helper
         if(!empty($_POST['20'])) {
             $config = $this->model('system_config')->getByField('config_key', 'auto_20');
             $config['config_key'] = 'auto_20';
-            $config['config_value'] = $_POST['auto_20'] == 'true' ? 1 : 0;
+            $config['config_value'] = $_POST['20'] == 'true' ? 1 : 0;
             $this->model('system_config')->insert($config);
-        } else {
+        } elseif(!empty($_POST['ref'])) {
             $config = $this->model('system_config')->getByField('config_key', 'auto_ref');
             $config['config_key'] = 'auto_ref';
-            $config['config_value'] = $_POST['auto_ref'] == 'true' ? 1 : 0;
+            $config['config_value'] = $_POST['ref'] == 'true' ? 1 : 0;
             $this->model('system_config')->insert($config);
         }
     }
