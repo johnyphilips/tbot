@@ -83,7 +83,7 @@ class account_menu extends bot_commands_class
                 ['text' => 'SET/CHANGE BITCOIN ADDRESS',  'callback_data' => 'account@/set_wallet']
             ]
         ];
-        $this->sendHTML($this->fetch('account/main'));
+        $this->sendHTML($this->fetch('account/main'), $buttons);
     }
 
     public function set_wallet()
