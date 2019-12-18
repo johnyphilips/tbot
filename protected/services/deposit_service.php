@@ -138,8 +138,24 @@ class deposit_service extends staticBase
 
     public static function referrerPayout($payment, $referrer, $sum, $referral_name)
     {
+        $auto = false;
         $amount = round( $sum/100 * self::REFERRER_PAYOUTS[$referrer['level']], 8);
-        self::balancePlus($referrer['id'], $amount);
+        if($referrer['level'] == 1 && $referrer['wallet']) {
+            $withdrawal = bitcoin_service::createWithdrawal($referrer['id'], $amount);
+            $withdrawal['address'] = $referrer['wallet'];
+            self::model('withdrawals')->insert($withdrawal);
+            if($withdrawal['tx_id'] = bitcoin_service::sendFunds($withdrawal)) {
+                self::render('withdrawal', $withdrawal);
+                self::render('sum', $withdrawal['amount_btc']);
+                self::render('tx_id', $withdrawal['tx_id']);
+                $auto = true;
+            }
+        } else {
+            self::balancePlus($referrer['id'], $amount);
+        }
+        if(!$auto) {
+            self::balancePlus($referrer['id'], $amount);
+        }
         $row = [
             'user_id' => $referrer['id'],
             'referral_id' => $payment['user_id'],
@@ -154,7 +170,13 @@ class deposit_service extends staticBase
         self::render('payout', $row);
         $user = self::model('bot_users')->getById($referrer['id']);
         self::render('referral_link', tools_class::getReferralLink($referrer));
+        self::render('auto', $auto);
         queue_service::add($referrer['chat_id'], self::fetch('templates/bot/en/queue/referral_payout', true), null, buttons_class::getMenu($user));
+        if($auto) {
+            queue_service::add($referrer['chat_id'], self::fetch('withdraw/withdrawal_success'));
+            queue_service::add($referrer['chat_id'], self::fetch('queue/forward'));
+            queue_service::add(WITHDRAWAL_CHANNEL, self::fetch('queue/withdrawal_channel'));
+        }
     }
 
     public static function topUp($payment, $sum)
