@@ -78,6 +78,39 @@ class account_menu extends bot_commands_class
         $this->render('referrals', $referrals);
         $this->render('invested', $invested);
         $this->render('earned', $earned);
+        $buttons['en'] = [
+            [
+                ['text' => 'SET/CHANGE BITCOIN ADDRESS',  'callback_data' => 'account@/set_wallet']
+            ]
+        ];
         $this->sendHTML($this->fetch('account/main'));
+    }
+
+    public function set_wallet()
+    {
+        $keyboard = [
+            'en' => [
+                [
+                    ['text' => ' Cancel']
+                ]
+            ]
+        ];
+        $this->setExpect('account@/get_wallet');
+        $this->sendHTML('account/set_wallet', null, $keyboard);
+    }
+
+    public function get_wallet()
+    {
+        if(bitcoin_service::validateBTCAddress($this->message['text'])) {
+            $this->model('bot_users')->insert([
+                'id' => $this->user['id'],
+                'wallet' => $this->message['text']
+            ]);
+            $this->render('wallet', $this->message['text']);
+            $this->sendHTML('account/wallet_was_set');
+            $this->menu();
+        } else {
+            $this->sendHTML('account/incorrect_wallet');
+        }
     }
 }
