@@ -9,9 +9,6 @@
 🚫 Your current balance is <code><?php echo bitcoin_service::formatBTC($sum); ?> BTC</code>.
 
 💰 Open a deposit and earn money with us stably and reliably every day!
-🚫 Sorry, withdrawal is not possible because you do not have enough coins.
-
-❗️The minimum withdrawal amount is <code><?php echo deposit_service::MIN_WITHDRAW; ?> BTC</code>.
 <?php endif; ?>
 <?php else: ?>
 💵 To withdraw funds, your account must have at least <code><?php echo deposit_service::MIN_WITHDRAW; ?> BTC</code>. This is our minimum withdrawal.
