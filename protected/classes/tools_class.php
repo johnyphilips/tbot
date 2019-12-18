@@ -368,7 +368,7 @@ class tools_class extends base
 
     public static function getReferralLink($user)
     {
-        return BOT_LINK . '?start=' . ($user['id'] - bot_class::REFERRER_SALT);
+        return BOT_LINK . '?start=' . ($user['id'] + bot_class::REFERRER_SALT);
     }
 
 }
