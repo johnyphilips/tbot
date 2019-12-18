@@ -102,7 +102,7 @@ class account_menu extends bot_commands_class
 
     public function get_wallet()
     {
-        if(bitcoin_service::validateBTCAddress($this->message['text'])) {
+        if(paykassa_api::validateBTCAddress($this->message['text'])) {
             $this->model('bot_users')->insert([
                 'id' => $this->user['id'],
                 'wallet' => $this->message['text']
