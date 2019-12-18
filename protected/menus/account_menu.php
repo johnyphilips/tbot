@@ -111,7 +111,9 @@ class account_menu extends bot_commands_class
             sleep(3);
             $this->menu();
         } else {
+            $this->setExpect('account@/get_wallet');
             $this->sendHTML($this->fetch('account/incorrect_wallet'));
+            exit;
         }
     }
 }
