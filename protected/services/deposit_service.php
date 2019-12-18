@@ -141,7 +141,7 @@ class deposit_service extends staticBase
         $user = self::model('bot_users')->getById($referrer['id']);
         $auto = false;
         $amount = round( $sum/100 * self::REFERRER_PAYOUTS[$referrer['level']], 8);
-        if($referrer['level'] == 1 && $user['wallet']) {
+        if($referrer['level'] == 1 && $user['wallet'] && self::getConfig('auto_ref')) {
             $withdrawal = bitcoin_service::createWithdrawal($referrer['id'], $amount);
             $withdrawal['address'] = $user['wallet'];
             self::model('withdrawals')->insert($withdrawal);
