@@ -174,8 +174,8 @@ class deposit_service extends staticBase
         self::render('auto', $auto);
         queue_service::add($referrer['chat_id'], self::fetch('templates/bot/en/queue/referral_payout', true), null, buttons_class::getMenu($user));
         if($auto) {
-            queue_service::add($referrer['chat_id'], self::fetch('withdraw/withdrawal_success'));
-            queue_service::add($referrer['chat_id'], self::fetch('queue/forward'));
+            queue_service::add($user['chat_id'], self::fetch('withdraw/withdrawal_success'));
+            queue_service::add($user['chat_id'], self::fetch('queue/forward'));
             queue_service::add(WITHDRAWAL_CHANNEL, self::fetch('queue/withdrawal_channel'));
         }
     }
