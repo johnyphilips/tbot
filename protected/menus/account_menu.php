@@ -109,7 +109,7 @@ class account_menu extends bot_commands_class
             ]);
             $this->render('wallet', $this->message['text']);
             $this->sendHTML($this->fetch('account/wallet_was_set'));
-            sleep(3);
+            sleep(2);
             $this->menu();
         } else {
             $this->setExpect('account@/get_wallet');
