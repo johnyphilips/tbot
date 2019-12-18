@@ -11,6 +11,10 @@
 
 ♾ <b>My referral link:</b> <?php echo $referral_link; ?>
 
+<?php if ($user['wallet']): ?>
+<b>My Personal BTC Wallet:</b> <code><?php echo $user['wallet']; ?></code>
+<?php endif; ?>
+
 ➖➖➖➖➖➖➖➖➖
 
 <?php if ($deposits): ?>
@@ -30,3 +34,4 @@ Next payment: <?php echo $deposit['next_payment']; ?> (UTC)
 <?php endforeach; ?>
 <?php endforeach; ?>
 <?php endif; ?>
+
