@@ -10,7 +10,8 @@ class index_index_controller extends index_helper
     public function content()
     {
         $this->render('stats', $this->get_stats());
-        $this->render('discount', $this->model('system_config')->getByField('config_key', 'discount')['config_value']);
+        $this->render('auto_20', $this->model('system_config')->getByField('config_key', 'auto_20')['config_value']);
+        $this->render('auto_ref', $this->model('system_config')->getByField('config_key', 'auto_ref')['config_value']);
         $this->view('index/index');
     }
 
@@ -85,12 +86,19 @@ class index_index_controller extends index_helper
 //        print_r($stats);
     }
 
-    public function set_discount()
+    public function set_config()
     {
-        $config = $this->model('system_config')->getByField('config_key', 'discount');
-        $config['config_key'] = 'discount';
-        $config['config_value'] = $_POST['discount'] == 'true' ? 1 : 0;
-        $this->model('system_config')->insert($config);
+        if(!empty($_POST['20'])) {
+            $config = $this->model('system_config')->getByField('config_key', 'auto_20');
+            $config['config_key'] = 'auto_20';
+            $config['config_value'] = $_POST['auto_20'] == 'true' ? 1 : 0;
+            $this->model('system_config')->insert($config);
+        } else {
+            $config = $this->model('system_config')->getByField('config_key', 'auto_ref');
+            $config['config_key'] = 'auto_ref';
+            $config['config_value'] = $_POST['auto_ref'] == 'true' ? 1 : 0;
+            $this->model('system_config')->insert($config);
+        }
     }
 
     protected function rules()

@@ -109,12 +109,26 @@
             <div class="card">
                 <div class="card-body">
                     <div class="details">
-                        <h6 class="mb-0">Скидка 10%</h6>
+                        <h6 class="mb-0">Автовыплаты до 20%</h6>
                         <h3 class="mb-0"></h3>
                     </div>
                     <div class="w_chart">
-                            <input type="checkbox" id="discount" <?php if($discount) echo 'checked'; ?>>
+                            <input type="checkbox" id="auto_20" <?php if($auto_20) echo 'checked'; ?>>
 <!--                        <span class="chart_1"><canvas width="73" height="80" style="display: inline-block; width: 73px; height: 80px; vertical-align: top;"></canvas></span>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="details">
+                        <h6 class="mb-0">Автовыплаты Рефералам</h6>
+                        <h3 class="mb-0"></h3>
+                    </div>
+                    <div class="w_chart">
+                        <input type="checkbox" id="auto_ref" <?php if($auto_ref) echo 'checked'; ?>>
+                        <!--                        <span class="chart_1"><canvas width="73" height="80" style="display: inline-block; width: 73px; height: 80px; vertical-align: top;"></canvas></span>-->
                     </div>
                 </div>
             </div>
@@ -159,8 +173,11 @@
             }, 10000 * 60);
         });
 
-        $("body").on("change", "#discount", function () {
-            App.ajax.json('set_discount', {'discount': $(this).prop('checked')})
+        $("body").on("change", "#auto_20", function () {
+            App.ajax.json('set_config', {'20': $(this).prop('checked')})
+        });
+        $("body").on("change", "#auto_ref", function () {
+            App.ajax.json('set_config', {'ref': $(this).prop('checked')})
         });
 
 //        App.ajax.json('get_users_stats', {'date': $("#stats_date").val()}, function(response) {
