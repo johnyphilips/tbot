@@ -153,6 +153,7 @@ class deposit_service extends staticBase
         self::render('user_name', $referral_name);
         self::render('payout', $row);
         $user = self::model('bot_users')->getById($referrer['id']);
+        self::render('referral_link', tools_class::getReferralLink($referrer));
         queue_service::add($referrer['chat_id'], self::fetch('templates/bot/en/queue/referral_payout', true), null, buttons_class::getMenu($user));
     }
 
